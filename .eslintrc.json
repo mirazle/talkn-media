@@ -1,0 +1,110 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["import", "prefer-arrow"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "react": {
+      "version": "16.13"
+    },
+    "import/internal-regex": "^components/|^models/|^pages/|^styles/|^state/|^utils/|^internal-assets/|^external-assets/|^hooks/|^api-clients/" // directories under src
+  },
+  "rules": {
+    "@typescript-eslint/quotes": ["warn", "single"],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-use-before-define": ["warn", { "functions": true, "classes": true, "variables": false }],
+    "eqeqeq": ["warn", "always", { "null": "ignore" }],
+    "import/no-relative-parent-imports": ["warn"],
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", "unknown", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        }
+      }
+    ],
+    "prettier/prettier": ["warn"],
+    "quotes": ["off"],
+    "react-hooks/exhaustive-deps": ["off"],
+    "react/prop-types": ["off"],
+    "react/react-in-jsx-scope": ["off"], // not needed as of react.js 17 + next.js 10
+    "react/jsx-curly-brace-presence": ["warn", "never"],
+    "react/jsx-no-useless-fragment": ["warn"],
+    
+    // for member alphabetical ordering
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "prefer-arrow/prefer-arrow-functions": [
+      "warn",
+      {
+        "disallowPrototype": true,
+        "singleReturnOnly": false,
+        "classPropertiesAllowed": false,
+        "allowStandaloneDeclarations": false
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"]
+      }
+    ],
+    "jsx-a11y/anchor-has-content": [
+      "error",
+      {
+        "components": ["Link"]
+      }
+    ],
+    // ReactのselectはonBlurではstate反映されない & ルールとして妥当性も薄いので無効化
+    // @see https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/398
+    // @see https://github.com/sveltejs/svelte/issues/4946#issuecomment-640228114
+    // @see https://webaim.org/discussion/mail_thread?thread=8036
+    "jsx-a11y/no-onchange": ["off"]
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
+}

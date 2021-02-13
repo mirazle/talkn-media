@@ -1,0 +1,17 @@
+yarn-debug.log*
+yarn-error.log*
+node_modules/
+src/pems/
+out/
+.next/
+.idea/
+.vscode/
+
+# code coverage
+coverage/
+reports/
+
+/public/
+
+.DS_Store
+Thumbs.db

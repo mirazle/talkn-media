@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+$maxWidth: 1070;
+$baseHeight: 60;
+$topImageSectionDefaultHeight: 300;
+
+// zindex
+$loading_area_zindex: 10000; // be top of all
+$modal_zindex: 21;
+$header_list_zindex: 20;
+$header_zindex: 10;
+
+// breakpoints
+$tab: 960;
+$spLayoutWidth: 720;
+$sp: 480;
+
+// header
+$header_height_wide: 80px;
+$header_height_narrow: 60px;
+
+// transition
+$transitionDuration1: 0.1s;
+$transitionDuration2: 0.2s;
+$transitionDuration: 0.3s;
+
+// ==========
+//colors
+// ==========
+
+// key colors
+$keycolor: #3475cc;
+
+// txt
+$txt_color: #333;
+$emtxt_color: #000;
+
+// bg, border
+$base_background: #fff;
+$gray_background: #f8f8f8;
+$coverage_background: #f5f9ff;
+$default_shadow: rgba(0, 0, 0, 0.05);
+$default_card_shadow: rgba(0, 0, 0, 0.1);
+
+$table_border: #ebebeb;
+$th_background: #f7f7f7;
+
+$list_txt_color: #595959;
+$list_background: #f9f9f9;
+$list_border: #d5d5d5;
+$list_border_light: #f0f0f0;
+
+$list_txt_color_for_bgdark: #b3b3b3;
+
+$modal_overlay: rgba(0, 0, 0, 0.7);
+
+// black and white
+$white: #fff;
+$black: #000;
+
+$bgColor: #ddd;
+$borderColor: #ede;
+$themeColor: rgb(79, 174, 159);
