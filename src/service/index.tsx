@@ -208,6 +208,7 @@ const sortContents = (a: ContentsValueType, b: ContentsValueType) => {
 
 const setupFloders = (requests: UrlParamsType) => {
   console.log(process.cwd());
+  console.log(__dirname);
   setupFolder('./src/json');
   setupFolder(`./src/json/${defaultMediaType}`);
   setupFolder(`./src/json/${defaultMediaType}/${requests.mktType}`);
