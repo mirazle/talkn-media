@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 import { GetServerSideProps } from 'next';
 import { ContentsType, ContentsValueType, ContentsValuesType } from 'schema';
@@ -210,6 +211,7 @@ const setupFloders = (requests: UrlParamsType) => {
   console.log(process.cwd());
   console.log(__dirname);
   console.log(__filename);
+  console.log(path);
   setupFolder('./src/json');
   setupFolder(`./src/json/${defaultMediaType}`);
   setupFolder(`./src/json/${defaultMediaType}/${requests.mktType}`);
