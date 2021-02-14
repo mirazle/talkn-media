@@ -211,7 +211,7 @@ const setupFloders = (requests: UrlParamsType) => {
   console.log(process.cwd());
   console.log(__dirname);
   console.log(__filename);
-  console.log(path);
+  console.log(path.resolve(''));
   setupFolder('./src/json');
   setupFolder(`./src/json/${defaultMediaType}`);
   setupFolder(`./src/json/${defaultMediaType}/${requests.mktType}`);
