@@ -214,10 +214,10 @@ const setupFloders = (requests: UrlParamsType) => {
   console.log(path.resolve(__dirname));
   console.log(path.join(__dirname, 'src', 'json'));
   console.log(path.join(__filename, 'src', 'json'));
-  setupFolder('./src/json');
-  setupFolder(`./src/json/${defaultMediaType}`);
-  setupFolder(`./src/json/${defaultMediaType}/${requests.mktType}`);
-  setupFolder(`./src/json/${defaultMediaType}/${requests.mktType}/${requests.category}`);
+  setupFolder('src/json');
+  setupFolder(`src/json/${defaultMediaType}`);
+  setupFolder(`src/json/${defaultMediaType}/${requests.mktType}`);
+  setupFolder(`src/json/${defaultMediaType}/${requests.mktType}/${requests.category}`);
 };
 
 const setupFolder = (path: string) => {

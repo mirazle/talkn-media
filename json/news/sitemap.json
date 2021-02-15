@@ -1,0 +1,304 @@
+[
+  {
+    "Market": "en-US",
+    "Country": "United States",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Business",
+        "label": "Business"
+      },
+      {
+        "category": "Entertainment",
+        "label": "Entertainment"
+      },
+      {
+        "category": "Health",
+        "label": "Health"
+      },
+      {
+        "category": "Politics",
+        "label": "Politics"
+      },
+      {
+        "category": "Products",
+        "label": "Products"
+      },
+      {
+        "category": "ScienceAndTechnology",
+        "label": "Science&Tech"
+      },
+      {
+        "category": "Sports",
+        "label": "Sports"
+      },
+      {
+        "category": "US",
+        "label": "US"
+      },
+      {
+        "category": "World",
+        "label": "World"
+      }
+    ]
+  },
+  {
+    "Market": "en-AU",
+    "Country": "Australia",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Australia",
+        "label": "Australia"
+      },
+      {
+        "category": "Business",
+        "label": "Business"
+      },
+      {
+        "category": "Entertainment",
+        "label": "Entertainment"
+      },
+      {
+        "category": "Politics",
+        "label": "Politics"
+      },
+      {
+        "category": "Sports",
+        "label": "Sports"
+      },
+      {
+        "category": "World",
+        "label": "World"
+      }
+    ]
+  },
+  {
+    "Market": "en-CA",
+    "Country": "Canada",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Business",
+        "label": "Business"
+      },
+      {
+        "category": "Canada",
+        "label": "Canada"
+      },
+      {
+        "category": "Entertainment",
+        "label": "Entertainment"
+      },
+      {
+        "category": "LifeStyle",
+        "label": "LifeStyle"
+      },
+      {
+        "category": "Politics",
+        "label": "Politics"
+      },
+      {
+        "category": "ScienceAndTechnology",
+        "label": "Science&Tech"
+      },
+      {
+        "category": "Sports",
+        "label": "Sports"
+      },
+      {
+        "category": "World",
+        "label": "World"
+      }
+    ]
+  },
+  {
+    "Market": "zh-CN",
+    "Country": "China",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Auto",
+        "label": "Auto"
+      },
+      {
+        "category": "Business",
+        "label": "Business"
+      },
+      {
+        "category": "China",
+        "label": "China"
+      },
+      {
+        "category": "Education",
+        "label": "Education"
+      },
+      {
+        "category": "Entertainment",
+        "label": "Entertainment"
+      },
+      {
+        "category": "Military",
+        "label": "Military"
+      },
+      {
+        "category": "RealEstate",
+        "label": "RealEstate"
+      },
+      {
+        "category": "ScienceAndTechnology",
+        "label": "Science&Tech"
+      },
+      {
+        "category": "Society",
+        "label": "Society"
+      },
+      {
+        "category": "Sports",
+        "label": "Sports"
+      },
+      {
+        "category": "World",
+        "label": "World"
+      }
+    ]
+  },
+  {
+    "Market": "en-IN",
+    "Country": "India",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Business",
+        "label": "Business"
+      },
+      {
+        "category": "Entertainment",
+        "label": "Entertainment"
+      },
+      {
+        "category": "India",
+        "label": "India"
+      },
+      {
+        "category": "LifeStyle",
+        "label": "LifeStyle"
+      },
+      {
+        "category": "Politics",
+        "label": "Politics"
+      },
+      {
+        "category": "ScienceAndTechnology",
+        "label": "Science&Tech"
+      },
+      {
+        "category": "Sports",
+        "label": "Sports"
+      },
+      {
+        "category": "World",
+        "label": "World"
+      }
+    ]
+  },
+  {
+    "Market": "ja-JP",
+    "Country": "Japan",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Business",
+        "label": "経済"
+      },
+      {
+        "category": "Entertainment",
+        "label": "エンタメ"
+      },
+      {
+        "category": "Japan",
+        "label": "国内"
+      },
+      {
+        "category": "LifeStyle",
+        "label": "ライフ"
+      },
+      {
+        "category": "Politics",
+        "label": "政治"
+      },
+      {
+        "category": "ScienceAndTechnology",
+        "label": "IT・科学"
+      },
+      {
+        "category": "Sports",
+        "label": "スポーツ"
+      },
+      {
+        "category": "World",
+        "label": "国際"
+      }
+    ]
+  },
+  {
+    "Market": "en-GB",
+    "Country": "United Kingdom",
+    "Categories": [
+      {
+        "category": "Top",
+        "label": "TOP"
+      },
+      {
+        "category": "Business",
+        "label": "Business"
+      },
+      {
+        "category": "Entertainment",
+        "label": "Entertainment"
+      },
+      {
+        "category": "Health",
+        "label": "Health"
+      },
+      {
+        "category": "Politics",
+        "label": "Politics"
+      },
+      {
+        "category": "ScienceAndTechnology",
+        "label": "Science&Tech"
+      },
+      {
+        "category": "Sports",
+        "label": "Sports"
+      },
+      {
+        "category": "UK",
+        "label": "UK"
+      },
+      {
+        "category": "World",
+        "label": "World"
+      }
+    ]
+  }
+]

@@ -1,8 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const resolve = require('./resolve');
 
-module.exports = ( config, { buildId, dev, isServer, defaultLoaders, webpack } ) => {
-  
+module.exports = (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
   config.plugins.push(
     new CopyWebpackPlugin({
       patterns: [
@@ -11,10 +10,15 @@ module.exports = ( config, { buildId, dev, isServer, defaultLoaders, webpack } )
           from: '**/*',
           to: resolve('public'),
         },
+        {
+          context: 'src/json',
+          from: '**/*',
+          to: resolve('json'),
+        },
       ],
     }),
   );
-  
+
   config.module.rules.push(
     {
       test: /\.html$/i,

@@ -1,0 +1,1483 @@
+[
+  {
+    "name": "This week's best deals: $100 off Apple's Magic Keyboard for iPad and more",
+    "url": "https://www.engadget.com/weekly-deals-apple-magic-keyboard-for-ipad-airpods-pro-170059485.html",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.LsQx3IvJH0fX6_SEASXYuS&pid=News",
+        "width": 700,
+        "height": 370
+      }
+    },
+    "description": "Here are the best tech deals we found this week, including $100 off Apple's Magic Keyboard for iPad and $50 off the AirPods Pro.",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Engadget",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_122851054b99d064076c32d216ceed4d&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T17:05:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.engadget.com/amp/weekly-deals-apple-magic-keyboard-for-ipad-airpods-pro-170059485.html"
+  },
+  {
+    "name": "You Can Now Buy The Samsung Galaxy S21, S21+ And S21 Ultra Starting At $800",
+    "url": "https://www.forbes.com/sites/forbes-personal-shopper/2021/01/29/samsung-galaxy-s21-plus-ultra-specs-price-release-date/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.HtFYGhPdwzbk3JaZvuNmSS&pid=News",
+        "width": 700,
+        "height": 466
+      }
+    },
+    "description": "The Samsung Galaxy S21, S21 Plus, and S21 Ultra have striking new designs, 5G, improved cameras and new display tech, and you can buy one starting today.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/cfb4265c-a085-f5ab-f132-74c3ca86d376",
+        "name": "Samsung Galaxy"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Forbes",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_f798ef715781699feff0f3ea5f101626&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T15:31:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.forbes.com/sites/forbes-personal-shopper/2021/01/29/samsung-galaxy-s21-plus-ultra-specs-price-release-date/amp/"
+  },
+  {
+    "name": "Apple just revealed when its next big privacy feature is coming—and it’ll protect users like never before",
+    "url": "https://www.fastcompany.com/90598928/apple-just-revealed-when-its-next-big-privacy-feature-is-coming-and-itll-protect-users-like-never-before",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.x3Q8HjH8Jvb8G5qhPUH6KS&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Just in time for Data Privacy Day, which is today, Apple has revealed when it’s going to release its next big privacy feature—and it’s one that has companies like Facebook shaking in their boots. The new privacy feature is called App Tracking Transparency (ATT).",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      }
+    ],
+    "mentions": [{ "name": "Apple Inc." }, { "name": "Siemens" }, { "name": "SAP AG" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Fast Company",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_8dfa33b9de4ad29fecff3862a2048088&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T14:50:00.0000000Z",
+    "category": "Products"
+  },
+  {
+    "name": "What’s in the Next iPhone? Check Samsung’s New Galaxy S21.",
+    "url": "https://www.wsj.com/articles/whats-in-the-next-iphone-check-samsungs-new-galaxy-s21-11611931084",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.bp7gPtSFVVFfwt1uCl-u9C&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "An in-screen fingerprint sensor, faster 120Hz screens and a crazy zoom camera. Samsung’s latest smartphone provides a glimpse at what the next iPhone may look like.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/23a945cb-7b90-82cb-19e3-2b524b32406d",
+        "name": "Galaxy"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/70834f76-d913-bf85-87a6-b9386945a646",
+        "name": "The Wall Street Journal"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/0dad076f-290c-1ccc-f79a-f74cc8e30f64",
+        "name": "Check"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Wall Street Journal",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_fb65cf047b726a4d148957726730accd&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T14:41:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.wsj.com/amp/articles/whats-in-the-next-iphone-check-samsungs-new-galaxy-s21-11611931084"
+  },
+  {
+    "name": "Galaxy S21 vs. Galaxy S20: Exploring Samsung phone price, features and more",
+    "url": "https://www.cnet.com/news/galaxy-s21-vs-galaxy-s20-exploring-samsung-phone-price-features-and-more/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.5rlPxHWNGkLKxpKiLjGYIy&pid=News",
+        "width": 700,
+        "height": 367
+      }
+    },
+    "description": "The new Samsung Galaxy S21 is now available. Here's how it stacks up against the Galaxy S20, including camera features and other specs.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/fd90f3b3-026f-8609-a6d0-3d2c8f70b294",
+        "name": "The Galaxy"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "CNET",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_813fbe5ed7179eb7f517fd9bab6522f9&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T14:41:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.cnet.com/google-amp/news/galaxy-s21-vs-galaxy-s20-exploring-samsung-phone-price-features-and-more/"
+  },
+  {
+    "name": "This amazing Dell deal will save you $329 on a brand-new XPS 13",
+    "url": "https://www.digitaltrends.com/dtdeals/xps-13-laptop-deal-dell-january-2021/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.skd--iczPC6B89AsV6etpS&pid=News",
+        "width": 700,
+        "height": 366
+      }
+    },
+    "description": "The Dell XPS 13, powered by the quad-core 10th-generation Intel Core i7 processor, is currently on sale with a $329 discount, lowering its price to just $780.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/331be3b1-6807-5831-3086-f6fed0241f90",
+        "name": "Dell XPS"
+      },
+      { "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e0bc6400-1f97-4ad4-b5f1-70016e0645c6", "name": "Dell" }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Digital Trends",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_7424cae0a3e2303c8958ea61d8c614a0&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T14:35:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.digitaltrends.com/dtdeals/xps-13-laptop-deal-dell-january-2021/?amp"
+  },
+  {
+    "name": "The Galaxy S21 Ultra’s zoom camera system renewed my faith in Samsung’s flagship",
+    "url": "https://www.digitaltrends.com/mobile/samsung-galaxy-s21-ultra-zoom-camera-incredible/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.cmNA3-5bEVOeJmm8yfsCyC&pid=News",
+        "width": 700,
+        "height": 366
+      }
+    },
+    "description": "Samsung's improvements to the Galaxy S21 Ultra's cameras shouldn't be overlooked. This is the best, and most versatile, camera you can get right now.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/3df07628-b8da-2cb7-7d61-95c268a5d178",
+        "name": "Camera"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/fd90f3b3-026f-8609-a6d0-3d2c8f70b294",
+        "name": "The Galaxy"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Digital Trends",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_7424cae0a3e2303c8958ea61d8c614a0&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T14:00:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.digitaltrends.com/mobile/samsung-galaxy-s21-ultra-zoom-camera-incredible/?amp"
+  },
+  {
+    "name": "Samsung Galaxy S21: 6 hidden features to get the most out of your new phone",
+    "url": "https://www.msn.com/en-us/news/technology/samsung-galaxy-s21-6-hidden-features-to-get-the-most-out-of-your-new-phone/ar-BB1dcScg",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.UZLulK9FJsaG5uW8tzHtsi&pid=News",
+        "width": 700,
+        "height": 367
+      }
+    },
+    "description": "Samsung's Galaxy 21 is out now. All three models look truly impressive, between full 5G support across the lineup, a new camera array and improved camera features. The S21 Ultra even has a new feature for the S-series,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/cfb4265c-a085-f5ab-f132-74c3ca86d376",
+        "name": "Samsung Galaxy"
+      }
+    ],
+    "mentions": [{ "name": "Samsung Galaxy" }, { "name": "The Galaxy" }, { "name": "Technology" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "CNET on MSN.com",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_0cfcddaa71cae000b74e3bf52bc84d78&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T12:41:05.0000000Z",
+    "video": {
+      "name": "We review the Galaxy S21 Ultra 5G and its bonkers cameras",
+      "motionThumbnailUrl": "https://wus-streaming-video-msn-com.akamaized.net/cf6c6182-380b-45c4-8289-2013ef3e1561/30f5732e-9d1c-4a40-807a-47b01274_650.mp4",
+      "thumbnail": { "width": 640, "height": 360 }
+    },
+    "category": "Products"
+  },
+  {
+    "name": "iCloud passwords are coming to Chrome for Windows",
+    "url": "https://www.computerworld.com/article/3605098/icloud-passwords-are-coming-to-chrome-for-windows.html",
+    "description": "Apple has updated its iCloud for Windows application, hinting at the future introduction of support for Chrome",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9d9c40a9-f255-fc05-ea48-3c7685363661",
+        "name": "Computerworld"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/16aeb6d9-9098-0a40-4970-8e46a4fcee12",
+        "name": "Microsoft Windows"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e304a425-7bde-24eb-d29c-98e37590a24c",
+        "name": "iCloud"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Computerworld",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_4d9edaedd3681414f3cca3a4d0038f07&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T11:36:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.computerworld.com/article/3605098/icloud-passwords-are-coming-to-chrome-for-windows.amp.html"
+  },
+  {
+    "name": "Apple Now Selling Refurbished 2020 iMacs – Why You Should Grab One",
+    "url": "https://www.ibtimes.com/apple-now-selling-refurbished-2020-imacs-why-you-should-grab-one-3133364",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.86TNxMLfgrI1fjl3d_zv5y&pid=News",
+        "width": 700,
+        "height": 466
+      }
+    },
+    "description": "Apple is now selling certified refurbished models of the 27-inch iMac it released in August 2020. Why should consumers buy this device?",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/4d7481cf-8591-fd5a-a74a-0fce1b4bfa5c",
+        "name": "iMac"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "International Business Times",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_9f6a911c9d042b01c6b85e9c12aa8647&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T11:15:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.ibtimes.com/apple-now-selling-refurbished-2020-imacs-why-you-should-grab-one-3133364?amp=1"
+  },
+  {
+    "name": "The Galaxy S21 Ultra camera's 100x zoom is pointless, but the 10x? *chef's kiss*",
+    "url": "https://www.msn.com/en-us/news/technology/the-galaxy-s21-ultra-cameras-100x-zoom-is-pointless-but-the-10x-chefs-kiss/ar-BB1cYewl",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.UssK92Xltrp9mWW71pN0JS&pid=News",
+        "width": 700,
+        "height": 367
+      }
+    },
+    "description": "Samsung's Galaxy S21 Ultra, which is officially on sale today, along with the rest of the Galaxy S21 lineup, represents the pinnacle of what the company can offer in a phone, with its powerful processor,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/3df07628-b8da-2cb7-7d61-95c268a5d178",
+        "name": "Camera"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/fd90f3b3-026f-8609-a6d0-3d2c8f70b294",
+        "name": "The Galaxy"
+      }
+    ],
+    "mentions": [{ "name": "Camera" }, { "name": "The Galaxy" }, { "name": "Ultra" }],
+    "provider": [{ "_type": "Organization", "name": "CNET on MSN.com" }],
+    "datePublished": "2021-01-29T11:00:04.0000000Z",
+    "video": {
+      "name": "Galaxy S21 Ultra: Our first look at Samsung's new premium phone",
+      "motionThumbnailUrl": "https://wus-streaming-video-msn-com.akamaized.net/1418de81-8e80-474b-bcf0-16b8031ba0a3/b38a643f-7df1-46c5-898b-b70412eb_650.mp4",
+      "thumbnail": { "width": 640, "height": 360 }
+    },
+    "category": "Products"
+  },
+  {
+    "name": "Apple AirPods Pro 2 Arriving Soon, Report Says – What To Expect",
+    "url": "https://www.ibtimes.com/apple-airpods-pro-2-arriving-soon-report-says-what-expect-3133338",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.cwq3Bjco_xyVmX4mB_7BWy&pid=News",
+        "width": 700,
+        "height": 466
+      }
+    },
+    "description": "Several reports said that Apple's next-gen AirPods Pro will be arriving in the first half of 2021. What can fans expect from the new audio accessory?",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/86a73c3d-d728-ddbd-3c64-9ddcc8b7d36a",
+        "name": "Expect"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "International Business Times",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_9f6a911c9d042b01c6b85e9c12aa8647&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T10:57:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.ibtimes.com/apple-airpods-pro-2-arriving-soon-report-says-what-expect-3133338?amp=1"
+  },
+  {
+    "name": "Buying a Galaxy S21 today? Here are the differences between Samsung's new phones",
+    "url": "https://www.cnet.com/news/buying-a-galaxy-s21-today-here-are-the-differences-between-samsung-new-phones-s21-plus-s21-ultra/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.VrMtot0TDtXYliwVWF4fZi&pid=News",
+        "width": 700,
+        "height": 367
+      }
+    },
+    "description": "All the spec differences between the Galaxy S21, Galaxy S21 Plus and Galaxy S21 Ultra, in one place. Samsung has announced its latest flagship: the Galaxy S21 lineup, which includes the S21, S21 Plus and S21 Ultra.",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "CNET",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_813fbe5ed7179eb7f517fd9bab6522f9&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T07:15:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.cnet.com/google-amp/news/buying-a-galaxy-s21-today-here-are-the-differences-between-samsung-new-phones-s21-plus-s21-ultra/"
+  },
+  {
+    "name": "Google’s updated Voice Access leverages AI to detect in-app icons",
+    "url": "https://venturebeat.com/2021/01/28/googles-updated-voice-access-leverages-ai-to-detect-in-app-icons/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.dGwtERmbf_ktBxhETkqM_C&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "Google says it's leveraging AI to detect in-app icons, toward the goal of making Android apps more accessible.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f39b29ec-05ee-d6cb-3070-ddaa0fb00ee0",
+        "name": "Google"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/1c202b03-3bfd-474f-f548-ed86f30f83aa",
+        "name": "Google Voice"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "VentureBeat",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_ecc815b507d5c15bdca1c0ef29a4db54&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T04:20:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://venturebeat.com/2021/01/28/googles-updated-voice-access-leverages-ai-to-detect-in-app-icons/amp/"
+  },
+  {
+    "name": "Apple Releases Lulu Wang’s Heartwarming Short Film ‘Nian’ for Chinese New Year, Shot Entirely on iPhone 12 Pro Max",
+    "url": "https://variety.com/2021/digital/news/apple-lulu-wang-nian-iphone-12-chinese-new-year-1234895358/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.eMbI5ZKet5ydX9tS0sw09S&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Apple tapped director Lulu Wang to showcase the cinematic features of the tech company’s latest iPhone. Wang, who wrote and directed 2019 feature film “The Farewell,” directed a",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ee6ef423-77c2-51a0-0e16-62bd27dbc97c",
+        "name": "Variety"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5b8fc0aa-1036-d0bb-d4a8-607e320e1fb1",
+        "name": "Chinese New Year"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      }
+    ],
+    "mentions": [{ "name": "Variety" }, { "name": "Chinese New Year" }, { "name": "iPhone" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Variety",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_1aeec09737ded6d02927b9a66b3f3caa&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T04:00:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://variety.com/2021/digital/news/apple-lulu-wang-nian-iphone-12-chinese-new-year-1234895358/amp/"
+  },
+  {
+    "name": "Snipping Tool Bug is Keeping Windows Insider Users From Copy-Pasting Screenshots",
+    "url": "https://gizmodo.com/snipping-tool-bug-is-keeping-windows-insider-users-from-1846151483",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.FqbNh-XywEaJwLdx_miw0i&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Windows Insider members have found an issue with Microsoft’s latest Windows 10 feature pack, one that affects part of the screen-snipping utility. “We are removing the capability to copy and paste a screen snip directly into a folder in File Explorer for now due to an issue discovered thanks to the feedback from Windows Insiders.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/16aeb6d9-9098-0a40-4970-8e46a4fcee12",
+        "name": "Microsoft Windows"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/42787161-7b0b-af6c-27bc-33fa47ea2e6d",
+        "name": "Insider"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c72d0375-4952-138b-ef73-1bddd07e3172",
+        "name": "Snipping Tool"
+      }
+    ],
+    "mentions": [{ "name": "Microsoft Windows" }, { "name": "Insider" }, { "name": "Snipping Tool" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Gizmodo",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_8d95b532b4856ee8cfb403e6fbcc93c5&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-29T02:15:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://gizmodo.com/snipping-tool-bug-is-keeping-windows-insider-users-from-1846151483/amp"
+  },
+  {
+    "name": "Google Finally Lets You Permanently Turn Off One Annoying Pixel Feature",
+    "url": "https://www.forbes.com/sites/paulmonckton/2021/01/28/google-finally-lets-you-permanently-turn-off-one-annoying-pixel-feature/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.Uwe1BZCSwGw4ZXXgyRtJsi&pid=News",
+        "width": 700,
+        "height": 466
+      }
+    },
+    "description": "Thanks to Google’s latest app update owners of the latest Pixel smartphones can now take back control of one of the phone’s best features.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f39b29ec-05ee-d6cb-3070-ddaa0fb00ee0",
+        "name": "Google"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Forbes",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_f798ef715781699feff0f3ea5f101626&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T23:48:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.forbes.com/sites/paulmonckton/2021/01/28/google-finally-lets-you-permanently-turn-off-one-annoying-pixel-feature/amp/"
+  },
+  {
+    "name": "Dell and SK Telecom debut OneBox MEC, a turnkey private 5G edge system",
+    "url": "https://venturebeat.com/2021/01/28/dell-and-sk-telecom-debut-onebox-mec-a-turnkey-private-5g-edge-system/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.q6SK2hrq7v0FloOpoDR2Ai&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "Enterprise server, software, and networking companies are coming together to create all-in-one corporate private 5G edge computing solutions.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b70767b2-b633-7c8f-a6e1-eb0942639e0d",
+        "name": "SK Telecom"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e0bc6400-1f97-4ad4-b5f1-70016e0645c6",
+        "name": "Dell"
+      },
+      { "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/66b4ef22-b480-6120-a6df-564c900e13a6", "name": "5G" }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "VentureBeat",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_ecc815b507d5c15bdca1c0ef29a4db54&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T23:28:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://venturebeat.com/2021/01/28/dell-and-sk-telecom-debut-onebox-mec-a-turnkey-private-5g-edge-system/amp/"
+  },
+  {
+    "name": "Here’s why you should download iOS 14.5 as soon as it’s available",
+    "url": "https://bgr.com/2021/01/28/ios-14-5-privacy-feature-app-tracking-transparency/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.BMAtn7lsvdS4-D175Oegly&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Apple released a report about data privacy called “A Day in the Life of Your Data” on Thursday in commemoration of Data Privacy Day, which takes place on January 28th. The report",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/74aa5012-510a-f5fb-6b80-bdb48e9f088c",
+        "name": "Bulgaria"
+      }
+    ],
+    "mentions": [{ "name": "Bulgaria" }, { "name": "History of iOS" }, { "name": "Privacy" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "BGR",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_36bcb2bfc650f7064fa492584d208424&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T22:16:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://bgr.com/2021/01/28/ios-14-5-privacy-feature-app-tracking-transparency/amp/"
+  },
+  {
+    "name": "See Which Apps Are Using Your Camera, Microphone, and Location",
+    "url": "https://gizmodo.com/see-which-apps-are-using-your-camera-microphone-and-l-1846044433",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.AJ0xvtJVfNvhT3U6wEfZHy&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Protecting your privacy in the modern age isn’t easy, with everything from app labels to online cookies to think about, but knowing what the apps on your devices are up to has to be one of your top priorities—and in particular,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/bfba4fb4-55ef-c613-1f14-6b72a4404ff5",
+        "name": "Microphone"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/3df07628-b8da-2cb7-7d61-95c268a5d178",
+        "name": "Camera"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Gizmodo",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_8d95b532b4856ee8cfb403e6fbcc93c5&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T20:36:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://gizmodo.com/see-which-apps-are-using-your-camera-microphone-and-l-1846044433/amp"
+  },
+  {
+    "name": "That’s a wrap—No Starship launch attempt on Thursday afternoon [Updated]",
+    "url": "https://arstechnica.com/science/2021/01/spacex-set-to-launch-its-next-starship-prototype-on-monday/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.7vH7vw1KYPJgM-21rIUp5i&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "There will be no Starship prototype launch attempt on Thursday, as residents were recently told they could return to Boca Chica Village. Will SpaceX receive approval from the Federal Aviation Administration to launch on Friday?",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Ars Technica",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_b5b6f5585972ef55cf874f2367fcc707&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T17:50:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://arstechnica.com/science/2021/01/spacex-set-to-launch-its-next-starship-prototype-on-monday/?amp=1"
+  },
+  {
+    "name": "Apple privacy feature to make it harder to track iPhone users",
+    "url": "https://www.cbsnews.com/news/apple-iphone-privacy-contorl-feature/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.bWUY630HStv2dDSvdgS6CC&pid=News",
+        "width": 700,
+        "height": 367
+      }
+    },
+    "description": "Apple says it will roll out a new privacy control in the spring to prevent iPhone apps from secretly shadowing people. The delay in its anticipated rollout aims to placate Facebook and other digital services that depend on such data surveillance to help sell ads.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/7845febd-4256-e41b-d272-2e3389c48553",
+        "name": "Feature"
+      }
+    ],
+    "mentions": [{ "name": "Apple Inc." }, { "name": "iPhone" }, { "name": "Feature" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "CBS News",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_4ae1aeddeaac21a710cf413c2980e769&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T17:08:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.cbsnews.com/amp/news/apple-iphone-privacy-contorl-feature/"
+  },
+  {
+    "name": "ACC football schedule 2021: Dates and key matchups",
+    "url": "https://www.espn.com/college-football/story/_/id/30794756/acc-football-schedule-2021-dates-key-matchups",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.BcwhecPayh6U41O2ZzkT1C&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "It's already time to start thinking about ACC football in 2021. While the 2020 season ended just recently, next season's schedules have been unveiled, so it's time to start breaking down your team's slate and projecting wins and losses.",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "ESPN",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_dd1852d375bd061b06b0518f97b94187&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T16:35:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.espn.com/college-football/story/_/id/30794756/acc-football-schedule-2021-dates-key-matchups?platform=amp"
+  },
+  {
+    "name": "Apple Comes Out on Top While Huawei Slumps in Smartphone Market Shake-Up",
+    "url": "https://www.wsj.com/articles/apple-comes-out-on-top-while-huawei-slumps-in-smartphone-market-shake-up-11611830213",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.JIyr3qRdhc7kOthtr4y5ly&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "With the iPhone 12, the company has record shipments, while U.S. restrictions hobble the Chinese firm’s shipments.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c2d5d1c8-40b1-7291-2304-f517621ab18e",
+        "name": "Huawei"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/8b4e471e-a59f-9d26-8b19-1e2bc0cbe5e0",
+        "name": "Shake"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/70834f76-d913-bf85-87a6-b9386945a646",
+        "name": "The Wall Street Journal"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Wall Street Journal",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_fb65cf047b726a4d148957726730accd&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T15:36:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.wsj.com/amp/articles/apple-comes-out-on-top-while-huawei-slumps-in-smartphone-market-shake-up-11611830213"
+  },
+  {
+    "name": "Save almost $700 on this stunning Dell XPS 13 with a 4K touchscreen",
+    "url": "https://www.pcworld.com/article/3605269/save-almost-700-on-this-stunning-dell-xps-13-with-a-4k-touchscreen.html",
+    "description": "Dell If you’re on the hunt for a luxurious laptop without completely breaking the bank, you’ll want to hop on this fantastic deal. Dell is selling a version of its XPS 13 Touch laptop with a 4K Infinity Edge display for $1079,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/331be3b1-6807-5831-3086-f6fed0241f90",
+        "name": "Dell XPS"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/d6e201c5-3f4f-3df9-87bc-1e8ac84602bf",
+        "name": "Stunning"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "PC World",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_854c296022713bf6afc26243a671a422&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T15:30:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.pcworld.com/article/3605269/save-almost-700-on-this-stunning-dell-xps-13-with-a-4k-touchscreen.amp.html"
+  },
+  {
+    "name": "Samsung Galaxy S21 review: A premium phone that's a great value",
+    "url": "https://www.pcworld.com/article/3605050/samsung-galaxy-s21-review.html",
+    "description": "The Samsung Galaxy S21 isn't a huge upgrade over the S20, but it makes smart sacrifices to reach its best price in years",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "PC World",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_854c296022713bf6afc26243a671a422&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T14:22:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.pcworld.com/article/3605050/samsung-galaxy-s21-review.amp.html"
+  },
+  {
+    "name": "EU Tells Google, Facebook and Twitter to Extend Fake News Watch, COVID-19 in Focus",
+    "url": "https://www.usnews.com/news/technology/articles/2021-01-28/eu-tells-google-facebook-and-twitter-to-extend-fake-news-watch-covid-19-in-focus",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.VcGKnVhfvEX6uZu6QIdh_y&pid=News",
+        "width": 700,
+        "height": 496
+      }
+    },
+    "description": "The European Commission has told Google, Facebook, Twitter and Microsoft to continue monthly reports on their efforts to tackle fake news, especially on COVID-19, for another six months. Social media and online platforms have come under fire globally over the spread of fake news,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/3b8ddb1a-cf19-ee77-560d-9dfa00ddf070",
+        "name": "European Union"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f39b29ec-05ee-d6cb-3070-ddaa0fb00ee0",
+        "name": "Google"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ebf1abd7-9ec4-7875-6a41-a8aaa77bdbb2",
+        "name": "Technology"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "U.S. News & World Report",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_9f4e7717a371a0a5e2bbf48b4ca76ed5&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T13:30:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.usnews.com/news/technology/articles/2021-01-28/eu-tells-google-facebook-and-twitter-to-extend-fake-news-watch-covid-19-in-focus?context=amp"
+  },
+  {
+    "name": "Windows 10: Microsoft makes more tweaks to the touch keyboard",
+    "url": "https://www.zdnet.com/index.php/publisher/84394/index.php/article/windows-10-microsoft-makes-more-tweaks-to-the-touch-keyboard/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.cW1wm7jndjIfiK2X_j6uui&pid=News",
+        "width": 700,
+        "height": 525
+      }
+    },
+    "description": "Microsoft is testing out new touch keyboard designs for Windows 10 convertibles to improve small and split keyboard layouts. The improvements follow up on keyboard design changes Microsoft started testing with Windows Insiders in the Dev Channel last ...",
+    "provider": [{ "_type": "Organization", "name": "ZDNet" }],
+    "datePublished": "2021-01-28T12:53:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.zdnet.com/index.php/publisher/84394/index.php/google-amp/article/windows-10-microsoft-makes-more-tweaks-to-the-touch-keyboard/"
+  },
+  {
+    "name": "Microsoft releases Application Guard for Office to M365 customers",
+    "url": "https://www.computerworld.com/article/3605034/microsoft-releases-application-guard-for-office-to-m365-customers.html",
+    "description": "Application Guard for Office, a defensive technology that quarantines untrusted Office documents, had been available in public preview for five months.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9d9c40a9-f255-fc05-ea48-3c7685363661",
+        "name": "Computerworld"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b6c6d65c-4f80-60fb-2799-08ad9229faf7",
+        "name": "Microsoft Office"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+        "name": "Microsoft"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Computerworld",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_4d9edaedd3681414f3cca3a4d0038f07&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T12:46:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.computerworld.com/article/3605034/microsoft-releases-application-guard-for-office-to-m365-customers.amp.html"
+  },
+  {
+    "name": "These crazy iPhone SE Plus concepts would destroy Android",
+    "url": "https://bgr.com/2021/01/28/iphone-se-plus-2021-concept-design-vs-cheap-android/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.4kFyA7atEFRrlTubN6nIdi&pid=News",
+        "width": 700,
+        "height": 427
+      }
+    },
+    "description": "Apple is rumored to launch an iPhone SE Plus phone at some point in the coming months. A couple of iPhone SE Plus concepts propose a new design for the phone that could turn out to be a major",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/74aa5012-510a-f5fb-6b80-bdb48e9f088c",
+        "name": "Bulgaria"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/cd479382-d340-5848-c99d-ed371b00b752",
+        "name": "Android"
+      }
+    ],
+    "mentions": [{ "name": "Bulgaria" }, { "name": "iPhone" }, { "name": "Android" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "BGR",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_36bcb2bfc650f7064fa492584d208424&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T11:51:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://bgr.com/2021/01/28/iphone-se-plus-2021-concept-design-vs-cheap-android/amp/"
+  },
+  {
+    "name": "WatchOS 7.3 now available with expanded ECG countries and Unity watch face",
+    "url": "https://www.macworld.com/article/3604540/watchos-73-now-availalbe-with-expanded-ecg-countries-and-unity-watch-face.html",
+    "description": "Apple has released watchOS 7.3, alongside iOS 14.4. While the iOS release mainly consists of bug fixes and security updates with a few tiny tweaks to existing features (like better QR code reading), watchOS actually brings some notable features,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/709da5d5-eeca-ebaa-e156-31db19d05fee",
+        "name": "Macworld"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Macworld",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_ef57d33d70dbe81b4c83ff3045b3b2dc&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T07:29:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.macworld.com/article/3604540/watchos-73-now-availalbe-with-expanded-ecg-countries-and-unity-watch-face.amp.html"
+  },
+  {
+    "name": "China reports 54 new COVID-19 cases in mainland vs 75 a day earlier",
+    "url": "https://www.reuters.com/article/health-coronavirus-china-idUSB9N2JP00R",
+    "description": "China reported 54 new COVID-19 cases in the mainland on Jan. 27, down from 75 cases reported a day earlier, the national health authority said on Thursday.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9f417f89-9a37-e0d0-912e-99dccfb8982d",
+        "name": "Reuters"
+      }
+    ],
+    "mentions": [{ "name": "Reuters" }, { "name": "Chinese Dream" }, { "name": "Mainland China" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Reuters",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_62e71bb461e92ae25d37bed673fc53b9&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T05:47:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://mobile.reuters.com/article/amp/idUSB9N2JP00R"
+  },
+  {
+    "name": "Big Tech Is Trying to Innovate Beyond the Black Rectangle Dead End",
+    "url": "https://www.bloomberg.com/news/articles/2021-01-28/flexible-mobile-phone-screens-that-fold-are-liberating-boring-design",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.ZGfgjDXt3V9HggA98xc3Xy&pid=News",
+        "width": 700,
+        "height": 466
+      }
+    },
+    "description": "The flexible mobile phone that folds up like a scroll—as in, Egyptian papyrus scroll—is coming sooner than you think.",
+    "mentions": [{ "name": "Boring" }, { "name": "Mobile phone" }, { "name": "Design" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Bloomberg",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_547fa6d5f7b56fc1176cbdaadbcad3bc&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T05:28:00.0000000Z",
+    "category": "Products"
+  },
+  {
+    "name": "Apple’s App Tracking Transparency feature will be enabled by default and arrive in ‘early spring’ on iOS",
+    "url": "https://techcrunch.com/2021/01/27/apple-app-tracking-transparency/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.OWfa7AOjbKARQxZMil71xy&pid=News",
+        "width": 700,
+        "height": 394
+      }
+    },
+    "description": "Apple has shared a few more details about its much-discussed privacy changes in iOS 14. The company first announced at WWDC in June that app developers would have to ask users for permission in order to track and share their IDFA identifier for cross-property ad targeting purposes.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      }
+    ],
+    "mentions": [{ "name": "Apple Inc." }, { "name": "TechCrunch" }, { "name": "History of iOS" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "TechCrunch",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_41da8f2e70e1e401f764f7157d16f2fa&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T05:01:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://techcrunch.com/2021/01/27/apple-app-tracking-transparency/amp/"
+  },
+  {
+    "name": "Garmin says the Lily is ‘the smartwatch women have been waiting for’",
+    "url": "https://www.theverge.com/2021/1/27/22253056/garmin-lily-smartwatch-designed-for-women-small",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.KzjQGMAcCwSX4gXMfxOGVy&pid=News",
+        "width": 700,
+        "height": 366
+      }
+    },
+    "description": "Garmin has released a new smartwatch called the Lily, and its main selling point is that Garmin claims it’s designed by women, for women. The Sport Edition, which is made of aluminum and has a silicone band,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9d04baf8-e766-4ffa-869b-1a3feaf89b0a",
+        "name": "Garmin"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/21283739-6892-0da5-3614-db7639d06007",
+        "name": "Smartwatch"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "The Verge",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_eb7025b256a046a33c77675eb0c54b11&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-28T03:38:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.theverge.com/platform/amp/2021/1/27/22253056/garmin-lily-smartwatch-designed-for-women-small"
+  },
+  {
+    "name": "The best iPhone deals happening right now, including $120 off an iPhone 12 Mini",
+    "url": "https://www.businessinsider.com/best-iphone-deals",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.wcs1-BdfWT_QdZY7tRgNHi&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "Apple's iPhones are excellent, but they can be pricey. Luckily, these phones often see discounts. Here are the best iPhone deals of January 2021.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Business Insider",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AMMS_b3ffab7279c7b6b448383d03bb5daec1&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T21:34:00.0000000Z",
+    "category": "Products"
+  },
+  {
+    "name": "Apple urges iPhone, iPad users to update operating system immediately after security flaws 'may have been actively exploited'",
+    "url": "https://www.foxbusiness.com/technology/apple-urges-iphone-ipad-users-to-update-operating-system-immediately",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.u-NC6eqjy4jeZbUDJQ8JFy&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "The security flaws impact the iPhone 6s and later, the iPad Air 2 and later, the iPad mini 4 and later, and the iPod touch (7th generation).",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9f5500d5-a48c-dc47-2c90-f8cc8558d9d2",
+        "name": "iPad"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/68605fee-4e51-25c8-548b-65ea58400639",
+        "name": "Operating system"
+      }
+    ],
+    "mentions": [{ "name": "Apple Inc." }, { "name": "iPad" }, { "name": "Operating system" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Fox Business",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_7d74b3125abf621beaacbf0f43f7cee6&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T20:43:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.foxbusiness.com/technology/apple-urges-iphone-ipad-users-to-update-operating-system-immediately.amp"
+  },
+  {
+    "name": "BRIEF-Astrazeneca's U.S. Trial Of COVID-19 Vaccine Has Completed Enrollment",
+    "url": "https://www.reuters.com/article/brief-astrazenecas-us-trial-of-covid-19-idUSFWN2K2177",
+    "description": "ASTRAZENECA PLC'S U.S. TRIAL OF CORONAVIRUS VACCINE HAS COMPLETED ENROLLMENT: PRESENTATION SLIDES AT U.S. CDC'S ACIP MEETING",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ab4eecd6-bb29-df59-db38-bf48ce406972",
+        "name": "AstraZeneca"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9f417f89-9a37-e0d0-912e-99dccfb8982d",
+        "name": "Reuters"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/24ea39f2-b15e-e7f6-eb62-af1891f5fbd8",
+        "name": "Trial"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Reuters",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_62e71bb461e92ae25d37bed673fc53b9&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T20:39:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://mobile.reuters.com/article/amp/idUSFWN2K2177"
+  },
+  {
+    "name": "Why I'm betting Dan Riccio’s new project at Apple is a touch-screen Mac",
+    "url": "https://www.macworld.com/article/3604693/dan-riccio-apple-new-project-touch-screen-multitouch-mac-imac-macbook-m1-chip-retina-display.html",
+    "description": "Apple has announced that Dan Riccio will be transitioning to a new role in the company and here’s what I think it is.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/a26563a7-1119-0d51-c949-be7d73c83d9f",
+        "name": "Macintosh"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/709da5d5-eeca-ebaa-e156-31db19d05fee",
+        "name": "Macworld"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2dabcadf-2226-7b2a-b910-47dcc6591230",
+        "name": "Apple I"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Macworld",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_ef57d33d70dbe81b4c83ff3045b3b2dc&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T19:40:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.macworld.com/article/3604693/dan-riccio-apple-new-project-touch-screen-multitouch-mac-imac-macbook-m1-chip-retina-display.amp.html"
+  },
+  {
+    "name": "Apple reportedly set to mass-produce iPads outside China for the first time",
+    "url": "https://www.theverge.com/2021/1/27/22252434/apple-manufacturing-china-vietnam-ipad-india-iphone",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.-Jrpwfj9M_lMNpv2S_JPMi&pid=News",
+        "width": 700,
+        "height": 366
+      }
+    },
+    "description": "Apple could start manufacturing iPads in Vietnam by the middle of this year, marking the first time a “significant number” of the tablets would be produced outside of China, Nikkei reports. As well as shifting iPad production,",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9f5500d5-a48c-dc47-2c90-f8cc8558d9d2",
+        "name": "iPad"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5fcc3d97-0cf2-94e5-6dad-cd70e387bd69",
+        "name": "China"
+      }
+    ],
+    "mentions": [{ "name": "Apple Inc." }, { "name": "iPad" }, { "name": "China" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "The Verge",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_eb7025b256a046a33c77675eb0c54b11&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T17:04:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.theverge.com/platform/amp/2021/1/27/22252434/apple-manufacturing-china-vietnam-ipad-india-iphone"
+  },
+  {
+    "name": "Google to Stop Using Apple Tool to Track IPhone Users, Avoiding New Pop-Up Warning",
+    "url": "https://www.usnews.com/news/technology/articles/2021-01-27/google-to-stop-using-apple-tool-to-track-iphone-users-avoiding-new-pop-up-warning",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.-GHu7sD0AS2RrIH6LASDrC&pid=News",
+        "width": 700,
+        "height": 448
+      }
+    },
+    "description": "Google's iPhone apps such as Maps and YouTube will stop using a tool from Apple Inc that allows them to personalize ads, avoiding a new Apple warning that informs users their browsing is being tracked.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/57214a16-c798-4370-1b99-a461b53ac2dd",
+        "name": "Tool"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f39b29ec-05ee-d6cb-3070-ddaa0fb00ee0",
+        "name": "Google"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "U.S. News & World Report",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_9f4e7717a371a0a5e2bbf48b4ca76ed5&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T15:20:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.usnews.com/news/technology/articles/2021-01-27/google-to-stop-using-apple-tool-to-track-iphone-users-avoiding-new-pop-up-warning?context=amp"
+  },
+  {
+    "name": "What’s the most popular gaming system in Ohio: PlayStation 5, Xbox or Switch?",
+    "url": "https://www.cleveland.com/entertainment/2021/01/whats-the-most-popular-gaming-system-in-ohio-playstation-5-xbox-or-switch.html",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.K6Jel7AyDszKHmnQTHu3UC&pid=News",
+        "width": 700,
+        "height": 466
+      }
+    },
+    "description": "Centuryquotelink.com analyzed recent data to discover what current gaming system, PS5, XBox or Switch is searched for the most in all 50 states.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/595e44be-f445-d997-7d70-92b9f35592e2",
+        "name": "Xbox"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6f3df7da-1ef6-48e3-b2b3-b5b5fce3e846",
+        "name": "Ohio"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2b485a35-f5af-47ad-5cee-6c53599255fe",
+        "name": "PlayStation"
+      }
+    ],
+    "mentions": [{ "name": "Xbox" }, { "name": "Ohio" }, { "name": "PlayStation" }],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Cleveland.com",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_44e7d8df0801cea0e73b592a987ea345&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T15:18:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.cleveland.com/entertainment/2021/01/whats-the-most-popular-gaming-system-in-ohio-playstation-5-xbox-or-switch.html?outputType=amp"
+  },
+  {
+    "name": "Apple releases iPhone, iPad update to fix 'actively exploited' security flaws",
+    "url": "https://www.freep.com/story/tech/2021/01/27/update-your-iphone-ipad-apple-fixes-actively-exploited-flaws/4273922001/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.pkKowBcEWnSQt7Ibbk8cMy&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Apple released an update for iOS 14 on both devices that fixes security flaws the tech giant says \"may have been actively exploited.\"",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/9f5500d5-a48c-dc47-2c90-f8cc8558d9d2",
+        "name": "iPad"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Detroit Free Press",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_042b9da277622db2efffd94b434374b3&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T14:08:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://amp.freep.com/amp/4273922001"
+  },
+  {
+    "name": "Chromecast, Fire TV Stick, or Roku: What’s the best streaming stick for ~$50?",
+    "url": "https://arstechnica.com/gadgets/2021/01/4k-streamer-showdown-chromecast-vs-amazon-fire-tv-stick-vs-roku-streaming-stick/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.eymFTLf4L3p_IlPhMTh7Ri&pid=News",
+        "width": 700,
+        "height": 350
+      }
+    },
+    "description": "In 2021, as we all continue to spend more time in front of screens than anyone anticipated, most of us have a short list of requirements for a modern streaming stick. We just want a device that's compatible with our favorite content and all the other devices in our living rooms.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/59b64c6e-9fc2-9769-fdec-370ce268ba00",
+        "name": "Roku"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/43826eac-15fc-43b0-acd9-d84eb9d633f2",
+        "name": "Chromecast"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Ars Technica",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_b5b6f5585972ef55cf874f2367fcc707&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-27T12:00:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://arstechnica.com/gadgets/2021/01/4k-streamer-showdown-chromecast-vs-amazon-fire-tv-stick-vs-roku-streaming-stick/?amp=1"
+  },
+  {
+    "name": "HomePod mini update adds UWB-enhanced handoff features",
+    "url": "https://www.engadget.com/homepod-mini-uwb-handoff-update-223743066.html",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.JpVWsZ1y0vA2HiXXDq8w_y&pid=News",
+        "width": 700,
+        "height": 437
+      }
+    },
+    "description": "Back when it announced the HomePod mini last year, Apple said it was working on a feature that would allow you to seamlessly transfer music, calls and podcasts between your iPhone 11 or iPhone 12 and the smart speaker.",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Engadget",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_122851054b99d064076c32d216ceed4d&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-26T22:49:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.engadget.com/amp/homepod-mini-uwb-handoff-update-223743066.html"
+  },
+  {
+    "name": "You probably didn’t know your tablet could do this",
+    "url": "https://www.chicagotribune.com/consumer-reviews/sns-bestreviews-tech-surprising-tablet-uses-20210126-hoox3h2kmfepha2g7x7h2ohdm4-story.html",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.huzmaaIeyCuqNz9c_Ao7SS&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "These are our favorite “I had no idea my tablet could do that!” activities, plus the complementing gadgets you’ll need to make them happen.",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Chicago Tribune",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_1a394543d55bdec61d7b3d912e808886&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-26T22:47:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.chicagotribune.com/consumer-reviews/sns-bestreviews-tech-surprising-tablet-uses-20210126-hoox3h2kmfepha2g7x7h2ohdm4-story.html?outputType=amp"
+  },
+  {
+    "name": "Apple fixes another three iOS zero-days exploited in the wild",
+    "url": "https://www.zdnet.com/article/apple-fixes-another-three-ios-zero-days-exploited-in-the-wild/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.IM1G27rUKfNEbS0Xfxa8sy&pid=News",
+        "width": 700,
+        "height": 525
+      }
+    },
+    "description": "Fixes come after Apple patched another set of three zero-days last November. Apple has released today security updates for iOS to patch three zero-day vulnerabilities that were exploited in the wild.",
+    "about": [
+      { "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/16e46246-2257-643b-488c-f1572d8a9817", "name": "iOS" },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "ZDNet",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_bbba865edecc36f77b00b953e3e6c1c8&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-26T20:45:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.zdnet.com/google-amp/article/apple-fixes-another-three-ios-zero-days-exploited-in-the-wild/"
+  },
+  {
+    "name": "Apple warns magnets in iPhone 12 models 'might interfere' with pacemakers, defibrillators",
+    "url": "https://www.foxbusiness.com/technology/apple-warns-magnets-in-iphone-12-models-may-interfere-with-pacemakers",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.UPXnwdM2BOQB8HQadWJBZS&pid=News",
+        "width": 700,
+        "height": 393
+      }
+    },
+    "description": "Phone 12 models should be kept at least six inches away from pacemakers and defibrillators during normal use and at least 12 inches away when wirelessly charging.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Fox Business",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_7d74b3125abf621beaacbf0f43f7cee6&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-26T20:16:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.foxbusiness.com/technology/apple-warns-magnets-in-iphone-12-models-may-interfere-with-pacemakers.amp"
+  },
+  {
+    "name": "Apple warns to keep iPhones at least 6 inches away from pacemakers",
+    "url": "https://www.foxnews.com/health/iphones-pacemakers-apple",
+    "description": "Radio waves emanating from Apple devices may disrupt the workings of implanted pacemakers and defibrillators, the company warns.",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/6fa57c29-e813-4a1d-7fba-3541ca4c1dc3",
+        "name": "Apple Inc."
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/273e0477-30ed-3993-f232-f39244306805",
+        "name": "Fox News Channel"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ceeab753-899f-4459-8ceb-d64ec0992439",
+        "name": "iPhone"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "Fox News",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_7dc0f55e947bdbc51189eb1a022e9eb6&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-26T19:31:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.foxnews.com/health/iphones-pacemakers-apple.amp"
+  },
+  {
+    "name": "Xbox Series X/S launch and Game Pass push Microsoft’s quarterly gaming revenue past $5 billion",
+    "url": "https://www.geekwire.com/2021/xbox-series-x-launch-game-pass-helps-push-microsofts-quarterly-gaming-revenue-past-5-billion/",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.iQ6wGsIppb2WCfgFOHq_KC&pid=News",
+        "width": 630,
+        "height": 420
+      }
+    },
+    "description": "The latest Xbox console release helped Microsoft hit a new mark for gaming revenue, topping $5 billion during the December quarter, up 51% year-over-year. Microsoft's gaming arm boosted its",
+    "about": [
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/595e44be-f445-d997-7d70-92b9f35592e2",
+        "name": "Xbox"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2d9e5445-0e5e-5269-9795-b287f8be11ce",
+        "name": "Revenue"
+      },
+      {
+        "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+        "name": "Microsoft"
+      }
+    ],
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "GeekWire",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_c873ebf12391119260d05aed584d157e&pid=news" } }
+      }
+    ],
+    "datePublished": "2021-01-26T14:51:00.0000000Z",
+    "category": "Products",
+    "ampUrl": "https://www.geekwire.com/2021/xbox-series-x-launch-game-pass-helps-push-microsofts-quarterly-gaming-revenue-past-5-billion/amp/"
+  }
+]

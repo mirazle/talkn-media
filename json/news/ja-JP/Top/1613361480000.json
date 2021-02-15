@@ -1,5 +1,212 @@
 [
   {
+    "name": "生徒に柔道技「体罰に他ならない」 元教諭に有罪判決",
+    "url": "https://www.msn.com/ja-jp/news/national/%E7%94%9F%E5%BE%92%E3%81%AB%E6%9F%94%E9%81%93%E6%8A%80-%E4%BD%93%E7%BD%B0%E3%81%AB%E4%BB%96%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84-%E5%85%83%E6%95%99%E8%AB%AD%E3%81%AB%E6%9C%89%E7%BD%AA%E5%88%A4%E6%B1%BA/ar-BB1dGx7z",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.eG5jnMgn-RLjNlNQfKohuS&pid=News",
+        "width": 600,
+        "height": 315
+      },
+      "isLicensed": true
+    },
+    "description": "生徒2人に柔道の技をかけて重軽傷を負わせたとして、傷害罪に問われた兵庫県宝塚市立長尾中学校の元教諭、上野宝博（たかひろ）被告（50）=懲戒免職=の判決公判が15日、神戸地裁であり、国分史子裁判官は「肉体的苦痛かつ精神的苦痛を加えた」として、懲役2年執行猶予3年（求刑懲役2年）を言い渡した。 判決によると、柔道部顧問だった上野被告は昨年9月、同校の武道場の冷凍庫にあったアイスキャンディーを1年生の男",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "朝日新聞デジタル",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_c6c95b89bf87bb425d79373b1641e05f" } }
+      }
+    ],
+    "datePublished": "2021-02-15T03:58:00.0000000Z"
+  },
+  {
+    "name": "被災地に激しい雨の見通し、土砂災害の恐れ…気象庁「地震で地盤緩むとリスク高まる」",
+    "url": "https://www.msn.com/ja-jp/news/national/%E8%A2%AB%E7%81%BD%E5%9C%B0%E3%81%AB%E6%BF%80%E3%81%97%E3%81%84%E9%9B%A8%E3%81%AE%E8%A6%8B%E9%80%9A%E3%81%97-%E5%9C%9F%E7%A0%82%E7%81%BD%E5%AE%B3%E3%81%AE%E6%81%90%E3%82%8C-%E6%B0%97%E8%B1%A1%E5%BA%81-%E5%9C%B0%E9%9C%87%E3%81%A7%E5%9C%B0%E7%9B%A4%E7%B7%A9%E3%82%80%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E9%AB%98%E3%81%BE%E3%82%8B/ar-BB1dGguA",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.a2D9_IhB2rYyyiFs65E_cy&pid=News",
+        "width": 280,
+        "height": 314
+      },
+      "isLicensed": true
+    },
+    "description": "１５日の東北地方は一部で激しい雨となる見通しで、気象庁などは、１３日の地震で揺れが激しかった地域で土砂災害の危険性が高まっているとして警戒を呼びかけている。 国土地理院は震度情報、土地の傾斜、地質、過去の地震から、１３日夜の地震で仙台平野南部～福島県郡山市付近などで、崖崩れや地滑りが起きた可能性があると指摘。宮城～福島の海岸線などでは、液状化現象が発生した可能性もある。 担当者は「土砂災害が起きて",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "読売新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_545045ba37e14f08f92ec9954fe47f3a" } }
+      }
+    ],
+    "datePublished": "2021-02-15T03:49:00.0000000Z"
+  },
+  {
+    "name": "校舎の壁破損・断水…福島や宮城で７０校が臨時休校",
+    "url": "https://www.msn.com/ja-jp/news/national/%E6%A0%A1%E8%88%8E%E3%81%AE%E5%A3%81%E7%A0%B4%E6%90%8D%E3%83%BB%E6%96%AD%E6%B0%B4%E2%80%A6%E7%A6%8F%E5%B3%B6%E3%82%84%E5%AE%AE%E5%9F%8E%E3%81%A7%EF%BC%97%EF%BC%90%E6%A0%A1%E3%81%8C%E8%87%A8%E6%99%82%E4%BC%91%E6%A0%A1/ar-BB1dGbI0",
+    "description": "地震による校舎の損壊などで、福島、宮城両県では１５日、学校７０校が臨時休校した。 福島県では小中高校、特別支援学校の５５校が休校。県教育委員会によると、県立学校４３校で壁や窓ガラスが破損したり、水道管破裂や断水が確認されたりした。県立相馬農業高（南相馬市）では、体育館の天井板が数か所で落下し、実習棟などで蛍光灯が落ちた。 宮城県は１５校が休校したほか、仙台市では、小中学校１０７校で給食を取りやめた",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "読売新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_545045ba37e14f08f92ec9954fe47f3a" } }
+      }
+    ],
+    "datePublished": "2021-02-15T03:17:00.0000000Z"
+  },
+  {
+    "name": "ロイホの運営会社を双日が資本支援へ コロナ禍で苦境",
+    "url": "http://www.msn.com/ja-jp/news/money/%E3%83%AD%E3%82%A4%E3%83%9B%E3%81%AE%E9%81%8B%E5%96%B6%E4%BC%9A%E7%A4%BE%E3%82%92%E5%8F%8C%E6%97%A5%E3%81%8C%E8%B3%87%E6%9C%AC%E6%94%AF%E6%8F%B4%E3%81%B8-%E3%82%B3%E3%83%AD%E3%83%8A%E7%A6%8D%E3%81%A7%E8%8B%A6%E5%A2%83/ar-BB1dGnKZ",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.z1YHYjdLFhZqwdX83XwWGy&pid=News",
+        "width": 600,
+        "height": 315
+      },
+      "isLicensed": true
+    },
+    "description": "ファミリーレストランの「ロイヤルホスト」などを営む外食大手、ロイヤルホールディングス（HD）は15日、商社大手の双日や、みずほ銀行などから資本支援を受ける方向で検討していると発表した。この日の取締役会で正式に決める見通し。コロナ禍をきっかけにした外食チェーンの経営難は大手に及んでいる。 ロイヤルHDは「ロイヤルホスト」や「てんや」などの外食チェーンのほか、機内食やホテルなども運営しており、コロナ禍",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "朝日新聞デジタル",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_c6c95b89bf87bb425d79373b1641e05f" } }
+      }
+    ],
+    "datePublished": "2021-02-15T03:00:00.0000000Z"
+  },
+  {
+    "name": "コロナワクチンの電話相談窓口を設置…厚労省",
+    "url": "http://www.msn.com/ja-jp/news/national/%E3%82%B3%E3%83%AD%E3%83%8A%E3%83%AF%E3%82%AF%E3%83%81%E3%83%B3%E3%81%AE%E9%9B%BB%E8%A9%B1%E7%9B%B8%E8%AB%87%E7%AA%93%E5%8F%A3%E3%82%92%E8%A8%AD%E7%BD%AE%E2%80%A6%E5%8E%9A%E5%8A%B4%E7%9C%81/ar-BB1dGrla",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT._R_fL9eM6AOCfn-wTbrbxy&pid=News",
+        "width": 301,
+        "height": 314
+      },
+      "isLicensed": true
+    },
+    "description": "新型コロナウイルスの受診案内を行う千葉県発熱相談コールセンターについて、県は１月中旬の土・日曜の応答率が２割程度だったことを明らかにした。新規感染者の増加が続いていた時期で、「電話が集中し、応答率が大幅に下がった」としている。 開会中の県議会２月定例会の一般質問に答えた。答弁などによると、応答率は１月１６日が１７・７％、１７日が２３・６％、２４日が２１・８％。日中（午前８時～午後８時）でみると、１",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "読売新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_545045ba37e14f08f92ec9954fe47f3a" } }
+      }
+    ],
+    "datePublished": "2021-02-15T02:34:00.0000000Z"
+  },
+  {
+    "name": "地震直後8県で最大86万戸停電「10年前の教訓生きた」の声も",
+    "url": "https://www.msn.com/ja-jp/news/national/%E5%9C%B0%E9%9C%87%E7%9B%B4%E5%BE%8C8%E7%9C%8C%E3%81%A7%E6%9C%80%E5%A4%A786%E4%B8%87%E6%88%B8%E5%81%9C%E9%9B%BB-10%E5%B9%B4%E5%89%8D%E3%81%AE%E6%95%99%E8%A8%93%E7%94%9F%E3%81%8D%E3%81%9F-%E3%81%AE%E5%A3%B0%E3%82%82/ar-BB1dGdUJ",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.vg6SvhEd9tblpDItDd4JNi&pid=News",
+        "width": 600,
+        "height": 315
+      },
+      "isLicensed": true
+    },
+    "description": "広範囲に強い揺れをもたらした今回の地震では、関東でも最大で震度5強を観測し、停電などの影響がみられた。一方、「10年前の東日本大震災の教訓が生きた」との声も上がった。 東京電力によると、地震直後は関東などの8県で最大約86万戸が停電した。栃木県では一時、約23万戸で電気がストップした。震度4を観測･･･",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "毎日新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_47f95b91a3c8daf9e9976c153b4f1895" } }
+      }
+    ],
+    "datePublished": "2021-02-15T02:08:00.0000000Z"
+  },
+  {
+    "name": "町長選に出馬意向の前副町長と母親、自宅で変死…首から血を流した姿で見つかる",
+    "url": "https://www.msn.com/ja-jp/news/national/%E7%94%BA%E9%95%B7%E9%81%B8%E3%81%AB%E5%87%BA%E9%A6%AC%E6%84%8F%E5%90%91%E3%81%AE%E5%89%8D%E5%89%AF%E7%94%BA%E9%95%B7%E3%81%A8%E6%AF%8D%E8%A6%AA%E3%80%81%E8%87%AA%E5%AE%85%E3%81%A7%E5%A4%89%E6%AD%BB%E2%80%A6%E9%A6%96%E3%81%8B%E3%82%89%E8%A1%80%E3%82%92%E6%B5%81%E3%81%97%E3%81%9F%E5%A7%BF%E3%81%A7%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%8B/ar-BB1dGnbb",
+    "description": "１５日午前０時１５分頃、石川県中能登町武部、前副町長広瀬康雄さん（６５）方で、広瀬さんと９０歳代の母親が首から血を流して倒れているのを妻と娘が見つけ、１１９番した。２人は病院に搬送されたが、間もなく死亡が確認された。 七尾署の発表によると、２人は１階の母親の居室で倒れており、外部から侵入したような形跡は見つかっておらず、室内が荒らされた跡もなかった。広瀬さんは母親、長女夫婦らと６人暮らし。同署は司",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "読売新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_545045ba37e14f08f92ec9954fe47f3a" } }
+      }
+    ],
+    "datePublished": "2021-02-15T01:38:00.0000000Z"
+  },
+  {
+    "name": "道路覆う土砂と巨岩 爪痕、生々しく 福島・宮城震度6強",
+    "url": "https://www.msn.com/ja-jp/news/national/%E9%81%93%E8%B7%AF%E8%A6%86%E3%81%86%E5%9C%9F%E7%A0%82%E3%81%A8%E5%B7%A8%E5%B2%A9-%E7%88%AA%E7%97%95-%E7%94%9F%E3%80%85%E3%81%97%E3%81%8F-%E7%A6%8F%E5%B3%B6-%E5%AE%AE%E5%9F%8E%E9%9C%87%E5%BA%A66%E5%BC%B7/ar-BB1dG8sN",
+    "description": "崩落した土砂が道路を覆い尽くし、道路上には巨岩が転がっていた。福島、宮城両県で震度6強を観測した地震から一夜明けた14日、ヘリコプターで上空から見た被災地には激しい揺れの爪痕が生々しく残っていた。 震度6強を記録した福島県相馬市。常磐自動車道では道路脇の山肌からごっそりと崩れ落ちた土砂が反対車線ま･･･",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "毎日新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_47f95b91a3c8daf9e9976c153b4f1895" } }
+      }
+    ],
+    "datePublished": "2021-02-15T01:28:00.0000000Z"
+  },
+  {
+    "name": "「10年前を思い出した」 福島・宮城震度6強 不安抱え片付け",
+    "url": "https://www.msn.com/ja-jp/news/national/%E3%80%8C10%E5%B9%B4%E5%89%8D%E3%82%92%E6%80%9D%E3%81%84%E5%87%BA%E3%81%97%E3%81%9F%E3%80%8D-%E7%A6%8F%E5%B3%B6%E3%83%BB%E5%AE%AE%E5%9F%8E%E9%9C%87%E5%BA%A66%E5%BC%B7-%E4%B8%8D%E5%AE%89%E6%8A%B1%E3%81%88%E7%89%87%E4%BB%98%E3%81%91/ar-BB1dG8mb",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.Jyb9bgkZpXkwTUQBqHrQ5y&pid=News",
+        "width": 600,
+        "height": 315
+      },
+      "isLicensed": true
+    },
+    "description": "2011年3月に起きた東日本大震災の被災地を大きな揺れが襲った。福島、宮城両県で震度6強を観測した13日深夜の地震。津波の被害こそ確認されていないものの、震災の被災者には、まもなく10年を迎えるあの日の記憶がよみがえる人もいた。しばらくは同規模の地震に警戒が必要で、住民らは不安を抱えながら片付けに･･･",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "毎日新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_47f95b91a3c8daf9e9976c153b4f1895" } }
+      }
+    ],
+    "datePublished": "2021-02-15T01:10:00.0000000Z"
+  },
+  {
+    "name": "東証、３万円超え ３０年半ぶり高値",
+    "url": "https://www.msn.com/ja-jp/money/other/%E6%9D%B1%E8%A8%BC-%E4%B8%80%E6%99%82%EF%BC%93%E4%B8%87%E5%86%86%E7%AA%81%E7%A0%B4-%EF%BC%93%EF%BC%90%E5%B9%B4%E5%8D%8A%E3%81%B6%E3%82%8A-%E5%A4%A7%E8%A6%8F%E6%A8%A1%E9%87%91%E8%9E%8D%E7%B7%A9%E5%92%8C%E8%BF%BD%E3%81%84%E9%A2%A8-%E4%B8%80%E6%AE%B5%E3%81%A8%E9%AB%98%E3%81%BE%E3%82%8B%E9%81%8E%E7%86%B1%E6%84%9F/ar-BB1dGfoY",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=OVFT.jP9kaEn9WI9UK5XmgmcLnS&pid=News",
+        "width": 449,
+        "height": 314
+      },
+      "isLicensed": true
+    },
+    "description": "週明け１５日午前の東京株式市場の日経平均株価は反発して始まった。上昇幅は４７０円を超えて一時、節目の３万円を突破した。取引時間中の３万円超えは平成２年８月３日以来、約３０年半ぶり。 世界の株式市場の時価総額は、年明けからの６週間で６兆8000億ドル（約714兆円）余り拡大。仮想通貨や大麻株のほか、極端な安値で取引されている投機株なども大きく買われています。ゴールドマン・サックス・グループは景気回復",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "産経新聞",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_0cfcddaa71cae000b74e3bf52bc84d78" } }
+      }
+    ],
+    "datePublished": "2021-02-15T00:43:00.0000000Z"
+  },
+  {
+    "name": "無罪評決のトランプ氏「魔女狩りだ」 バイデン氏も声明",
+    "url": "https://www.msn.com/ja-jp/news/world/%E7%84%A1%E7%BD%AA%E8%A9%95%E6%B1%BA%E3%81%AE%E3%83%88%E3%83%A9%E3%83%B3%E3%83%97%E6%B0%8F-%E9%AD%94%E5%A5%B3%E7%8B%A9%E3%82%8A%E3%81%A0-%E3%83%90%E3%82%A4%E3%83%87%E3%83%B3%E6%B0%8F%E3%82%82%E5%A3%B0%E6%98%8E/ar-BB1dFazN",
+    "image": {
+      "thumbnail": {
+        "contentUrl": "https://www.bing.com/th?id=ORMS.35365bd16a2df0842ac6d3f283673d6d&pid=Wdp",
+        "width": 640,
+        "height": 427
+      },
+      "isLicensed": true
+    },
+    "description": "　米連邦議会議事堂の襲撃事件をめぐる弾劾（だんがい）裁判で、上院が13日にトランプ前大統領を無罪としたことを受けて、トランプ氏は「史上最大の魔女狩りの一部だった」と、弾劾裁判そのものを批判する声明を発表した。「このような経験をした大統領はいない。我々の相手が、（大統領選で）我々に投票した7500万人近い人たちを忘れられないから続く」と、大統領選に関する民主党側の報復だとした。　トランプ氏は声明で、",
+    "provider": [
+      {
+        "_type": "Organization",
+        "name": "朝日新聞デジタル",
+        "image": { "thumbnail": { "contentUrl": "https://www.bing.com/th?id=AR_c6c95b89bf87bb425d79373b1641e05f" } }
+      }
+    ],
+    "datePublished": "2021-02-14T06:31:35.0000000Z"
+  },
+  {
     "name": "「一言で言うとバトル。メンタル強くなった」…大坂なおみ、激闘振り返る",
     "url": "https://www.msn.com/ja-jp/sports/tennis/e3-80-8c-e4-b8-80-e8-a8-80-e3-81-a7-e8-a8-80-e3-81-86-e3-81-a8-e3-83-90-e3-83-88-e3-83-ab-e3-80-82-e3-83-a1-e3-83-b3-e3-82-bf-e3-83-ab-e5-bc-b7-e3-81-8f-e3-81-aa-e3-81-a3-e3-81-9f-e3-80-8d-e2-80-a6-e5-a4-a7-e5-9d-82-e3-81-aa-e3-81-8a-e3-81-bf-e3-80-81-e6-bf-8/ar-BB1dFomU",
     "image": {
