@@ -211,6 +211,8 @@ const setupFloders = (requests: UrlParamsType) => {
   console.log(process.cwd());
   console.log(__dirname);
   console.log(__filename);
+  console.log(fs.readdirSync(process.cwd()));
+
   setupFolder('json');
   setupFolder(`json/${defaultMediaType}`);
   setupFolder(`json/${defaultMediaType}/${requests.mktType}`);
