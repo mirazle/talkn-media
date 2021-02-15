@@ -1,5 +1,5 @@
 import fs from 'fs';
-import path from 'path';
+// import path from 'path';
 
 import { GetServerSideProps } from 'next';
 import { ContentsType, ContentsValueType, ContentsValuesType } from 'schema';
@@ -211,9 +211,6 @@ const setupFloders = (requests: UrlParamsType) => {
   console.log(process.cwd());
   console.log(__dirname);
   console.log(__filename);
-  console.log(path.resolve(__dirname));
-  console.log(path.join(__dirname, 'src', 'json'));
-  console.log(path.join(__filename, 'src', 'json'));
   setupFolder('json');
   setupFolder(`json/${defaultMediaType}`);
   setupFolder(`json/${defaultMediaType}/${requests.mktType}`);
@@ -234,5 +231,9 @@ const setupFloders = (requests: UrlParamsType) => {
 
 const setupFolder = (path: string) => {
   const exist = fs.existsSync(path);
-  if (!exist) fs.mkdirSync(path);
+  console.log(exist);
+  if (!exist) {
+    console.log('In');
+    fs.mkdirSync(path);
+  }
 };
