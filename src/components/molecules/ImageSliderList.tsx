@@ -1,4 +1,4 @@
-import ForeignIcon from 'public/foreign.svg';
+import ForeignIcon from 'assets/foreign.svg';
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import styled from 'styled-components';

@@ -6,6 +6,11 @@ module.exports = (config, { buildId, dev, isServer, defaultLoaders, webpack }) =
     new CopyWebpackPlugin({
       patterns: [
         {
+          context: 'src/assets',
+          from: '**/*',
+          to: resolve('public'),
+        },
+        {
           context: 'src/json',
           from: '**/*',
           to: resolve('public/json'),
