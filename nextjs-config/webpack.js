@@ -13,7 +13,7 @@ module.exports = (config, { buildId, dev, isServer, defaultLoaders, webpack }) =
         {
           context: 'src/json',
           from: '**/*',
-          to: resolve('json'),
+          to: resolve('public'),
         },
       ],
     }),
