@@ -10,11 +10,6 @@ module.exports = (config, { buildId, dev, isServer, defaultLoaders, webpack }) =
           from: '**/*',
           to: resolve('public'),
         },
-        {
-          context: 'src/json',
-          from: '**/*',
-          to: resolve('public/json'),
-        },
       ],
     }),
   );
