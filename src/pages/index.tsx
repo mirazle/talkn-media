@@ -1,3 +1,4 @@
+//import Memcached from 'memcached';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import * as React from 'react';
@@ -23,6 +24,17 @@ declare global {
   }
 }
 
+// , { retries: 10, retry: 10000, remove: true }
+/*
+const host: Memcached.Location = 'localhost:11211';
+const memcached = new Memcached(host);
+console.log(memcached);
+
+memcached.touch('key1', 10);
+memcached.get('key1', (d) => {
+  console.log(d);
+});
+*/
 const navigationScrollClassName = 'navigationScroll';
 const talknPostScrollTop = 1113;
 const footerScrollTop = 1050;

@@ -1,12 +1,11 @@
-import fs from 'fs';
-// import path from 'path';
-
 import { GetServerSideProps } from 'next';
-import { ContentsType, ContentsValueType, ContentsValuesType } from 'schema';
+import NodeCache from 'node-cache';
+import { ContentsCacheType, ContentsType, ContentsValueType, ContentsValuesType } from 'schema';
 
 import { MediaTypes, getNetwork } from 'utils/Networks';
 import { validUrlParams } from 'utils/Sitemap';
 
+const myCache = new NodeCache();
 const defaultMediaType = String(process.env['DEFAULT_MEDIA_TYPE']);
 const defaultMktType = String(process.env['DEFAULT_MKT_TYPE']);
 const defaultCategory = String(process.env['DEFAULT_CATEGORY']);
@@ -63,45 +62,45 @@ class Referers {
   }
 }
 
-class Caches {
-  static ext = 'json';
+class MyCache {
+  public key = '';
   public nowUnixtime: number;
-  public filePath: string;
-  public fileName?: string;
   constructor(requests: Requests, nowUnixtime: number) {
     this.nowUnixtime = nowUnixtime;
-    this.filePath = `src/json/${defaultMediaType}/${requests.mktType}/${requests.category}/`;
-    if (fs.existsSync(this.filePath)) {
-      const files = fs.readdirSync(this.filePath);
-      if (files.length > 0) {
-        this.fileName = files[0];
-      }
+    this.key = `json/${defaultMediaType}/${requests.mktType}/${requests.category}`;
+  }
+
+  get has(): boolean {
+    return myCache.has(this.key);
+  }
+
+  set(contents: ContentsValuesType): boolean {
+    const contentsCache: ContentsCacheType = { contents, generateUnixtime: this.nowUnixtime };
+    return myCache.set(this.key, contentsCache, 36000);
+  }
+
+  get(): ContentsValuesType {
+    const contentsCache = myCache.get(this.key) as ContentsCacheType;
+    return contentsCache.contents;
+  }
+
+  getGenerateUnixtime(): number {
+    if (this.has) {
+      const contentsCache = myCache.get(this.key) as ContentsCacheType;
+      return contentsCache.generateUnixtime;
+    } else {
+      return 0;
     }
-  }
-
-  get isExist(): boolean {
-    return Boolean(this.fileName);
-  }
-
-  get fileFullName(): string {
-    return this.fileName ? `${this.filePath}${this.fileName}` : ` ${this.filePath}${this.publishUnixtime}.${Caches.ext}`;
-  }
-
-  get publishUnixtime(): number {
-    return this.fileName ? Number(this.fileName.replace('.json', '')) : this.nowUnixtime;
-  }
-
-  getFile() {
-    return JSON.parse(fs.readFileSync(this.fileFullName, 'utf8')) as ContentsValuesType;
   }
 }
 
 export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlParamsType> = async ({ req, res, query }) => {
+  console.log('@@@ getServerSidePropsWrap @@@');
   const nowUnixtime = new Date().getTime();
   const contentsValues: ContentsValues = new ContentsValues();
   const referers = new Referers(String(req.headers.referer));
   const requests = new Requests(query as UrlParamsType, referers);
-  const caches = new Caches(requests, nowUnixtime);
+  const myCache = new MyCache(requests, nowUnixtime);
   let exeFetch = true;
 
   // redirect root if invalid url.
@@ -112,10 +111,10 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
   console.log(1);
   if (requests.isSame) {
     console.log(2);
-    if (caches.isExist) {
+    if (myCache.has) {
       console.log(3);
-      contentsValues.saved = caches.getFile();
-      exeFetch = nowUnixtime > caches.publishUnixtime + keepContentsSecond; // キャッシュファイル更新から、n時間経過している場合はfetchを実行する
+      contentsValues.saved = myCache.get() as ContentsValueType[];
+      exeFetch = nowUnixtime > myCache.getGenerateUnixtime() + keepContentsSecond; // キャッシュ更新から、n時間経過している場合はfetchを実行する
     }
 
     if (exeFetch) {
@@ -125,19 +124,19 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
 
       const responseJson = (await response.json()) as ContentsType;
       contentsValues.fetched = responseJson.value;
-      contentsValues.merged = saveContentsJson(requests, contentsValues, caches, nowUnixtime);
+      contentsValues.merged = saveContentsProccess(contentsValues, myCache);
     }
   }
 
   if (contentsValues.merged.length === 0) {
     console.log(4);
-    if (!caches.isExist) {
+    if (!myCache.has) {
       console.log(5);
-      contentsValues.saved = caches.getFile();
-      exeFetch = nowUnixtime > caches.publishUnixtime + keepContentsSecond; // キャッシュファイル更新から、n時間経過している場合はfetchを実行する
+      contentsValues.saved = myCache.get();
+      exeFetch = nowUnixtime > myCache.getGenerateUnixtime() + keepContentsSecond; // キャッシュ更新から、n時間経過している場合はfetchを実行する
     }
-    console.log(`CACHE ${caches.fileFullName}`);
-    contentsValues.merged = JSON.parse(fs.readFileSync(caches.fileFullName, { encoding: 'utf8' })) as ContentsValuesType;
+    console.log(`CACHE ${myCache.key}`);
+    contentsValues.merged = myCache.get();
   }
 
   requests.url = requests.url === '' && contentsValues.merged.length > 0 ? contentsValues.merged[0].url : requests.url;
@@ -147,12 +146,12 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
   };
 };
 
-const saveContentsJson = (requests: UrlParamsType, contentsValue: ContentsValues, caches: Caches, nowUnixtime: number) => {
+const saveContentsProccess = (contentsValue: ContentsValues, myCache: MyCache) => {
   contentsValue.merged = contentsValue.fetched;
   let existSavedContens = false;
   let existFetchedContens = false;
 
-  if (contentsValue.saved.length > 0 && caches.filePath) {
+  if (contentsValue.saved.length > 0) {
     existSavedContens = true;
   }
 
@@ -173,30 +172,22 @@ const saveContentsJson = (requests: UrlParamsType, contentsValue: ContentsValues
     contentsValue.merged = addFetchContents.concat(contentsValue.merged);
     contentsValue.merged = contentsValue.merged.slice(0, keepContentsCnt);
 
-    const publishUnixtime = new Date(contentsValue.merged[0].datePublished).getTime();
-    console.log(`UPDATE JSON fetchLast: ${publishUnixtime} saved: ${savedLastUnixtime}`);
-
-    const removeFileFullName = String(caches.fileFullName);
-    caches.fileName = `${publishUnixtime}.${Caches.ext}`;
-    fs.writeFileSync(caches.fileFullName, JSON.stringify(contentsValue.merged));
-    fs.unlinkSync(removeFileFullName);
+    const generateUnixtime = new Date(contentsValue.merged[0].datePublished).getTime();
+    console.log(`UPDATE CACHE fetchLast: ${generateUnixtime} saved: ${savedLastUnixtime}`);
+    myCache.set(contentsValue.merged);
   } else if (existFetchedContens && !existSavedContens) {
-    console.log('FETCH CREATE JSON');
-    caches.fileName = `${nowUnixtime}.${Caches.ext}`;
+    console.log('FETCH CREATE CACHE');
     contentsValue.fetched.sort(sortContents);
     contentsValue.merged = contentsValue.fetched;
     contentsValue.merged = contentsValue.merged.slice(0, keepContentsCnt);
-    setupFloders(requests);
-    fs.writeFileSync(caches.fileFullName, JSON.stringify(contentsValue.merged));
+    myCache.set(contentsValue.merged);
   } else if (!existFetchedContens && existSavedContens) {
     console.log('NO FETCH');
     contentsValue.merged = contentsValue.saved;
   } else {
-    console.log('NO FETCH NO SAVE FILE');
-    caches.fileName = `${nowUnixtime}.${Caches.ext}`;
+    console.log('NO FETCH & NO CACHE');
     contentsValue.merged = contentsValue.fetched;
-    setupFloders(requests);
-    fs.writeFileSync(caches.fileFullName, JSON.stringify(contentsValue.merged));
+    myCache.set(contentsValue.merged);
   }
   return contentsValue.merged;
 };
@@ -205,37 +196,4 @@ const sortContents = (a: ContentsValueType, b: ContentsValueType) => {
   if (a.datePublished < b.datePublished) return 1;
   if (a.datePublished > b.datePublished) return -1;
   return 0;
-};
-
-const setupFloders = (requests: UrlParamsType) => {
-  console.log(process.cwd());
-  console.log(__dirname);
-  console.log(__filename);
-  console.log(fs.readdirSync(process.cwd()));
-
-  setupFolder('json');
-  setupFolder(`json/${defaultMediaType}`);
-  setupFolder(`json/${defaultMediaType}/${requests.mktType}`);
-  setupFolder(`json/${defaultMediaType}/${requests.mktType}/${requests.category}`);
-  /*
-
-  setupFolder('src/json');
-  setupFolder(`src/json/${defaultMediaType}`);
-  setupFolder(`src/json/${defaultMediaType}/${requests.mktType}`);
-  setupFolder(`src/json/${defaultMediaType}/${requests.mktType}/${requests.category}`);
-
-  setupFolder('/vercel/workpath0/json');
-  setupFolder(`/vercel/workpath0/json/${defaultMediaType}`);
-  setupFolder(`/vercel/workpath0/json/${defaultMediaType}/${requests.mktType}`);
-  setupFolder(`/vercel/workpath0/json/${defaultMediaType}/${requests.mktType}/${requests.category}`);
-*/
-};
-
-const setupFolder = (path: string) => {
-  const exist = fs.existsSync(path);
-  console.log(exist);
-  if (!exist) {
-    console.log('In');
-    fs.mkdirSync(path);
-  }
 };
