@@ -44,5 +44,3 @@
 | prod    | https://website-next-woad.vercel.app |
 
 # NOTE
-
-If wordpress blog, guide, news, zendesk functions are needed again, see and restore https://github.com/justincase-jp/website-next/pull/354
