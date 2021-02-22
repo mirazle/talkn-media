@@ -1,6 +1,6 @@
 # talkn-media
 
-- Live Communication Site.
+- Live Communication Media Site.
 
 ## Branch strategy
 
