@@ -17,24 +17,9 @@ import { getTalknPostLayout } from 'components/organisms/Main/Thread';
 import Navigation from 'components/organisms/Navigation';
 import StylesVars from 'styles/StylesVars';
 import { LocalStorageKeys } from 'utils/Constants';
+import { urlToCh } from 'utils/Func';
+import { talknScriptHost } from 'utils/Networks';
 
-declare global {
-  interface Window {
-    talknAPI: any;
-  }
-}
-
-// , { retries: 10, retry: 10000, remove: true }
-/*
-const host: Memcached.Location = 'localhost:11211';
-const memcached = new Memcached(host);
-console.log(memcached);
-
-memcached.touch('key1', 10);
-memcached.get('key1', (d) => {
-  console.log(d);
-});
-*/
 const navigationScrollClassName = 'navigationScroll';
 const talknPostScrollTop = 1113;
 const footerScrollTop = 1050;
@@ -61,6 +46,17 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const [talknPostFixed, setTalknPostFixed] = useState(true);
   const [isDispFooter, setIsDispFooter] = useState(false);
 
+  const updateUrl = (url: string) => {
+    const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
+    const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
+    setUrl(url);
+    if (iframeContainer && iframe) {
+      console.log('UPDATE');
+      iframeContainer.dataset.url = url;
+      iframe.src = `https://${talknScriptHost}${urlToCh(url)}`;
+      localStorage.setItem(LocalStorageKeys.url, url);
+    }
+  };
   const redirectTo = async (mktType: string, category: string): Promise<boolean> => {
     setOpenSelectContentsOrder(false);
     return await router.push(`/${mktType}/${category}`);
@@ -118,10 +114,10 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
     if (mktType !== props.mktType) setMktType(props.mktType);
     if (category !== props.category) setCategory(props.category);
     if (url !== props.url) {
-      setUrl(props.url);
+      updateUrl(props.url);
     }
     if (cacheUrl && url !== cacheUrl) {
-      setUrl(cacheUrl);
+      updateUrl(cacheUrl);
     }
   }, [props.contents, props.mktType, props.category, props.url]);
 

@@ -35,20 +35,24 @@ const Main: FunctionComponent<Props> = (props) => {
   const [talknPostTranslateY, setTalknPostTranslateY] = React.useState(String(0));
   const [handScrollMode, setHandScrollMode] = React.useState(true);
 
+  const updateUrl = (url: string) => {
+    const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
+    const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
+
+    setUrl(url);
+    iframeContainer.dataset.url = url;
+    iframe.src = `https://${talknScriptHost}${urlToCh(url)}`;
+    localStorage.setItem(LocalStorageKeys.url, url);
+  };
+
   // handle on
   const handleOnClickContents = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number): void => {
     const parentElement = (e.target as HTMLButtonElement).parentElement;
     const clickedUrl = String(parentElement?.dataset.url);
     const imageScroll = document.querySelector('.imageSlider ol');
     const main = document.querySelector('main');
-    const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
-    const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
 
-    setUrl(clickedUrl);
-    iframeContainer.dataset.url = clickedUrl;
-    iframe.src = `https://${talknScriptHost}${urlToCh(clickedUrl)}`;
-    localStorage.setItem(LocalStorageKeys.url, clickedUrl);
-
+    updateUrl(clickedUrl);
     imageScroll?.scroll(imageScroll.clientWidth * index, 0);
     if (main && main.scrollLeft === 0) {
       scrollLeftAnimation(main, main.scrollWidth, setHandScrollMode);
