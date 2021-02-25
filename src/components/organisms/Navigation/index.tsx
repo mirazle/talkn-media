@@ -8,10 +8,10 @@ import LineNavigation from 'components/organisms/Navigation/LineNavigation';
 import { getCategories } from 'utils/Sitemap';
 
 type Props = {
-  lineNavScrollWidth: number;
-  setLineNavScrollWidth: React.Dispatch<React.SetStateAction<number>>;
   isSpLayout: boolean;
   isFixedSmallNav: boolean;
+  lineNavScrollWidth: number;
+  setLineNavScrollWidth: React.Dispatch<React.SetStateAction<number>>;
   redirectTo: (mktType: string, category: string) => Promise<boolean>;
 };
 

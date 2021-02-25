@@ -14,9 +14,9 @@ import { urlToCh } from 'utils/Func';
 import { talknScriptHost } from 'utils/Networks';
 
 type Props = {
-  contents: ContentsValuesType;
   isFixedSmallNav: boolean;
   isSpLayout: boolean;
+  contents: ContentsValuesType;
   talknPostFixed: boolean;
   talknPostRight: string;
   talknPostWidth: string;
@@ -38,7 +38,7 @@ const Main: FunctionComponent<Props> = (props) => {
   const updateUrl = (url: string) => {
     const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
     const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
-
+    console.log(iframe);
     setUrl(url);
     iframeContainer.dataset.url = url;
     iframe.src = `https://${talknScriptHost}${urlToCh(url)}`;

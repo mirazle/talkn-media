@@ -9,7 +9,7 @@
     "clean": "rm -rf public && mkdir public",
     "commit": "git-cz",
     "dev": "yarn clean && NODE_ICU_DATA=node_modules/full-icu next dev",
-    "export": "next export",
+    "export": "yarn clean && NODE_ICU_DATA=node_modules/full-icu next export",
     "format": "run-s format:* && yarn prettier --write",
     "format:eslint": "yarn lint:eslint --fix",
     "format:stylelint": "yarn lint:stylelint --fix",
@@ -19,7 +19,7 @@
     "lint:stylelint": "stylelint 'src/**/*.{tsx,less,scss,css}'",
     "prettier": "prettier 'src/**/*.{ts,tsx,js,jsx,less,scss,css}'",
     "server": "yarn clean && NODE_ICU_DATA=node_modules/full-icu ts-node --project tsconfig.server.json src/server.ts",
-    "start": "next start",
+    "start": "yarn build && next start",
     "test:depcruise": "depcruise --exclude '^src/internal-assets|^src/external-assets' --validate .dependency-cruiser.js src",
     "test:jest": "jest --coverage --no-cache",
     "test:jest:update-snapshot": "jest -u --coverage"

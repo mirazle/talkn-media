@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 module.exports = {
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
@@ -8,5 +11,11 @@ module.exports = {
     KEEP_CONTENTS_SECOND: process.env.KEEP_CONTENTS_SECOND,
     KEEP_CONTENTS_CNT: process.env.KEEP_CONTENTS_CNT,
   },
-  webpack: require( './nextjs-config/webpack' )
+  server: {
+    https: {
+      key: fs.readFileSync(path.join(__dirname, './src/pems/localhost+2-key.pem')),
+      cert: fs.readFileSync(path.join(__dirname, './src/pems/localhost+2.pem')),
+    },
+  },
+  webpack: require('./nextjs-config/webpack'),
 };

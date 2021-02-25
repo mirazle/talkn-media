@@ -117,7 +117,9 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       updateUrl(props.url);
     }
     if (cacheUrl && url !== cacheUrl) {
-      updateUrl(cacheUrl);
+      const findIndex = props.contents.findIndex((content) => content.url === cacheUrl);
+      const setUrl = findIndex === -1 ? props.contents[0].url : cacheUrl;
+      updateUrl(setUrl);
     }
   }, [props.contents, props.mktType, props.category, props.url]);
 

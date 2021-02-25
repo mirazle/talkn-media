@@ -9,11 +9,11 @@ import StylesVars from 'styles/StylesVars';
 import { scrollWindowTopAnimation } from 'utils/Animation';
 
 type Props = {
-  openSelectContentsOrder: boolean;
-  setOpenSelectContentsOrder: React.Dispatch<React.SetStateAction<boolean>>;
   isMaxLayout: boolean;
   isFixedSmallNav: boolean;
   isDispFooter: boolean;
+  openSelectContentsOrder: boolean;
+  setOpenSelectContentsOrder: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Header: FunctionComponent<Props> = (props: Props) => {

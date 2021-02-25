@@ -28,21 +28,29 @@ const sslOptions = isDev
       cert: fs.readFileSync(sslCrt),
       ca: fs.readFileSync(sslChain),
     };
-const app = next({ dev: isDev });
-const handle = app.getRequestHandler();
+const nextServer = next({ dev: false, dir: '/Users/hmiyazaki/talkn-media/' });
+
+console.log(nextServer);
+
+const handle = nextServer.getRequestHandler();
 const httpApp = express();
 const httpsApp = express();
-const routingHttp = (req: Request, res: Response): void => res.redirect(`https://${req.hostname}:${ports.HTTPS}${req.url}`);
 const listenedHttp = (): void => console.log('listened Http');
 const listenedHttps = (): void => console.log('listened Https');
+const routingHttp = (req: Request, res: Response): void => {
+  console.log('@@@ ACCESS HTTP');
+  res.redirect(`https://${req.hostname}:${ports.HTTPS}${req.url}`);
+};
 const routingHttps = (req: Request, res: Response) => {
+  console.log('@@@ ACCESS HTTPS');
+  console.log(req.url);
   /* eslint-disable-next-line @typescript-eslint/no-floating-promises */
   ((): Promise<void> => handle(req, res))();
 };
 
 export default (async (): Promise<void> => {
   try {
-    await app.prepare();
+    await nextServer.prepare();
     http.createServer(httpApp.all('*', routingHttp)).listen(ports.HTTP, listenedHttp);
     https.createServer(sslOptions, httpsApp.all('*', routingHttps)).listen(ports.HTTPS, listenedHttps);
   } catch (e) {
