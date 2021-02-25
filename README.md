@@ -4,6 +4,7 @@
 
 ## Branch strategy
 
+- this branch is submodule on [talkn](https://github.com/mirazle/talkn)
 - (TBD) [Github flow](https://guides.github.com/introduction/flow/)
 
 ## Review & merge policy
@@ -40,7 +41,7 @@
 | env     | Distributed endpoint                 |
 | ------- | ------------------------------------ |
 | local   | http://localhost:3000                |
-| preview | URL from each Pull Request           |
-| prod    | https://website-next-woad.vercel.app |
+| preview | https://${website-next-woad}.vercel.app |
+| prod    | https://${media-name}.talkn.io|
 
 # NOTE
