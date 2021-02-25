@@ -11,11 +11,5 @@ module.exports = {
     KEEP_CONTENTS_SECOND: process.env.KEEP_CONTENTS_SECOND,
     KEEP_CONTENTS_CNT: process.env.KEEP_CONTENTS_CNT,
   },
-  server: {
-    https: {
-      key: fs.readFileSync(path.join(__dirname, './src/pems/localhost+2-key.pem')),
-      cert: fs.readFileSync(path.join(__dirname, './src/pems/localhost+2.pem')),
-    },
-  },
   webpack: require('./nextjs-config/webpack'),
 };
