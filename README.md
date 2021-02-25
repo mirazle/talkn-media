@@ -4,6 +4,7 @@
 
 ## Branch strategy
 
+- this branch is submodule on [talkn](https://github.com/mirazle/talkn)
 - (TBD) [Github flow](https://guides.github.com/introduction/flow/)
 
 ## Review & merge policy
