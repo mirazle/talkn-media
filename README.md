@@ -40,7 +40,7 @@
 | env     | Distributed endpoint                 |
 | ------- | ------------------------------------ |
 | local   | http://localhost:3000                |
-| preview | URL from each Pull Request           |
-| prod    | https://website-next-woad.vercel.app |
+| preview | https://${website-next-woad}.vercel.app |
+| prod    | https://${media-name}.talkn.io|
 
 # NOTE
