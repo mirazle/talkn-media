@@ -1,2 +1,5 @@
-docker run -d -p 3000:3000 7d38453b393c
-docker run -dit 7d38453b393c -p 3000:3000
+docker build . -t mirazle/talkn-live-medias
+docker run -it --rm -p 80:80 mirazle/talkn-live-media
+docker run -it --rm -p 80:80 mirazle/talkn-live-media /bin/bash --login
+
+aws lightsail push-container-image --service-name talkn-live-media --label node --image mirazle/talkn-live-media:latest

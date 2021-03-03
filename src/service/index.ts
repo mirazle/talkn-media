@@ -132,10 +132,10 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
   if (validUrlParams(requests.mktType, requests.category)) {
     res.writeHead(302, { Location: '/' });
     res.end();
+    return {
+      props: { ...requests, contents: [] },
+    };
   }
-
-  console.log(`@@@ getServerSidePropsWrap @@@ ${myCache.key}`);
-  console.log(myCache.has);
 
   if (myCache.has) {
     contentsValues.cached = myCache.get() as ContentsValueType[];
@@ -149,6 +149,8 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
   }
 
   requests.url = requests.url === '' && contentsValues.merged.length > 0 ? contentsValues.merged[0].url : requests.url;
+
+  console.log(`@@@ getServerSidePropsWrap @@@ ${myCache.key} ${contentsValues.merged.length} ${String(myCache.has)}`);
 
   return {
     props: { ...requests, contents: contentsValues.merged },

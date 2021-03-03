@@ -1,5 +1,5 @@
 const env = process.env['ENVIROMENT'];
-
+console.log(env);
 export const localhost = 'localhost';
 export const producthost = 'talkn.io';
 export const talknScriptHost = env === 'development' ? localhost : producthost;

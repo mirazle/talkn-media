@@ -1,17 +1,3 @@
-# aws CLI の準備
-
-$ curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-$ sudo installer -pkg AWSCLIV2.pkg -target /
-
-$ aws --version
-aws-cli/2.1.1 Python/3.7.4 Darwin/19.6.0 exe/x86_64
-
-# Lightsail Control プラグイン
-
-$ sudo curl "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/darwin-amd64/lightsailctl" -o "/usr/local/bin/lightsailctl"
-$ sudo chmod +x /usr/local/bin/lightsailctl
-$ xattr -c /usr/local/bin/lightsailctl
-
 # インスタンス作成
 
 - CentOS を選択(月次料金 3.5\$を選択)

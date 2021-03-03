@@ -127,7 +127,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   React.useEffect(() => {
     localStorage.setItem(LocalStorageKeys.url, url);
   }, [url]);
-
+  console.log('RENDER');
   return (
     <Container>
       <Header
