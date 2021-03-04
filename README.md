@@ -1,10 +1,10 @@
 # talkn-media
 
 - Live Communication Media Site.
+- news, trend, app ranking ..etc.
 
 ## Branch strategy
 
-- this branch is submodule on [talkn](https://github.com/mirazle/talkn)
 - (TBD) [Github flow](https://guides.github.com/introduction/flow/)
 
 ## Review & merge policy
@@ -36,12 +36,14 @@
 
 - `yarn test:jest`
 
+# Environment & Deploy
+
+markdowns/lightsail_container.md
+
 ## Distributed endpoint (if exists)
 
-| env     | Distributed endpoint                 |
-| ------- | ------------------------------------ |
-| local   | http://localhost:3000                |
+| env     | Distributed endpoint                    |
+| ------- | --------------------------------------- |
+| local   | http://localhost:3000                   |
 | preview | https://${website-next-woad}.vercel.app |
-| prod    | https://${media-name}.talkn.io|
-
-# NOTE
+| prod    | https://${media-name}.talkn.io          |
