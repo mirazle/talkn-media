@@ -38,7 +38,7 @@
 
 # Environment & Deploy
 
-- [reference](https://github.com/mirazle/talkn-media/blob/master/markdowns/lightsail_container.mdmarkdowns/lightsail_container.md)
+- [reference](https://github.com/mirazle/talkn-media/blob/master/markdowns/lightsail_container.md)
 
 ## Distributed endpoint (if exists)
 
