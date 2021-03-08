@@ -7,6 +7,10 @@ import styled from 'styled-components';
 import SelectContentsOrder from 'components/organisms/Header/SelectContentsOrder';
 import StylesVars from 'styles/StylesVars';
 import { scrollWindowTopAnimation } from 'utils/Animation';
+import { talknScriptHost } from 'utils/Networks';
+
+const dispFooterScrollTop = 1050;
+const defaultMediaType = String(process.env['DEFAULT_MEDIA_TYPE']);
 
 type Props = {
   isMaxLayout: boolean;
@@ -20,13 +24,17 @@ const Header: FunctionComponent<Props> = (props: Props) => {
   const [mktType] = useRecoilState(MktTypeState);
   const { openSelectContentsOrder, setOpenSelectContentsOrder, isMaxLayout, isFixedSmallNav, isDispFooter } = props;
   const splitedMktType = mktType.split('-');
-  const scrollTo = isDispFooter ? 0 : 1050;
+  const scrollTo = isDispFooter ? 0 : dispFooterScrollTop;
   const arrowMark = isDispFooter ? '▲' : '▼';
   return (
     <Container isFixedSmallNav={isFixedSmallNav}>
       <SelectContentsOrder openSelectContentsOrder={openSelectContentsOrder} isMaxLayout={isMaxLayout} />
       <HeaderContent>
-        <div>Back</div>
+        <MenuWrap>
+          <BackAnchor href={`https://${talknScriptHost}/${defaultMediaType}.talkn.io/`}>
+            <Back />
+          </BackAnchor>
+        </MenuWrap>
         <AppName isDispFooter={isDispFooter} onClick={() => scrollWindowTopAnimation(scrollTo)}>
           <TalknLabel>talkn</TalknLabel>
           <NewsLabel>news</NewsLabel>
@@ -135,6 +143,7 @@ const Menu = styled.div`
   justify-content: center;
   max-width: 50px;
   height: 50px;
+  cursor: pointer;
   border-radius: 25px;
   box-shadow: 0 0 0 rgba(230, 230, 230, 1) inset;
   transition: ${StylesVars.transitionDuration};
@@ -150,5 +159,49 @@ const Menu = styled.div`
     background: ${StylesVars.bgColor};
     border-radius: 6px;
     box-shadow: 0 12px 0 ${StylesVars.bgColor}, 0 24px 0 ${StylesVars.bgColor};
+  }
+`;
+
+const BackAnchor = styled.a`
+  display: block;
+  width: 50px;
+  height: 50px;
+`;
+
+const Back = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 0 0 0 rgba(230, 230, 230, 1) inset;
+  transition: ${StylesVars.transitionDuration};
+  &:hover {
+    box-shadow: 0 0 10px rgba(230, 230, 230, 1) inset;
+  }
+  &::before {
+    position: relative;
+    top: -4px;
+    left: 5px;
+    width: 14px;
+    height: 4px;
+    content: '';
+    background: ${StylesVars.bgColor};
+    border-radius: 4px;
+    transform: rotate(-45deg);
+  }
+  &::after {
+    position: relative;
+    top: 5px;
+    left: -8px;
+    width: 14px;
+    height: 4px;
+    content: '';
+    background: ${StylesVars.bgColor};
+    border-radius: 4px;
+    transform: rotate(45deg);
   }
 `;

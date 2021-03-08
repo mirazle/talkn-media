@@ -20,7 +20,7 @@ type Props = {
 const navigationScrollClassName = 'navigationScroll';
 
 const LineNavigation: FunctionComponent<Props> = (props: Props) => {
-  const { lineNavScrollWidth, setLineNavScrollWidth, categories, isFixedSmallNav, redirectTo } = props;
+  const { isSpLayout, lineNavScrollWidth, setLineNavScrollWidth, categories, isFixedSmallNav, redirectTo } = props;
   const [mktType] = useRecoilState(MktTypeState);
   const [category] = useRecoilState(CategoryState);
   const setNavScrollIndex = React.useState(0)[1];
@@ -72,7 +72,7 @@ const LineNavigation: FunctionComponent<Props> = (props: Props) => {
   }, [lineNavScrollWidth, category]);
 
   return (
-    <Container isFixedSmallNav={isFixedSmallNav}>
+    <Container isSpLayout={isSpLayout} isFixedSmallNav={isFixedSmallNav}>
       <ul className={navigationScrollClassName} onScroll={onScroll}>
         {menus.map((menu, i) => {
           const key = menu.label + String(i);
@@ -94,12 +94,13 @@ const LineNavigation: FunctionComponent<Props> = (props: Props) => {
 export default LineNavigation;
 
 type ContainerProps = {
+  isSpLayout: boolean;
   isFixedSmallNav: boolean;
 };
 
 const Container = styled.nav<ContainerProps>`
-  position: ${(props) => (props.isFixedSmallNav ? 'fixed' : 'relative')};
-  top: ${(props) => (props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
+  position: ${(props) => (props.isSpLayout ? 'relative' : props.isFixedSmallNav ? 'fixed' : 'relative')};
+  top: ${(props) => (props.isSpLayout ? 0 : props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
   z-index: 91;
   width: 100%;
   height: 30px;

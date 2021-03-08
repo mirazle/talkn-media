@@ -43,12 +43,16 @@ class CustomDocument extends Document {
       <Html lang='ja'>
         {/* NOTE: cannot write prefix in next/head */}
         <Head prefix='og: http://ogp.me/ns#'>
-          <script data-ad-client='' async src='' />
+          <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no' />
           {this.ServiceWorker}
           {this.TalknExtScripts}
+          {/*
+          <script data-ad-client='' async src='' />
+
           {this.ResourceHints}
           {this.GtmForHead}
           {this.GaTrackingForFirstLoad}
+        */}
         </Head>
         <body>
           {/*this.GtmForBody*/}

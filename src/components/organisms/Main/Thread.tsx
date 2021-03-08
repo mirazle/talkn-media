@@ -1,13 +1,14 @@
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
-import { UrlState } from 'state';
+import { ActiveContentState } from 'state';
 import styled from 'styled-components';
 
 import NoSsr from 'components/atoms/NoSsr';
 import StylesVars from 'styles/StylesVars';
 
 type Props = {
+  title: string;
   isSpLayout: boolean;
   threadOnlyMode: boolean;
   talknPostFixed: boolean;
@@ -17,24 +18,28 @@ type Props = {
 };
 
 const Thread: FunctionComponent<Props> = (props: Props) => {
-  const url = useRecoilState(UrlState)[0];
-  if (url === '') {
-    return <NoSsr />;
+  const [activeContent] = useRecoilState(ActiveContentState);
+  console.log(activeContent.url);
+  if (activeContent.url === '') {
+    return null;
   } else {
-    const { isSpLayout, threadOnlyMode, talknPostFixed, talknPostTranslateY, talknPostRight, talknPostWidth } = props;
+    const { title, isSpLayout, threadOnlyMode, talknPostFixed, talknPostTranslateY, talknPostRight, talknPostWidth } = props;
     return (
-      <NoSsr>
-        <Container data-url={url} id='talknLiveMedia' />
-        <TalknPostWrap
-          id='talknLiveMediaPost'
-          isSpLayout={isSpLayout}
-          threadOnlyMode={threadOnlyMode}
-          fixed={talknPostFixed}
-          translateY={talknPostTranslateY}
-          right={talknPostRight}
-          width={talknPostWidth}
-        />
-      </NoSsr>
+      <Container>
+        <NoSsr>
+          <SpTitle isSpLayout={isSpLayout}>{title}</SpTitle>
+          <IframeContainer data-url={activeContent.url} id='talknLiveMedia' />
+          <TalknPostWrap
+            id='talknLiveMediaPost'
+            isSpLayout={isSpLayout}
+            threadOnlyMode={threadOnlyMode}
+            fixed={talknPostFixed}
+            translateY={talknPostTranslateY}
+            right={talknPostRight}
+            width={talknPostWidth}
+          />
+        </NoSsr>
+      </Container>
     );
   }
 };
@@ -63,16 +68,12 @@ export const getTalknPostLayout = (
   return { width, right };
 };
 
-type TalknEmbedProps = {
+type IframeContainerProps = {
   'data-url': string;
 };
 
-const Container = styled.div<TalknEmbedProps>`
-  height: 800px;
-  padding-bottom: 60px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-snap-align: center;
+const Container = styled.div`
+  height: 100%;
   @media (max-width: ${StylesVars.spLayoutWidth}px) {
     width: 100%;
     min-width: 100%;
@@ -80,6 +81,34 @@ const Container = styled.div<TalknEmbedProps>`
   @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     width: 50%;
   }
+`;
+
+// TODO: height is device height - header.
+const IframeContainer = styled.div<IframeContainerProps>`
+  width: 100%;
+  height: 800px;
+  padding-bottom: 60px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-align: center;
+`;
+
+type SpTitleType = {
+  isSpLayout: boolean;
+};
+
+const SpTitle = styled.div<SpTitleType>`
+  position: relative;
+  z-index: 10;
+  display: ${(props) => (props.isSpLayout ? 'block' : 'none')};
+  width: 100%;
+  height: ${Number(StylesVars.baseHeight) / 2}px;
+  padding: 0 15px;
+  text-align: center;
+  word-break: break-word;
+  white-space: nowrap;
+  background: #fff;
+  border-bottom: 1px solid ${StylesVars.bgColor};
 `;
 
 type TalknPostPropsType = {
@@ -93,7 +122,7 @@ type TalknPostPropsType = {
 
 const TalknPostWrap = styled.div<TalknPostPropsType>`
   position: ${(props) => (props.fixed ? 'fixed' : 'absolute')};
-  top: ${(props) => (props.fixed ? 'unset' : '1050')}px;
+  top: ${(props) => (props.fixed ? 'unset' : '950')}px;
   right: ${(props) => props.right}px;
   bottom: ${(props) => (props.fixed ? '0' : 'unset')};
   display: flex;

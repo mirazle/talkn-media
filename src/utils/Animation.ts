@@ -24,6 +24,7 @@ export const scrollLeftAnimation = (
       dispath && dispath(true);
     }
   };
+
   dispath && dispath(false);
   animateScroll();
 };

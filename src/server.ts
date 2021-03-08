@@ -41,7 +41,6 @@ const httpApp = express();
 const listenedHttp = (): void => console.log('listened Http');
 // const listenedHttps = (): void => console.log('listened Https');
 const routingHttp = (req: Request, res: Response): void => {
-  console.log(req.originalUrl);
   if (req.originalUrl === '/health') {
     res.statusCode = 200;
     res.send('');
@@ -57,12 +56,6 @@ const routingHttp = (req: Request, res: Response): void => {
         ((): Promise<void> => handle(req, res))();
     }
   }
-
-  //  res.send('Hello from A!');
-  // service.worker.js
-  // json/news/favicon.ico/Top
-
-  // res.redirect(`https://${req.hostname}:${ports.HTTPS}${req.url}`);
 };
 /*
 const routingHttps = (req: Request, res: Response) => {

@@ -5,23 +5,22 @@ import * as React from 'react';
 import { useState } from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
+import { ContentsValueType } from 'schema';
 import { InitComponentProps, ReturnServiceType, UrlParamsType, getServerSidePropsWrap } from 'service';
-import { CategoryState, MktTypeState, UrlState } from 'state';
+import { ActiveContentState, CategoryState, MktTypeState } from 'state';
 import styled from 'styled-components';
 
+import DeviceSwitchStructure from 'components/organisms/DeviceSwitchStructure';
 import Footer from 'components/organisms/Footer';
 import Header from 'components/organisms/Header';
-import ImageSlider from 'components/organisms/ImageSlider';
-import Main from 'components/organisms/Main';
 import { getTalknPostLayout } from 'components/organisms/Main/Thread';
-import Navigation from 'components/organisms/Navigation';
 import StylesVars from 'styles/StylesVars';
 import { LocalStorageKeys } from 'utils/Constants';
 import { urlToCh } from 'utils/Func';
 import { talknScriptHost } from 'utils/Networks';
 
 const navigationScrollClassName = 'navigationScroll';
-const talknPostScrollTop = 1113;
+const talknPostScrollTop = 1013;
 const footerScrollTop = 1050;
 
 const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
@@ -30,8 +29,8 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   // disp key datas.
   const [mktType, setMktType] = useRecoilState(MktTypeState);
   const [category, setCategory] = useRecoilState(CategoryState);
-  const [url, setUrl] = useRecoilState(UrlState);
   const [contents, setContents] = useState(props.contents);
+  const [activeContent, setActiveContent] = useRecoilState(ActiveContentState);
 
   // layout total
   const [isSpLayout, setIsSpLayout] = useState(false);
@@ -46,17 +45,22 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const [talknPostFixed, setTalknPostFixed] = useState(true);
   const [isDispFooter, setIsDispFooter] = useState(false);
 
-  const updateUrl = (url: string) => {
-    const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
-    const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
-    setUrl(url);
-    if (iframeContainer && iframe) {
-      console.log('UPDATE');
-      iframeContainer.dataset.url = url;
-      iframe.src = `https://${talknScriptHost}${urlToCh(url)}`;
-      localStorage.setItem(LocalStorageKeys.url, url);
+  const updateActiveContent = (newContent: ContentsValueType, updateIframe = true) => {
+    if (newContent && newContent.url !== activeContent.url) {
+      setActiveContent(newContent);
+      if (updateIframe) {
+        const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
+        const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
+
+        if (iframeContainer && iframe) {
+          iframeContainer.dataset.url = newContent.url;
+          iframe.src = `https://${talknScriptHost}${urlToCh(newContent.url)}`;
+          localStorage.setItem(LocalStorageKeys.url, newContent.url);
+        }
+      }
     }
   };
+
   const redirectTo = async (mktType: string, category: string): Promise<boolean> => {
     setOpenSelectContentsOrder(false);
     return await router.push(`/${mktType}/${category}`);
@@ -64,18 +68,25 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
 
   const windowEvents = {
     load: React.useCallback(() => {
-      // console.log(window.talknAPI);
+      const _isSpLayout = window.innerWidth < Number(StylesVars.spLayoutWidth);
+      setIsSpLayout(_isSpLayout);
+      setFixedSmallNav(_isSpLayout);
     }, []),
     scroll: React.useCallback(() => {
-      setFixedSmallNav(window.scrollY >= 90);
+      const _isSpLayout = window.innerWidth < Number(StylesVars.spLayoutWidth);
+      const windowScrollY = window.scrollY >= 90;
+      setIsSpLayout(_isSpLayout);
+      setFixedSmallNav(windowScrollY || _isSpLayout);
       setTalknPostFixed(window.scrollY + window.innerHeight <= talknPostScrollTop);
       setIsDispFooter(window.scrollY >= footerScrollTop);
     }, []),
     resize: React.useCallback(() => {
       const navigationScroll = document.querySelector(`.${navigationScrollClassName}`);
+      const windowScrollY = window.scrollY >= 90;
       const _isSpLayout = window.innerWidth < Number(StylesVars.spLayoutWidth);
       const _isMaxLayout = Number(StylesVars.maxWidth) < window.innerWidth;
       setIsSpLayout(_isSpLayout);
+      setFixedSmallNav(windowScrollY || _isSpLayout);
       setIsMaxLayout(_isMaxLayout);
       const { width, right } = getTalknPostLayout(window.innerWidth, _isMaxLayout, _isSpLayout);
       setTalknPostWidth(String(width));
@@ -92,6 +103,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
     switch (window.document.readyState) {
       case 'interactive':
       case 'complete':
+        windowEvents.load();
         break;
       case 'loading':
         window.addEventListener('load', windowEvents.load);
@@ -113,21 +125,22 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
     if (props.contents !== contents) setContents(props.contents);
     if (mktType !== props.mktType) setMktType(props.mktType);
     if (category !== props.category) setCategory(props.category);
-    if (url !== props.url) {
-      updateUrl(props.url);
+    if (activeContent.url !== props.url) {
+      const findIndex = props.contents.findIndex((content) => content.url === props.url);
+      updateActiveContent(props.contents[findIndex]);
     }
-    if (cacheUrl && url !== cacheUrl) {
-      const findIndex = props.contents.findIndex((content) => content.url === cacheUrl);
-      const setUrl = findIndex === -1 ? props.contents[0].url : cacheUrl;
-      updateUrl(setUrl);
+    if (cacheUrl && activeContent.url !== cacheUrl) {
+      const _findIndex = props.contents.findIndex((content) => content.url === cacheUrl);
+      const findIndex = _findIndex === -1 ? 0 : _findIndex;
+      updateActiveContent(props.contents[findIndex]);
     }
   }, [props.contents, props.mktType, props.category, props.url]);
 
   // did update url
   React.useEffect(() => {
-    localStorage.setItem(LocalStorageKeys.url, url);
-  }, [url]);
-  console.log('RENDER');
+    localStorage.setItem(LocalStorageKeys.url, activeContent.url);
+  }, [activeContent.url]);
+
   return (
     <Container>
       <Header
@@ -141,24 +154,18 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
         <AdvertWrap>
           <Advert />
         </AdvertWrap>
-        <Content>
-          <Navigation
-            isSpLayout={isSpLayout}
-            isFixedSmallNav={isFixedSmallNav}
-            lineNavScrollWidth={lineNavScrollWidth}
-            setLineNavScrollWidth={setLineNavScrollWidth}
-            redirectTo={redirectTo}
-          />
-          <ImageSlider contents={contents} isSpLayout={isSpLayout} isFixedSmallNav={isFixedSmallNav} />
-          <Main
-            isFixedSmallNav={isFixedSmallNav}
-            isSpLayout={isSpLayout}
-            contents={contents}
-            talknPostFixed={talknPostFixed}
-            talknPostRight={talknPostRight}
-            talknPostWidth={talknPostWidth}
-          />
-        </Content>
+        <DeviceSwitchStructure
+          isSpLayout={isSpLayout}
+          isFixedSmallNav={isFixedSmallNav}
+          contents={contents}
+          lineNavScrollWidth={lineNavScrollWidth}
+          talknPostFixed={talknPostFixed}
+          talknPostRight={talknPostRight}
+          talknPostWidth={talknPostWidth}
+          setLineNavScrollWidth={setLineNavScrollWidth}
+          redirectTo={redirectTo}
+          updateActiveContent={updateActiveContent}
+        />
         <AdvertWrap>
           <Advert />
         </AdvertWrap>
@@ -199,13 +206,4 @@ const Advert = styled.div`
   width: 100%;
   height: 100%;
   background: #cdc;
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: ${StylesVars.maxWidth}px;
 `;
