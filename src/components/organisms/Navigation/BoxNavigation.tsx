@@ -41,12 +41,13 @@ type ContainerProps = {
 
 const Container = styled.nav<ContainerProps>`
   position: ${(props) => (props.isFixedSmallNav ? 'fixed' : 'relative')};
-  top: ${(props) => (props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
-  z-index: 90;
+  top: ${(props) => (props.isFixedSmallNav ? `${StylesVars.headerHeight}px` : 0)};
+  z-index: 1;
   width: 100%;
   max-width: ${StylesVars.maxWidth}px;
-  height: ${Number(StylesVars.baseHeight) * 2}px;
-  margin: ${(props) => (props.isFixedSmallNav ? 0 : 60)}px auto 0;
+  height: ${Number(StylesVars.boxNavHeight)}px;
+  min-height: ${Number(StylesVars.boxNavHeight)}px;
+  margin: ${(props) => (props.isFixedSmallNav ? 0 : StylesVars.headerHeight)}px auto 0;
   overflow: hidden;
   transition: ${StylesVars.transitionDuration};
   ul {

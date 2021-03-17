@@ -2,23 +2,21 @@ import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
 import { ContentsValueType, ContentsValuesType } from 'schema';
-import { UrlState } from 'state';
+import { ActiveContentState } from 'state';
 import styled from 'styled-components';
 
 import ImageSliderList, { ImageSliderLayoutType } from 'components/molecules/ImageSliderList';
 import StylesVars from 'styles/StylesVars';
-import { LocalStorageKeys } from 'utils/Constants';
-import { urlToCh } from 'utils/Func';
-import { talknScriptHost } from 'utils/Networks';
 
 type Props = {
   contents: ContentsValuesType;
   isSpLayout: boolean;
   isFixedSmallNav: boolean;
+  updateActiveContent: (newContent: ContentsValueType) => void;
 };
 
-const getLayout = (isSpLayout: boolean, fixed: boolean): ImageSliderLayoutType => {
-  return isSpLayout ? imageSectionNarrowLayouts[Number(fixed)] : imageSectionLayouts[Number(fixed)];
+const getLayout = (isSpLayout: boolean, isFixedSmallNav: boolean): ImageSliderLayoutType => {
+  return isSpLayout ? imageSectionNarrowLayouts[1] : imageSectionLayouts[Number(isFixedSmallNav)];
 };
 const activeScrollCnt = 5;
 let scrollCnt = 0;
@@ -33,8 +31,8 @@ const getImageSliderUrl = (e: React.UIEvent<HTMLUListElement, UIEvent>): string 
 };
 
 const ImageSlider: FunctionComponent<Props> = (props: Props) => {
-  const [url, setUrl] = useRecoilState(UrlState);
-  const { contents, isSpLayout, isFixedSmallNav } = props;
+  const [activeContent] = useRecoilState(ActiveContentState);
+  const { contents, isSpLayout, isFixedSmallNav, updateActiveContent } = props;
   const layout = getLayout(isSpLayout, isFixedSmallNav);
   const [scrollingId, setScrolligId] = React.useState(0);
   const scrollElm = React.useRef<HTMLOListElement>();
@@ -42,13 +40,9 @@ const ImageSlider: FunctionComponent<Props> = (props: Props) => {
 
   const onScrollEnd = (e: React.UIEvent<HTMLUListElement, UIEvent>) => {
     if (scrollCnt >= activeScrollCnt) {
-      const iframeContainer = document.querySelector('#talknLiveMedia') as HTMLDivElement;
-      const iframe = document.querySelector('#talknLiveMedia iframe') as HTMLIFrameElement;
-      const url = getImageSliderUrl(e);
-      setUrl(url);
-      iframeContainer.dataset.url = url;
-      iframe.src = `https://${talknScriptHost}${urlToCh(url)}`;
-      localStorage.setItem(LocalStorageKeys.url, url);
+      const newUrl = getImageSliderUrl(e);
+      const findIndex = props.contents.findIndex((content) => content.url === newUrl);
+      updateActiveContent(props.contents[findIndex]);
     }
   };
 
@@ -64,16 +58,17 @@ const ImageSlider: FunctionComponent<Props> = (props: Props) => {
 
   // change url.
   React.useEffect(() => {
-    if (scrollElm.current && scrollElm.current.children && url !== '') {
+    if (scrollElm.current && scrollElm.current.children && activeContent.url !== '') {
       const scrollOrder = scrollElm.current;
       const index = Array.from(scrollOrder.children).findIndex((child) => {
         const liUrl = String(child.getAttribute('data-url'));
-        return liUrl === url;
+        return liUrl === activeContent.url;
       });
       const oneScroll = Math.round(scrollOrder.scrollWidth / scrollElm.current.children.length);
       scrollOrder.scrollTo(oneScroll * index, 0);
     }
-  }, [url]);
+  }, [activeContent.url]);
+
   return (
     <Container className='imageSlider' isSpLayout={isSpLayout} isFixedSmallNav={isFixedSmallNav}>
       <ImageOrderList ref={scrollElmRef} onScroll={onScroll}>
@@ -106,11 +101,13 @@ type ContainerProps = {
 const Container = styled.section<ContainerProps>`
   position: ${(props) => (props.isFixedSmallNav ? 'fixed' : 'relative')};
   top: ${(props) => (props.isFixedSmallNav ? Number(StylesVars.baseHeight) + Number(StylesVars.baseHeight) / 2 : 0)}px;
-  z-index: 80;
+  z-index: 1;
   width: 100%;
-  height: ${(props) => (props.isFixedSmallNav ? Number(StylesVars.baseHeight) * 2 : Number(StylesVars.baseHeight) * 5)}px;
-  min-height: ${Number(StylesVars.baseHeight) * 2}px;
-  max-height: 300px;
+  height: ${(props) =>
+    props.isFixedSmallNav ? Number(StylesVars.imageSliderSmallHeight) : Number(StylesVars.imageSliderLargeHeight)}px;
+  min-height: ${(props) =>
+    props.isFixedSmallNav ? Number(StylesVars.imageSliderSmallHeight) : Number(StylesVars.imageSliderLargeHeight)}px;
+  max-height: ${Number(StylesVars.imageSliderLargeHeight)}px;
   margin: 0 auto;
   overflow: hidden;
   cursor: pointer;
@@ -119,6 +116,10 @@ const Container = styled.section<ContainerProps>`
     width: 100%;
     max-width: ${StylesVars.maxWidth}px;
     margin: 0 auto;
+  }
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    position: relative;
+    top: 0;
   }
 `;
 
@@ -138,7 +139,7 @@ const ImageOrderList = styled.ol`
 
 const imageSectionNarrowLayouts: ImageSliderLayoutType[] = [
   {
-    size: 300,
+    size: Number(StylesVars.imageSliderLargeHeight),
     style: {
       ImageList: {
         bgPosition: 0,
@@ -189,7 +190,7 @@ const imageSectionNarrowLayouts: ImageSliderLayoutType[] = [
     },
   },
   {
-    size: 120,
+    size: Number(StylesVars.imageSliderSmallHeight),
     style: {
       ImageList: {
         bgPosition: 0,
@@ -243,7 +244,7 @@ const imageSectionNarrowLayouts: ImageSliderLayoutType[] = [
 
 const imageSectionLayouts: ImageSliderLayoutType[] = [
   {
-    size: 300,
+    size: Number(StylesVars.imageSliderLargeHeight),
     style: {
       ImageList: {
         bgPosition: 60,
@@ -274,7 +275,7 @@ const imageSectionLayouts: ImageSliderLayoutType[] = [
       },
       ImageListDesc: {
         display: 'block',
-        height: 'auto',
+        height: '100px',
         paddingTop: '0px',
         paddingRight: '0px',
         paddingBottom: '0px',
@@ -294,7 +295,7 @@ const imageSectionLayouts: ImageSliderLayoutType[] = [
     },
   },
   {
-    size: 120,
+    size: Number(StylesVars.imageSliderSmallHeight),
     style: {
       ImageList: {
         bgPosition: 10,

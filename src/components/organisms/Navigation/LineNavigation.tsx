@@ -20,7 +20,7 @@ type Props = {
 const navigationScrollClassName = 'navigationScroll';
 
 const LineNavigation: FunctionComponent<Props> = (props: Props) => {
-  const { lineNavScrollWidth, setLineNavScrollWidth, categories, isFixedSmallNav, redirectTo } = props;
+  const { isSpLayout, lineNavScrollWidth, setLineNavScrollWidth, categories, isFixedSmallNav, redirectTo } = props;
   const [mktType] = useRecoilState(MktTypeState);
   const [category] = useRecoilState(CategoryState);
   const setNavScrollIndex = React.useState(0)[1];
@@ -72,14 +72,14 @@ const LineNavigation: FunctionComponent<Props> = (props: Props) => {
   }, [lineNavScrollWidth, category]);
 
   return (
-    <Container isFixedSmallNav={isFixedSmallNav}>
+    <Container isSpLayout={isSpLayout} isFixedSmallNav={isFixedSmallNav}>
       <ul className={navigationScrollClassName} onScroll={onScroll}>
         {menus.map((menu, i) => {
           const key = menu.label + String(i);
           const className = menu.category === category ? 'active' : '';
           return (
             <li key={key} className={className}>
-              <button>
+              <button onClick={() => redirectTo(mktType, menu.category)}>
                 <label>{menu.label}</label>
               </button>
               <div className='lamp'>&nbsp;</div>
@@ -94,13 +94,14 @@ const LineNavigation: FunctionComponent<Props> = (props: Props) => {
 export default LineNavigation;
 
 type ContainerProps = {
+  isSpLayout: boolean;
   isFixedSmallNav: boolean;
 };
 
 const Container = styled.nav<ContainerProps>`
-  position: ${(props) => (props.isFixedSmallNav ? 'fixed' : 'relative')};
-  top: ${(props) => (props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
-  z-index: 91;
+  position: ${(props) => (props.isSpLayout ? 'relative' : props.isFixedSmallNav ? 'fixed' : 'relative')};
+  top: ${(props) => (props.isSpLayout ? 0 : props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
+  z-index: 1;
   width: 100%;
   height: 30px;
   overflow-x: scroll;
@@ -134,6 +135,7 @@ const Container = styled.nav<ContainerProps>`
     outline: 0;
     @media (max-width: ${StylesVars.spLayoutWidth}px) {
       width: 80%;
+      font-size: 12px;
     }
     @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
       width: 60%;

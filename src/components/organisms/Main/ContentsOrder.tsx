@@ -2,22 +2,21 @@ import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
 import { ContentsValueType, ContentsValuesType } from 'schema';
-import { UrlState } from 'state';
+import { ActiveContentState } from 'state';
 import styled from 'styled-components';
 
 import ContentsList from 'components/molecules/ContentsList';
-import StylesVars from 'styles/StylesVars';
 
 type Props = {
   contents: ContentsValuesType;
-  handleOnClickContents: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => void;
+  handleOnClickContents: (e: React.MouseEvent<HTMLElement, MouseEvent>, index: number) => void;
 };
 
 const ContentsOrder: FunctionComponent<Props> = (props: Props) => {
-  const [url] = useRecoilState(UrlState);
+  const [activeContent] = useRecoilState(ActiveContentState);
   const { contents, handleOnClickContents } = props;
   return (
-    <Container url={url}>
+    <Container>
       {Array.from(contents).map((content: ContentsValueType, index: number) => (
         <ContentsList
           key={`${content.url}_${index}`}
@@ -25,7 +24,7 @@ const ContentsOrder: FunctionComponent<Props> = (props: Props) => {
           url={content.url}
           imageUrl={content.image?.thumbnail.contentUrl}
           datePublished={content.datePublished}
-          active={content.url === url}
+          active={content.url === activeContent.url}
           onClick={(e) => handleOnClickContents(e, index)}
         />
       ))}
@@ -35,21 +34,8 @@ const ContentsOrder: FunctionComponent<Props> = (props: Props) => {
 
 export default ContentsOrder;
 
-type RankSectionPropsType = {
-  url: string;
-};
-
-const Container = styled.ol<RankSectionPropsType>`
-  height: 800px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  background: #ddd;
-  scroll-snap-align: center;
-  @media (max-width: ${StylesVars.spLayoutWidth}px) {
-    width: 100%;
-    min-width: 100%;
-  }
-  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
-    width: 50%;
-  }
+const Container = styled.ol`
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 `;

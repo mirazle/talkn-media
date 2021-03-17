@@ -1,40 +1,42 @@
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
-import { UrlState } from 'state';
+import { ActiveContentState } from 'state';
 import styled from 'styled-components';
 
 import NoSsr from 'components/atoms/NoSsr';
 import StylesVars from 'styles/StylesVars';
 
 type Props = {
+  title: string;
   isSpLayout: boolean;
-  threadOnlyMode: boolean;
   talknPostFixed: boolean;
-  talknPostTranslateY: string;
-  talknPostRight: string;
-  talknPostWidth: string;
+  talknPostTranslateY: number;
+  talknPostRight: number;
+  talknPostWidth: number;
 };
 
 const Thread: FunctionComponent<Props> = (props: Props) => {
-  const url = useRecoilState(UrlState)[0];
-  if (url === '') {
-    return <NoSsr />;
+  const [activeContent] = useRecoilState(ActiveContentState);
+  if (activeContent.url === '') {
+    return null;
   } else {
-    const { isSpLayout, threadOnlyMode, talknPostFixed, talknPostTranslateY, talknPostRight, talknPostWidth } = props;
+    const { title, isSpLayout, talknPostFixed, talknPostTranslateY, talknPostRight, talknPostWidth } = props;
     return (
-      <NoSsr>
-        <Container data-url={url} id='talknLiveMedia' />
-        <TalknPostWrap
-          id='talknLiveMediaPost'
-          isSpLayout={isSpLayout}
-          threadOnlyMode={threadOnlyMode}
-          fixed={talknPostFixed}
-          translateY={talknPostTranslateY}
-          right={talknPostRight}
-          width={talknPostWidth}
-        />
-      </NoSsr>
+      <Container>
+        <NoSsr>
+          <SpTitle isSpLayout={isSpLayout}>{title}</SpTitle>
+          <IframeContainer data-url={activeContent.url} id='talknLiveMedia' />
+          <TalknPostWrap
+            id='talknLiveMediaPost'
+            isSpLayout={isSpLayout}
+            fixed={talknPostFixed}
+            translateY={talknPostTranslateY}
+            right={talknPostRight}
+            width={talknPostWidth}
+          />
+        </NoSsr>
+      </Container>
     );
   }
 };
@@ -63,39 +65,73 @@ export const getTalknPostLayout = (
   return { width, right };
 };
 
-type TalknEmbedProps = {
-  'data-url': string;
-};
-
-const Container = styled.div<TalknEmbedProps>`
-  height: 800px;
-  padding-bottom: 60px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-snap-align: center;
+const Container = styled.div`
+  overflow: hidden;
   @media (max-width: ${StylesVars.spLayoutWidth}px) {
     width: 100%;
     min-width: 100%;
+    height: inherit;
+    background: #fff;
+    scroll-snap-align: start;
   }
   @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     width: 50%;
+    height: 100%;
+  }
+`;
+
+type IframeContainerProps = {
+  'data-url': string;
+};
+
+const IframeContainer = styled.div<IframeContainerProps>`
+  width: 100%;
+  overflow: hidden;
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    height: calc(100vh - ${Number(StylesVars.baseHeight) * 2}px);
+    scroll-snap-align: start;
+  }
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    height: 100%;
+  }
+`;
+
+type SpTitleType = {
+  isSpLayout: boolean;
+};
+
+const SpTitle = styled.div<SpTitleType>`
+  position: relative;
+  width: 100%;
+  height: ${Number(StylesVars.baseHeight) / 2}px;
+  padding: 0 15px;
+  overflow: hidden;
+  text-align: center;
+  word-break: break-word;
+  white-space: nowrap;
+  background: #fff;
+  border-bottom: 1px solid ${StylesVars.markupColor};
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    display: block;
+  }
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    display: none;
   }
 `;
 
 type TalknPostPropsType = {
   isSpLayout: boolean;
-  threadOnlyMode: boolean;
   fixed: boolean;
-  translateY: string;
-  right: string;
-  width: string;
+  translateY: number;
+  right: number;
+  width: number;
 };
 
 const TalknPostWrap = styled.div<TalknPostPropsType>`
   position: ${(props) => (props.fixed ? 'fixed' : 'absolute')};
-  top: ${(props) => (props.fixed ? 'unset' : '1050')}px;
+  top: ${(props) => (props.fixed ? 'unset' : StylesVars.talknPostScrollTop)}px;
   right: ${(props) => props.right}px;
-  bottom: ${(props) => (props.fixed ? '0' : 'unset')};
+  bottom: ${(props) => (props.fixed ? '0px' : 'unset')};
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -105,9 +141,9 @@ const TalknPostWrap = styled.div<TalknPostPropsType>`
   height: ${Number(StylesVars.baseHeight)}px;
   color: #000;
   background: rgba(255, 255, 255, 0.96);
-  border-top: 1px solid ${StylesVars.bgColor};
-  border-right: ${(props) => (props.isSpLayout ? 0 : `1px solid ${StylesVars.bgColor}`)};
-  border-left: ${(props) => (props.isSpLayout ? 0 : `1px solid ${StylesVars.bgColor}`)};
+  border-top: 1px solid ${StylesVars.markupColor};
+  border-right: ${(props) => (props.isSpLayout ? 0 : `1px solid ${StylesVars.markupColor}`)};
+  border-left: ${(props) => (props.isSpLayout ? 0 : `1px solid ${StylesVars.markupColor}`)};
   border-radius: ${(props) => (props.isSpLayout ? 0 : '7px 7px 0 0')};
   transform: translateY(${(props) => (props.isSpLayout ? props.translateY : 0)}px);
 `;

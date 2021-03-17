@@ -2,6 +2,22 @@
 
 $maxWidth: 1070;
 $baseHeight: 60;
+
+$headerHeight: $baseHeight;
+$lineNavHeight: $baseHeight / 2;
+$boxNavHeight: $baseHeight * 2;
+$imageSliderLargeHeight: $baseHeight * 5;
+$imageSliderSmallHeight: $baseHeight * 2;
+$switchSmallNavScrollY: $headerHeight + $lineNavHeight;
+$mainMinHeight: $headerHeight + $boxNavHeight + $imageSliderLargeHeight;
+
+// calc.
+$mainLargeMarginTop: $headerHeight + $boxNavHeight + $imageSliderLargeHeight;
+$mainLargeFixedMarginTop: $headerHeight + $lineNavHeight + $imageSliderSmallHeight + $switchSmallNavScrollY;
+$mainSmallMarginTop: $headerHeight + $lineNavHeight + $imageSliderSmallHeight;
+$footerScrollTop: 1068;
+$advertWrapSize: 300;
+$talknPostScrollTop: 1068;
 $topImageSectionDefaultHeight: 300;
 
 // zindex
@@ -35,29 +51,10 @@ $keycolor: #3475cc;
 $txt_color: #333;
 $emtxt_color: #000;
 
-// bg, border
-$base_background: #fff;
-$gray_background: #f8f8f8;
-$coverage_background: #f5f9ff;
-$default_shadow: rgba(0, 0, 0, 0.05);
-$default_card_shadow: rgba(0, 0, 0, 0.1);
-
-$table_border: #ebebeb;
-$th_background: #f7f7f7;
-
-$list_txt_color: #595959;
-$list_background: #f9f9f9;
-$list_border: #d5d5d5;
-$list_border_light: #f0f0f0;
-
-$list_txt_color_for_bgdark: #b3b3b3;
-
-$modal_overlay: rgba(0, 0, 0, 0.7);
-
 // black and white
 $white: #fff;
 $black: #000;
 
-$bgColor: #ddd;
+$markupColor: #ddd;
 $borderColor: #ede;
 $themeColor: rgb(79, 174, 159);
