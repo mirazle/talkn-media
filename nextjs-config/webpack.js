@@ -14,8 +14,6 @@ module.exports = (config, { buildId, dev, isServer, defaultLoaders, webpack }) =
     }),
   );
 
-  config.target = 'node';
-
   config.module.rules.push(
     {
       test: /\.html$/i,
