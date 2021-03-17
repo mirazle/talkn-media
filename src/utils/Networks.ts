@@ -1,5 +1,5 @@
 import mediaTypes from 'json/mediaTypes.json';
-
+console.log(mediaTypes);
 const env = process.env['ENVIROMENT'];
 export const localhost = 'localhost';
 export const producthost = 'talkn.io';
