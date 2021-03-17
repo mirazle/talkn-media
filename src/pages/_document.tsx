@@ -43,7 +43,7 @@ class CustomDocument extends Document {
       <Html lang='ja'>
         {/* NOTE: cannot write prefix in next/head */}
         <Head prefix='og: http://ogp.me/ns#'>
-          <meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no' />
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
           {this.ServiceWorker}
           {this.TalknExtScripts}
           {/*
@@ -67,7 +67,7 @@ class CustomDocument extends Document {
 
   private TalknExtScripts = (
     // eslint-disable-next-line react/jsx-curly-brace-presence
-    <script async type='text/javascript' data-mode={'LiveMedia'} src={`//ext.${talknScriptHost}`} />
+    <script async type='text/javascript' data-mode={'LiveMedia'} src={`https://ext.${talknScriptHost}`} />
   );
 
   /**

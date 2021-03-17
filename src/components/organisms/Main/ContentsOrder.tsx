@@ -9,7 +9,7 @@ import ContentsList from 'components/molecules/ContentsList';
 
 type Props = {
   contents: ContentsValuesType;
-  handleOnClickContents: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number) => void;
+  handleOnClickContents: (e: React.MouseEvent<HTMLElement, MouseEvent>, index: number) => void;
 };
 
 const ContentsOrder: FunctionComponent<Props> = (props: Props) => {
@@ -36,6 +36,6 @@ export default ContentsOrder;
 
 const Container = styled.ol`
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 `;

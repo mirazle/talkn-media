@@ -4,6 +4,7 @@ import type { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 import StylesVars from 'styles/StylesVars';
+import { LocalStorageKeys } from 'utils/Constants';
 
 export type ImageSliderLayoutType = {
   size: number;
@@ -68,8 +69,12 @@ type Props = {
 
 const ImageSliderList: FunctionComponent<Props> = (props: Props) => {
   const { name, description, provider, url, layout, bg } = props;
+  const handleOnClick = () => {
+    location.href = url;
+    localStorage.setItem(LocalStorageKeys.url, url);
+  };
   return (
-    <Container data-url={url}>
+    <Container data-url={url} onClick={handleOnClick}>
       <ImageListBackground href={url} bg={bg} layout={layout.style.ImageList}>
         <ImageListContent layout={layout.style.ImageListContent}>
           <ImageListContentUpper layout={layout.style.ImageListContentUpper}>
@@ -129,11 +134,13 @@ const ImageListBackground = styled.a<ImageListBackgroundPropsType>`
   ${(props) =>
     props.bg ? `background: #000 url(${props.bg}) ${props.layout?.bgPosition}px / contain no-repeat;` : 'background: #000;'}
   transition: ${StylesVars.transitionDuration};
-  &:hover {
-    transform: scale(1.02);
-    .provider {
-      color: #000;
-      background: #fff;
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    &:hover {
+      transform: scale(1.02);
+      .provider {
+        color: #000;
+        background: #fff;
+      }
     }
   }
 `;
@@ -201,10 +208,12 @@ type ImageListTitlePropsType = {
 
 const ImageListTitle = styled.div<ImageListTitlePropsType>`
   width: 100%;
+  height: 50px;
   margin-top: ${(props) => props.layout.marginTop};
   margin-right: ${(props) => props.layout.marginRight};
   margin-bottom: ${(props) => props.layout.marginBottom};
   margin-left: ${(props) => props.layout.marginLeft};
+  overflow: hidden;
   font-size: ${(props) => props.layout.fontSize};
   font-weight: 600;
 `;

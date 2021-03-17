@@ -5,6 +5,7 @@ import { Category, NewsSitemap } from 'schema/NewsSitemap';
 import styled from 'styled-components';
 
 import BoxList from 'components/molecules/BoxList';
+import StylesVars from 'styles/StylesVars';
 
 type Props = {
   mktType: string;
@@ -12,7 +13,7 @@ type Props = {
   redirectTo: (mktType: string, category: string) => Promise<boolean>;
 };
 
-const Sitemap: FunctionComponent<Props> = (props: Props) => {
+const SitemapSection: FunctionComponent<Props> = (props: Props) => {
   const { mktType, category, redirectTo } = props;
   const siteMap = sitemap as NewsSitemap[];
   return (
@@ -42,9 +43,9 @@ const Sitemap: FunctionComponent<Props> = (props: Props) => {
   );
 };
 
-export default Sitemap;
+export default SitemapSection;
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
@@ -52,6 +53,12 @@ const Container = styled.div`
   width: 100%;
   padding: 20px;
   margin: 0 auto;
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    padding: 20px 0;
+  }
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    padding: 20px;
+  }
   h3 {
     width: 100%;
     margin: 20px 0;
@@ -63,6 +70,12 @@ const Container = styled.div`
     min-width: 180px;
     margin: 10px;
     text-align: center;
+    @media (max-width: ${StylesVars.spLayoutWidth}px) {
+      min-width: 160px;
+    }
+    @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+      min-width: 180px;
+    }
   }
   li {
     margin: 10px;

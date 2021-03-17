@@ -16,12 +16,10 @@ import Header from 'components/organisms/Header';
 import { getTalknPostLayout } from 'components/organisms/Main/Thread';
 import StylesVars from 'styles/StylesVars';
 import { LocalStorageKeys } from 'utils/Constants';
-import { urlToCh } from 'utils/Func';
+import { getIsSpLayout, updateBaseLayout, urlToCh } from 'utils/Func';
 import { talknScriptHost } from 'utils/Networks';
 
 const navigationScrollClassName = 'navigationScroll';
-const talknPostScrollTop = 1013;
-const footerScrollTop = 1050;
 
 const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const router = useRouter();
@@ -36,12 +34,13 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const [isSpLayout, setIsSpLayout] = useState(false);
   const [isMaxLayout, setIsMaxLayout] = useState(false);
   const [isFixedSmallNav, setFixedSmallNav] = useState(false);
-  const [openSelectContentsOrder, setOpenSelectContentsOrder] = React.useState(false);
-  const [lineNavScrollWidth, setLineNavScrollWidth] = React.useState(0);
+  const [openSelectMediaTypeOrder, setOpenSelectMediaTypeOrder] = useState(false);
+  const [windowInnerHeight, setWindowInnerHeight] = useState(0);
+  const [lineNavScrollWidth, setLineNavScrollWidth] = useState(0);
 
   // layout talkn post footer TODO: 直す
-  const [talknPostWidth, setTalknPostWidth] = useState(String(0));
-  const [talknPostRight, setTalknPostRight] = useState(String(0));
+  const [talknPostWidth, setTalknPostWidth] = useState(0);
+  const [talknPostRight, setTalknPostRight] = useState(0);
   const [talknPostFixed, setTalknPostFixed] = useState(true);
   const [isDispFooter, setIsDispFooter] = useState(false);
 
@@ -62,38 +61,45 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   };
 
   const redirectTo = async (mktType: string, category: string): Promise<boolean> => {
-    setOpenSelectContentsOrder(false);
+    setOpenSelectMediaTypeOrder(false);
+    setIsDispFooter(false);
     return await router.push(`/${mktType}/${category}`);
   };
 
   const windowEvents = {
     load: React.useCallback(() => {
-      const _isSpLayout = window.innerWidth < Number(StylesVars.spLayoutWidth);
+      const _isSpLayout = getIsSpLayout();
+      const _fixedSmallNav = window.scrollY > Number(StylesVars.switchSmallNavScrollY);
+      setWindowInnerHeight(window.innerHeight);
       setIsSpLayout(_isSpLayout);
-      setFixedSmallNav(_isSpLayout);
+      setFixedSmallNav(_fixedSmallNav || _isSpLayout);
     }, []),
     scroll: React.useCallback(() => {
-      const _isSpLayout = window.innerWidth < Number(StylesVars.spLayoutWidth);
-      const windowScrollY = window.scrollY >= 90;
+      const _isSpLayout = getIsSpLayout();
+      const _fixedSmallNav = window.scrollY > Number(StylesVars.switchSmallNavScrollY);
       setIsSpLayout(_isSpLayout);
-      setFixedSmallNav(windowScrollY || _isSpLayout);
-      setTalknPostFixed(window.scrollY + window.innerHeight <= talknPostScrollTop);
-      setIsDispFooter(window.scrollY >= footerScrollTop);
+      setFixedSmallNav(_fixedSmallNav || _isSpLayout);
+      setTalknPostFixed(window.scrollY + window.innerHeight <= Number(StylesVars.talknPostScrollTop));
+      setIsDispFooter(window.scrollY >= Number(StylesVars.footerScrollTop));
     }, []),
     resize: React.useCallback(() => {
       const navigationScroll = document.querySelector(`.${navigationScrollClassName}`);
-      const windowScrollY = window.scrollY >= 90;
-      const _isSpLayout = window.innerWidth < Number(StylesVars.spLayoutWidth);
+      const _fixedSmallNav = window.scrollY > Number(StylesVars.switchSmallNavScrollY);
+      const _isSpLayout = getIsSpLayout();
       const _isMaxLayout = Number(StylesVars.maxWidth) < window.innerWidth;
+      setWindowInnerHeight(window.innerHeight);
       setIsSpLayout(_isSpLayout);
-      setFixedSmallNav(windowScrollY || _isSpLayout);
+      setFixedSmallNav(_fixedSmallNav || _isSpLayout);
       setIsMaxLayout(_isMaxLayout);
       const { width, right } = getTalknPostLayout(window.innerWidth, _isMaxLayout, _isSpLayout);
-      setTalknPostWidth(String(width));
-      setTalknPostRight(String(right));
+      setTalknPostWidth(width);
+      setTalknPostRight(right);
       if (navigationScroll) {
         setLineNavScrollWidth(navigationScroll.scrollWidth);
       }
+
+      // base scroll.
+      updateBaseLayout(_isSpLayout);
     }, []),
   };
 
@@ -129,9 +135,12 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       const findIndex = props.contents.findIndex((content) => content.url === props.url);
       updateActiveContent(props.contents[findIndex]);
     }
+    console.log(cacheUrl);
     if (cacheUrl && activeContent.url !== cacheUrl) {
       const _findIndex = props.contents.findIndex((content) => content.url === cacheUrl);
       const findIndex = _findIndex === -1 ? 0 : _findIndex;
+      console.log(findIndex);
+      console.log(props.contents);
       updateActiveContent(props.contents[findIndex]);
     }
   }, [props.contents, props.mktType, props.category, props.url]);
@@ -142,13 +151,15 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   }, [activeContent.url]);
 
   return (
-    <Container>
+    <Container isSpLayout={isSpLayout} windowInnerHeight={windowInnerHeight}>
       <Header
         isMaxLayout={isMaxLayout}
         isFixedSmallNav={isFixedSmallNav}
         isDispFooter={isDispFooter}
-        openSelectContentsOrder={openSelectContentsOrder}
-        setOpenSelectContentsOrder={setOpenSelectContentsOrder}
+        isSpLayout={isSpLayout}
+        openSelectMediaTypeOrder={openSelectMediaTypeOrder}
+        setIsDispFooter={setIsDispFooter}
+        setOpenSelectMediaTypeOrder={setOpenSelectMediaTypeOrder}
       />
       <Body>
         <AdvertWrap>
@@ -159,6 +170,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
           isFixedSmallNav={isFixedSmallNav}
           contents={contents}
           lineNavScrollWidth={lineNavScrollWidth}
+          windowInnerHeight={windowInnerHeight}
           talknPostFixed={talknPostFixed}
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
@@ -170,7 +182,12 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
           <Advert />
         </AdvertWrap>
       </Body>
-      <Footer mktType={mktType} category={category} redirectTo={redirectTo} />
+      <Footer
+        isSpLayout={isSpLayout}
+        isDispFooter={isDispFooter}
+        windowInnerHeight={windowInnerHeight}
+        redirectTo={redirectTo}
+      />
     </Container>
   );
 };
@@ -179,25 +196,36 @@ export default TalknMedia;
 
 export const getServerSideProps: GetServerSideProps<ReturnServiceType, UrlParamsType> = getServerSidePropsWrap;
 
-const AdvertWrapSize = 300;
-const Container = styled.div`
+type ContainerPropsType = {
+  isSpLayout: boolean;
+  windowInnerHeight: number;
+};
+
+const Container = styled.div<ContainerPropsType>`
   width: 100%;
-  height: 100%;
   padding: 0;
   margin: 0 auto;
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    height: ${(props) => props.windowInnerHeight}px;
+    overflow: hidden;
+  }
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    height: 100%;
+    overflow: hidden;
+  }
 `;
 
 const Body = styled.div`
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
-  max-width: ${Number(StylesVars.maxWidth) + AdvertWrapSize * 2}px;
+  max-width: ${Number(StylesVars.maxWidth) + Number(StylesVars.advertWrapSize) * 2}px;
   margin: 0 auto;
 `;
 
 const AdvertWrap = styled.div`
   flex: 1;
-  max-width: ${AdvertWrapSize}px;
+  max-width: ${Number(StylesVars.advertWrapSize)}px;
   height: 800px;
   margin-top: 80px;
 `;

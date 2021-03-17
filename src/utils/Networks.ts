@@ -1,5 +1,6 @@
+import mediaTypes from 'json/mediaTypes.json';
+
 const env = process.env['ENVIROMENT'];
-console.log(env);
 export const localhost = 'localhost';
 export const producthost = 'talkn.io';
 export const talknScriptHost = env === 'development' ? localhost : producthost;
@@ -8,9 +9,22 @@ export const talknScriptHost = env === 'development' ? localhost : producthost;
 export const MediaTypeNews = 'news';
 export const MediaTypeTrend = 'trend';
 export const MediaTypeGirlsNews = 'girlsNews';
+export const MediaTypeApps = 'apps';
+export const MediaTypeMusic = 'music';
+export const MediaTypeVideo = 'video';
+export const MediaTypeBook = 'book';
 
-export type MediaTypes = typeof MediaTypeNews | typeof MediaTypeTrend | typeof MediaTypeGirlsNews;
+export type MediaTypeKeys =
+  | typeof MediaTypeNews
+  | typeof MediaTypeTrend
+  | typeof MediaTypeGirlsNews
+  | typeof MediaTypeApps
+  | typeof MediaTypeMusic
+  | typeof MediaTypeVideo
+  | typeof MediaTypeBook;
+
 export type NetworkType = {
+  label: string;
   method: 'GET' | 'POST';
   endpoint: string;
   headers: HeadersInit;
@@ -30,16 +44,18 @@ export type NetworkType = {
   https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market
 */
 const NetworkNews: NetworkType = {
+  label: 'News',
   method: 'GET',
-  endpoint: 'https://microsoft-azure-bing-news-search-v1.p.rapidapi.com/?',
+  endpoint: `https://${String(mediaTypes.news.endpointHost)}/?`,
   headers: {
-    'x-rapidapi-host': 'microsoft-azure-bing-news-search-v1.p.rapidapi.com',
-    'x-rapidapi-key': '2ca25813c0msh9db483c3530c143p1009bdjsnde50b6575cf1',
+    'x-rapidapi-host': String(mediaTypes.news.endpointHost),
+    'x-rapidapi-key': mediaTypes.news.endpointKey,
   },
   count: 50,
 };
 
 const NetworkTrend: NetworkType = {
+  label: 'Trend',
   method: 'GET',
   endpoint: '',
   headers: {},
@@ -47,18 +63,55 @@ const NetworkTrend: NetworkType = {
 };
 
 const NetworkGirlsNews: NetworkType = {
+  label: 'Girls News',
   method: 'GET',
   endpoint: '',
   headers: {},
   count: 50,
 };
 
-const Networks = {
+const NetworkApps: NetworkType = {
+  label: 'App Rank',
+  method: 'GET',
+  endpoint: '',
+  headers: {},
+  count: 50,
+};
+
+const NetworkMusic: NetworkType = {
+  label: 'Music Rank',
+  method: 'GET',
+  endpoint: '',
+  headers: {},
+  count: 50,
+};
+
+const NetworkVideo: NetworkType = {
+  label: 'Video Rank',
+  method: 'GET',
+  endpoint: '',
+  headers: {},
+  count: 50,
+};
+
+const NetworkBook: NetworkType = {
+  label: 'Book Rank',
+  method: 'GET',
+  endpoint: '',
+  headers: {},
+  count: 50,
+};
+
+export const NetworkList = {
   [MediaTypeNews]: NetworkNews,
   [MediaTypeTrend]: NetworkTrend,
   [MediaTypeGirlsNews]: NetworkGirlsNews,
+  [MediaTypeApps]: NetworkApps,
+  [MediaTypeMusic]: NetworkMusic,
+  [MediaTypeVideo]: NetworkVideo,
+  [MediaTypeBook]: NetworkBook,
 };
 
-export const getNetwork = (mediaType: MediaTypes): NetworkType => {
-  return Networks[mediaType];
+export const getNetwork = (mediaType: MediaTypeKeys): NetworkType => {
+  return NetworkList[mediaType];
 };

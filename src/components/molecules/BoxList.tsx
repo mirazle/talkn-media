@@ -68,8 +68,9 @@ const Container = styled.li<ContainerPropType>`
     width: 50%;
     max-width: 50px;
     height: 10px;
+    max-height: 10px;
     cursor: pointer;
-    background: ${(props) => (props.theme === ThemeGreen ? StylesVars.bgColor : 'rgba(155, 155, 155, 1)')};
+    background: ${(props) => (props.theme === ThemeGreen ? StylesVars.markupColor : 'rgba(155, 155, 155, 1)')};
     border-radius: 10px;
     transition: ${StylesVars.transitionDuration1};
   }

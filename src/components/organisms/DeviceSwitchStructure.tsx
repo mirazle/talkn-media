@@ -4,21 +4,25 @@ import { useRecoilState } from 'recoil';
 import { ContentsValueType, ContentsValuesType } from 'schema';
 import { ActiveContentState } from 'state';
 import styled from 'styled-components';
+import SweetScroll from 'sweet-scroll';
 
+import MessageSection from 'components/organisms/Footer/MessageSection';
 import ImageSlider from 'components/organisms/ImageSlider';
 import Main from 'components/organisms/Main';
 import ContentsOrder from 'components/organisms/Main/ContentsOrder';
 import Navigation from 'components/organisms/Navigation';
-import { scrollLeftAnimation } from 'utils/Animation';
+import StylesVars from 'styles/StylesVars';
+import { scrollOptions } from 'utils/Constants';
 
 type Props = {
   isFixedSmallNav: boolean;
   isSpLayout: boolean;
   contents: ContentsValuesType;
+  windowInnerHeight: number;
   lineNavScrollWidth: number;
   talknPostFixed: boolean;
-  talknPostRight: string;
-  talknPostWidth: string;
+  talknPostRight: number;
+  talknPostWidth: number;
   redirectTo: (mktType: string, category: string) => Promise<boolean>;
   updateActiveContent: (newContent: ContentsValueType) => void;
   setLineNavScrollWidth: React.Dispatch<React.SetStateAction<number>>;
@@ -26,11 +30,11 @@ type Props = {
 
 const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
   const [activeContent] = useRecoilState(ActiveContentState);
-  const [handScrollMode, setHandScrollMode] = React.useState(true);
   const {
     contents,
     isFixedSmallNav,
     lineNavScrollWidth,
+    windowInnerHeight,
     setLineNavScrollWidth,
     redirectTo,
     updateActiveContent,
@@ -41,26 +45,26 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
   } = props;
 
   // handle on
-  const handleOnClickContents = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, index: number): void => {
+  const handleOnClickContents = (e: React.MouseEvent<HTMLElement, MouseEvent>, index: number): void => {
     const parentElement = (e.target as HTMLButtonElement).parentElement;
     const clickedUrl = String(parentElement?.dataset.url);
-    const imageScroll = document.querySelector('.imageSlider ol');
-    const main = document.querySelector('main');
-
     if (clickedUrl !== activeContent.url) {
       const findIndex = props.contents.findIndex((content) => content.url === clickedUrl);
       updateActiveContent(props.contents[findIndex]);
     }
 
+    const imageScroll = document.querySelector('.imageSlider ol');
+    const main = document.querySelector('main');
     imageScroll?.scroll(imageScroll.clientWidth * index, 0);
     if (main && main.scrollLeft === 0) {
-      scrollLeftAnimation(main, main.scrollWidth, setHandScrollMode);
+      const scroller = new SweetScroll(scrollOptions, main);
+      scroller.to({ left: main.scrollWidth / 2 });
     }
   };
 
   const renderPc = () => {
     return (
-      <Container>
+      <Container windowInnerHeight={windowInnerHeight}>
         <Navigation
           isSpLayout={isSpLayout}
           isFixedSmallNav={isFixedSmallNav}
@@ -78,7 +82,7 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
           isFixedSmallNav={isFixedSmallNav}
           isSpLayout={isSpLayout}
           contents={contents}
-          handScrollMode={handScrollMode}
+          windowInnerHeight={windowInnerHeight}
           talknPostFixed={talknPostFixed}
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
@@ -90,12 +94,12 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
 
   const renderSp = () => {
     return (
-      <Container>
+      <Container windowInnerHeight={windowInnerHeight}>
         <Main
           isFixedSmallNav={isFixedSmallNav}
           isSpLayout={isSpLayout}
           contents={contents}
-          handScrollMode={handScrollMode}
+          windowInnerHeight={windowInnerHeight}
           talknPostFixed={talknPostFixed}
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
@@ -115,6 +119,7 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
                 updateActiveContent={updateActiveContent}
               />
               <ContentsOrder contents={contents} handleOnClickContents={handleOnClickContents} />
+              <MessageSection />
             </>
           }
         />
@@ -127,9 +132,20 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
 
 export default DeviceSwitchStructure;
 
-const Container = styled.div`
+type ContainerPropsType = {
+  windowInnerHeight: number;
+};
+
+const Container = styled.div<ContainerPropsType>`
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  height: 100%;
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    height: ${(props) => props.windowInnerHeight}px;
+    overflow: hidden;
+  }
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    height: 100%;
+    overflow: hidden;
+  }
 `;

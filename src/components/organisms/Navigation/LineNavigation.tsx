@@ -79,7 +79,7 @@ const LineNavigation: FunctionComponent<Props> = (props: Props) => {
           const className = menu.category === category ? 'active' : '';
           return (
             <li key={key} className={className}>
-              <button>
+              <button onClick={() => redirectTo(mktType, menu.category)}>
                 <label>{menu.label}</label>
               </button>
               <div className='lamp'>&nbsp;</div>
@@ -101,7 +101,7 @@ type ContainerProps = {
 const Container = styled.nav<ContainerProps>`
   position: ${(props) => (props.isSpLayout ? 'relative' : props.isFixedSmallNav ? 'fixed' : 'relative')};
   top: ${(props) => (props.isSpLayout ? 0 : props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
-  z-index: 91;
+  z-index: 1;
   width: 100%;
   height: 30px;
   overflow-x: scroll;
@@ -135,6 +135,7 @@ const Container = styled.nav<ContainerProps>`
     outline: 0;
     @media (max-width: ${StylesVars.spLayoutWidth}px) {
       width: 80%;
+      font-size: 12px;
     }
     @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
       width: 60%;

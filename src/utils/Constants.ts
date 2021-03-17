@@ -10,3 +10,9 @@ export const LocalStorageKeys = {
 export const SessionStorageKeys = {
   scroll: 'talknScroll',
 };
+
+export const scrollOptions = {
+  horizontal: true,
+  duration: 400,
+  easing: 'linear',
+};

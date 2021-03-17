@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import NodeCache from 'node-cache';
 import { ContentsCacheType, ContentsType, ContentsValueType, ContentsValuesType } from 'schema';
 
-import { MediaTypes, getNetwork } from 'utils/Networks';
+import { MediaTypeKeys, getNetwork } from 'utils/Networks';
 import { validUrlParams } from 'utils/Sitemap';
 
 const myCache = new NodeCache();
@@ -10,7 +10,7 @@ const defaultMediaType = String(process.env['DEFAULT_MEDIA_TYPE']);
 const defaultMktType = String(process.env['DEFAULT_MKT_TYPE']);
 const defaultCategory = String(process.env['DEFAULT_CATEGORY']);
 const defaultUrl = '';
-const { endpoint, method, headers, count } = getNetwork(defaultMediaType as MediaTypes);
+const { endpoint, method, headers, count } = getNetwork(defaultMediaType as MediaTypeKeys);
 const requestOption = { method, headers };
 const keepContentsSecond = Number(process.env.KEEP_CONTENTS_SECOND) * 1000;
 const keepContentsCnt = Number(process.env['KEEP_CONTENTS_CNT']);

@@ -1,48 +1,80 @@
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
-import { MktTypeState } from 'state';
+import { ActiveContentState, MktTypeState } from 'state';
 import styled from 'styled-components';
+import SweetScroll from 'sweet-scroll';
 
-import SelectContentsOrder from 'components/organisms/Header/SelectContentsOrder';
+import LiveCnt from 'components/atoms/LiveCnt';
+import SelectMediaTypeOrder from 'components/organisms/Header/SelectMediaTypeOrder';
 import StylesVars from 'styles/StylesVars';
 import { scrollWindowTopAnimation } from 'utils/Animation';
+import { scrollOptions } from 'utils/Constants';
+import { urlToCh } from 'utils/Func';
 import { talknScriptHost } from 'utils/Networks';
-
-const dispFooterScrollTop = 1050;
-const defaultMediaType = String(process.env['DEFAULT_MEDIA_TYPE']);
 
 type Props = {
   isMaxLayout: boolean;
   isFixedSmallNav: boolean;
   isDispFooter: boolean;
-  openSelectContentsOrder: boolean;
-  setOpenSelectContentsOrder: React.Dispatch<React.SetStateAction<boolean>>;
+  isSpLayout: boolean;
+  openSelectMediaTypeOrder: boolean;
+  setIsDispFooter: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenSelectMediaTypeOrder: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Header: FunctionComponent<Props> = (props: Props) => {
   const [mktType] = useRecoilState(MktTypeState);
-  const { openSelectContentsOrder, setOpenSelectContentsOrder, isMaxLayout, isFixedSmallNav, isDispFooter } = props;
+  const activeContent = useRecoilState(ActiveContentState)[0];
+  const {
+    openSelectMediaTypeOrder,
+    setIsDispFooter,
+    setOpenSelectMediaTypeOrder,
+    isSpLayout,
+    isMaxLayout,
+    isFixedSmallNav,
+    isDispFooter,
+  } = props;
   const splitedMktType = mktType.split('-');
-  const scrollTo = isDispFooter ? 0 : dispFooterScrollTop;
+  const scrollTo = isDispFooter ? 0 : Number(StylesVars.footerScrollTop);
   const arrowMark = isDispFooter ? '▲' : '▼';
+  const handleOnClickBack = () => {
+    const main = document.querySelector('main') as HTMLElement;
+    const scrollLeft = main?.scrollLeft || 0;
+    if (scrollLeft === 0) {
+      const ch = urlToCh(activeContent.url);
+      location.href = `https://${talknScriptHost}${ch}`;
+    } else {
+      const scroller = new SweetScroll(scrollOptions, main);
+      scroller.to({ left: 0 });
+    }
+  };
+  const handleOnClickAppName = () => {
+    if (isSpLayout) {
+      setIsDispFooter(!isDispFooter);
+    } else {
+      scrollWindowTopAnimation(scrollTo);
+    }
+  };
+
   return (
     <Container isFixedSmallNav={isFixedSmallNav}>
-      <SelectContentsOrder openSelectContentsOrder={openSelectContentsOrder} isMaxLayout={isMaxLayout} />
+      <SelectMediaTypeOrder openSelectMediaTypeOrder={openSelectMediaTypeOrder} isMaxLayout={isMaxLayout} />
       <HeaderContent>
         <MenuWrap>
-          <BackAnchor href={`https://${talknScriptHost}/${defaultMediaType}.talkn.io/`}>
+          <BackAnchor onClick={handleOnClickBack}>
             <Back />
           </BackAnchor>
         </MenuWrap>
-        <AppName isDispFooter={isDispFooter} onClick={() => scrollWindowTopAnimation(scrollTo)}>
+        <AppName isDispFooter={isDispFooter} onClick={handleOnClickAppName}>
           <TalknLabel>talkn</TalknLabel>
           <NewsLabel>news</NewsLabel>
           <CountryLabel>{`(${splitedMktType[1]})`}</CountryLabel>
           <span className='arrow'>{arrowMark}</span>
         </AppName>
         <MenuWrap>
-          <Menu onClick={() => setOpenSelectContentsOrder(!openSelectContentsOrder)} />
+          <Menu onClick={() => setOpenSelectMediaTypeOrder(!openSelectMediaTypeOrder)} />
+          <LiveCnt />
         </MenuWrap>
       </HeaderContent>
     </Container>
@@ -58,14 +90,14 @@ type ContainerPropsType = {
 const Container = styled.header<ContainerPropsType>`
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: ${StylesVars.baseHeight}px;
+  height: ${StylesVars.headerHeight}px;
   color: #000;
-  border-bottom: ${(props) => (props.isFixedSmallNav ? 0 : 1)}px solid ${StylesVars.bgColor};
+  border-bottom: ${(props) => (props.isFixedSmallNav ? 0 : 1)}px solid ${StylesVars.markupColor};
   div {
     flex: 1;
     text-align: center;
@@ -73,7 +105,7 @@ const Container = styled.header<ContainerPropsType>`
 `;
 
 const HeaderContent = styled.div`
-  z-index: 10;
+  z-index: 1;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -97,14 +129,16 @@ const AppName = styled.div<AppNamePropsType>`
     height: 10px;
     margin-left: 3px;
     font-size: 14px;
-    color: ${StylesVars.bgColor};
+    color: ${StylesVars.markupColor};
     content: '▼';
     transition: ${StylesVars.transitionDuration};
   }
-  &:hover {
-    transform: scale(1.03);
-    .arrow {
-      color: ${StylesVars.themeColor};
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    &:hover {
+      transform: scale(1.03);
+      .arrow {
+        color: ${StylesVars.themeColor};
+      }
     }
   }
 `;
@@ -138,6 +172,7 @@ const MenuWrap = styled.div`
 
 const Menu = styled.div`
   position: relative;
+  left: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,9 +191,9 @@ const Menu = styled.div`
     width: 8px;
     height: 8px;
     content: '';
-    background: ${StylesVars.bgColor};
+    background: ${StylesVars.markupColor};
     border-radius: 6px;
-    box-shadow: 0 12px 0 ${StylesVars.bgColor}, 0 24px 0 ${StylesVars.bgColor};
+    box-shadow: 0 12px 0 ${StylesVars.markupColor}, 0 24px 0 ${StylesVars.markupColor};
   }
 `;
 
@@ -189,7 +224,7 @@ const Back = styled.div`
     width: 14px;
     height: 4px;
     content: '';
-    background: ${StylesVars.bgColor};
+    background: ${StylesVars.markupColor};
     border-radius: 4px;
     transform: rotate(-45deg);
   }
@@ -200,7 +235,7 @@ const Back = styled.div`
     width: 14px;
     height: 4px;
     content: '';
-    background: ${StylesVars.bgColor};
+    background: ${StylesVars.markupColor};
     border-radius: 4px;
     transform: rotate(45deg);
   }

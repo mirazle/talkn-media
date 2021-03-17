@@ -99,14 +99,15 @@ type ContainerProps = {
 };
 
 const Container = styled.section<ContainerProps>`
-  position: ${(props) => (props.isSpLayout ? 'relative' : props.isFixedSmallNav ? 'fixed' : 'relative')};
-  top: ${(props) =>
-    props.isSpLayout ? 0 : props.isFixedSmallNav ? Number(StylesVars.baseHeight) + Number(StylesVars.baseHeight) / 2 : 0}px;
-  z-index: 80;
+  position: ${(props) => (props.isFixedSmallNav ? 'fixed' : 'relative')};
+  top: ${(props) => (props.isFixedSmallNav ? Number(StylesVars.baseHeight) + Number(StylesVars.baseHeight) / 2 : 0)}px;
+  z-index: 1;
   width: 100%;
-  height: ${(props) => (props.isFixedSmallNav ? Number(StylesVars.baseHeight) * 2 : Number(StylesVars.baseHeight) * 5)}px;
-  min-height: ${Number(StylesVars.baseHeight) * 2}px;
-  max-height: 300px;
+  height: ${(props) =>
+    props.isFixedSmallNav ? Number(StylesVars.imageSliderSmallHeight) : Number(StylesVars.imageSliderLargeHeight)}px;
+  min-height: ${(props) =>
+    props.isFixedSmallNav ? Number(StylesVars.imageSliderSmallHeight) : Number(StylesVars.imageSliderLargeHeight)}px;
+  max-height: ${Number(StylesVars.imageSliderLargeHeight)}px;
   margin: 0 auto;
   overflow: hidden;
   cursor: pointer;
@@ -115,6 +116,10 @@ const Container = styled.section<ContainerProps>`
     width: 100%;
     max-width: ${StylesVars.maxWidth}px;
     margin: 0 auto;
+  }
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    position: relative;
+    top: 0;
   }
 `;
 
@@ -134,7 +139,7 @@ const ImageOrderList = styled.ol`
 
 const imageSectionNarrowLayouts: ImageSliderLayoutType[] = [
   {
-    size: 300,
+    size: Number(StylesVars.imageSliderLargeHeight),
     style: {
       ImageList: {
         bgPosition: 0,
@@ -185,7 +190,7 @@ const imageSectionNarrowLayouts: ImageSliderLayoutType[] = [
     },
   },
   {
-    size: 120,
+    size: Number(StylesVars.imageSliderSmallHeight),
     style: {
       ImageList: {
         bgPosition: 0,
@@ -239,7 +244,7 @@ const imageSectionNarrowLayouts: ImageSliderLayoutType[] = [
 
 const imageSectionLayouts: ImageSliderLayoutType[] = [
   {
-    size: 300,
+    size: Number(StylesVars.imageSliderLargeHeight),
     style: {
       ImageList: {
         bgPosition: 60,
@@ -270,7 +275,7 @@ const imageSectionLayouts: ImageSliderLayoutType[] = [
       },
       ImageListDesc: {
         display: 'block',
-        height: 'auto',
+        height: '100px',
         paddingTop: '0px',
         paddingRight: '0px',
         paddingBottom: '0px',
@@ -290,7 +295,7 @@ const imageSectionLayouts: ImageSliderLayoutType[] = [
     },
   },
   {
-    size: 120,
+    size: Number(StylesVars.imageSliderSmallHeight),
     style: {
       ImageList: {
         bgPosition: 10,

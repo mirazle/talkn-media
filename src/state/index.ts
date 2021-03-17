@@ -18,7 +18,6 @@ export const LoadingState = getRecoilInitAtom({ key: 'LoadingState', default: fa
 export const MediaTypeState = getRecoilInitAtom({ key: 'mediaTypeState', default: defaultMediaType });
 export const MktTypeState = getRecoilInitAtom({ key: 'mktTypeState', default: defaultMktType });
 export const CategoryState = getRecoilInitAtom({ key: 'categoryState', default: '' });
-export const UrlState = getRecoilInitAtom({ key: 'urlState', default: '' });
 export const ActiveContentState = getRecoilInitAtom({
   key: 'activeContent',
   default: new ContentValueModel() as ContentsValueType,
