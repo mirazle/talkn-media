@@ -61,6 +61,7 @@ const Main: FunctionComponent<Props> = (props) => {
       <Thread
         title={activeContent.name}
         isSpLayout={isSpLayout}
+        windowInnerHeight={windowInnerHeight}
         talknPostTranslateY={talknPostTranslateY}
         talknPostFixed={talknPostFixed}
         talknPostRight={talknPostRight}
@@ -84,6 +85,8 @@ const Container = styled.main<ContainerPropsType>`
   flex-flow: row nowrap;
   width: 100%;
   overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   background: #fff;
   @media (max-width: ${StylesVars.spLayoutWidth}px) {
     max-width: 100%;

@@ -14,9 +14,10 @@ import DeviceSwitchStructure from 'components/organisms/DeviceSwitchStructure';
 import Footer from 'components/organisms/Footer';
 import Header from 'components/organisms/Header';
 import { getTalknPostLayout } from 'components/organisms/Main/Thread';
+import CommonHead from 'components/templates/CommonHead';
 import StylesVars from 'styles/StylesVars';
 import { LocalStorageKeys } from 'utils/Constants';
-import { getIsSpLayout, updateBaseLayout, urlToCh } from 'utils/Func';
+import { getIsSpLayout, getTalknPostFixed, updateBaseLayout, urlToCh } from 'utils/Func';
 import { talknScriptHost } from 'utils/Networks';
 
 const navigationScrollClassName = 'navigationScroll';
@@ -79,7 +80,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       const _fixedSmallNav = window.scrollY > Number(StylesVars.switchSmallNavScrollY);
       setIsSpLayout(_isSpLayout);
       setFixedSmallNav(_fixedSmallNav || _isSpLayout);
-      setTalknPostFixed(window.scrollY + window.innerHeight <= Number(StylesVars.talknPostScrollTop));
+      setTalknPostFixed(getTalknPostFixed(_isSpLayout, _fixedSmallNav));
       setIsDispFooter(window.scrollY >= Number(StylesVars.footerScrollTop));
     }, []),
     resize: React.useCallback(() => {
@@ -91,6 +92,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       setIsSpLayout(_isSpLayout);
       setFixedSmallNav(_fixedSmallNav || _isSpLayout);
       setIsMaxLayout(_isMaxLayout);
+      setTalknPostFixed(getTalknPostFixed(_isSpLayout, _fixedSmallNav));
       const { width, right } = getTalknPostLayout(window.innerWidth, _isMaxLayout, _isSpLayout);
       setTalknPostWidth(width);
       setTalknPostRight(right);
@@ -135,12 +137,10 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       const findIndex = props.contents.findIndex((content) => content.url === props.url);
       updateActiveContent(props.contents[findIndex]);
     }
-    console.log(cacheUrl);
+
     if (cacheUrl && activeContent.url !== cacheUrl) {
       const _findIndex = props.contents.findIndex((content) => content.url === cacheUrl);
       const findIndex = _findIndex === -1 ? 0 : _findIndex;
-      console.log(findIndex);
-      console.log(props.contents);
       updateActiveContent(props.contents[findIndex]);
     }
   }, [props.contents, props.mktType, props.category, props.url]);
@@ -151,44 +151,52 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   }, [activeContent.url]);
 
   return (
-    <Container isSpLayout={isSpLayout} windowInnerHeight={windowInnerHeight}>
-      <Header
-        isMaxLayout={isMaxLayout}
-        isFixedSmallNav={isFixedSmallNav}
-        isDispFooter={isDispFooter}
-        isSpLayout={isSpLayout}
-        openSelectMediaTypeOrder={openSelectMediaTypeOrder}
-        setIsDispFooter={setIsDispFooter}
-        setOpenSelectMediaTypeOrder={setOpenSelectMediaTypeOrder}
+    <>
+      <CommonHead
+        title='talkn news 〜 今日のニュースを誰かとすぐ話せる 〜 '
+        description='talkn newsはリアルタイムなコミニュケーションをしながらニュース閲覧出来るサイトです。今、閲覧しているニュースを「何人が見ているか」が分かるので、温度を保ったまま臨場感を持ってコミニュケーションを楽しめます。'
+        thumbnailUrl='/ogp/jp.png'
+        ogThumbnailUrl='/ogp/jp.png'
       />
-      <Body>
-        <AdvertWrap>
-          <Advert />
-        </AdvertWrap>
-        <DeviceSwitchStructure
-          isSpLayout={isSpLayout}
+      <Container isSpLayout={isSpLayout} windowInnerHeight={windowInnerHeight}>
+        <Header
+          isMaxLayout={isMaxLayout}
           isFixedSmallNav={isFixedSmallNav}
-          contents={contents}
-          lineNavScrollWidth={lineNavScrollWidth}
-          windowInnerHeight={windowInnerHeight}
-          talknPostFixed={talknPostFixed}
-          talknPostRight={talknPostRight}
-          talknPostWidth={talknPostWidth}
-          setLineNavScrollWidth={setLineNavScrollWidth}
-          redirectTo={redirectTo}
-          updateActiveContent={updateActiveContent}
+          isDispFooter={isDispFooter}
+          isSpLayout={isSpLayout}
+          openSelectMediaTypeOrder={openSelectMediaTypeOrder}
+          setIsDispFooter={setIsDispFooter}
+          setOpenSelectMediaTypeOrder={setOpenSelectMediaTypeOrder}
         />
-        <AdvertWrap>
-          <Advert />
-        </AdvertWrap>
-      </Body>
-      <Footer
-        isSpLayout={isSpLayout}
-        isDispFooter={isDispFooter}
-        windowInnerHeight={windowInnerHeight}
-        redirectTo={redirectTo}
-      />
-    </Container>
+        <Body>
+          <AdvertWrap>
+            <Advert />
+          </AdvertWrap>
+          <DeviceSwitchStructure
+            isSpLayout={isSpLayout}
+            isFixedSmallNav={isFixedSmallNav}
+            contents={contents}
+            lineNavScrollWidth={lineNavScrollWidth}
+            windowInnerHeight={windowInnerHeight}
+            talknPostFixed={talknPostFixed}
+            talknPostRight={talknPostRight}
+            talknPostWidth={talknPostWidth}
+            setLineNavScrollWidth={setLineNavScrollWidth}
+            redirectTo={redirectTo}
+            updateActiveContent={updateActiveContent}
+          />
+          <AdvertWrap>
+            <Advert />
+          </AdvertWrap>
+        </Body>
+        <Footer
+          isSpLayout={isSpLayout}
+          isDispFooter={isDispFooter}
+          windowInnerHeight={windowInnerHeight}
+          redirectTo={redirectTo}
+        />
+      </Container>
+    </>
   );
 };
 

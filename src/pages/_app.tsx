@@ -5,7 +5,6 @@ import { RecoilRoot } from 'recoil';
 
 import PageWithLoadingSpinner from 'components/templates/PageWithLoadingSpinner';
 // import useGtag from 'hooks/useGtag';
-
 import 'styles/global.scss';
 
 const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {

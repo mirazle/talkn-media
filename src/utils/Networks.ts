@@ -5,19 +5,19 @@ export const localhost = 'localhost';
 export const producthost = 'talkn.io';
 export const talknScriptHost = env === 'development' ? localhost : producthost;
 
-// talkn live media.
+// talkn live media (subdomain).
 export const MediaTypeNews = 'news';
-export const MediaTypeTrend = 'trend';
-export const MediaTypeGirlsNews = 'girlsNews';
-export const MediaTypeApps = 'apps';
+export const MediaTypeGirlsNews = 'girls-news';
+export const MediaTypeTrend = 'trend-word';
+export const MediaTypeApps = 'app';
 export const MediaTypeMusic = 'music';
 export const MediaTypeVideo = 'video';
 export const MediaTypeBook = 'book';
 
 export type MediaTypeKeys =
   | typeof MediaTypeNews
-  | typeof MediaTypeTrend
   | typeof MediaTypeGirlsNews
+  | typeof MediaTypeTrend
   | typeof MediaTypeApps
   | typeof MediaTypeMusic
   | typeof MediaTypeVideo
@@ -54,14 +54,6 @@ const NetworkNews: NetworkType = {
   count: 50,
 };
 
-const NetworkTrend: NetworkType = {
-  label: 'Trend',
-  method: 'GET',
-  endpoint: '',
-  headers: {},
-  count: 50,
-};
-
 const NetworkGirlsNews: NetworkType = {
   label: 'Girls News',
   method: 'GET',
@@ -70,8 +62,16 @@ const NetworkGirlsNews: NetworkType = {
   count: 50,
 };
 
+const NetworkTrend: NetworkType = {
+  label: 'Trend Word Ranking',
+  method: 'GET',
+  endpoint: '',
+  headers: {},
+  count: 50,
+};
+
 const NetworkApps: NetworkType = {
-  label: 'App Rank',
+  label: 'App Ranking',
   method: 'GET',
   endpoint: '',
   headers: {},
@@ -79,7 +79,7 @@ const NetworkApps: NetworkType = {
 };
 
 const NetworkMusic: NetworkType = {
-  label: 'Music Rank',
+  label: 'Music Ranking',
   method: 'GET',
   endpoint: '',
   headers: {},
@@ -87,7 +87,7 @@ const NetworkMusic: NetworkType = {
 };
 
 const NetworkVideo: NetworkType = {
-  label: 'Video Rank',
+  label: 'Video Ranking',
   method: 'GET',
   endpoint: '',
   headers: {},
@@ -95,7 +95,7 @@ const NetworkVideo: NetworkType = {
 };
 
 const NetworkBook: NetworkType = {
-  label: 'Book Rank',
+  label: 'Book Ranking',
   method: 'GET',
   endpoint: '',
   headers: {},
@@ -104,8 +104,8 @@ const NetworkBook: NetworkType = {
 
 export const NetworkList = {
   [MediaTypeNews]: NetworkNews,
-  [MediaTypeTrend]: NetworkTrend,
   [MediaTypeGirlsNews]: NetworkGirlsNews,
+  [MediaTypeTrend]: NetworkTrend,
   [MediaTypeApps]: NetworkApps,
   [MediaTypeMusic]: NetworkMusic,
   [MediaTypeVideo]: NetworkVideo,

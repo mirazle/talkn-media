@@ -43,9 +43,10 @@ class CustomDocument extends Document {
       <Html lang='ja'>
         {/* NOTE: cannot write prefix in next/head */}
         <Head prefix='og: http://ogp.me/ns#'>
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
           {this.ServiceWorker}
           {this.TalknExtScripts}
+          {this.GoogleSearchConsoleAuth}
+          {this.BrowserSelector}
           {/*
           <script data-ad-client='' async src='' />
 
@@ -68,6 +69,10 @@ class CustomDocument extends Document {
   private TalknExtScripts = (
     // eslint-disable-next-line react/jsx-curly-brace-presence
     <script async type='text/javascript' data-mode={'LiveMedia'} src={`https://ext.${talknScriptHost}`} />
+  );
+
+  private GoogleSearchConsoleAuth = (
+    <meta name='google-site-verification' content='rZgLwjp-qaDOhUxA6DxhTYlG-MyBNJVs2cReZJaIxCk' />
   );
 
   /**
@@ -116,6 +121,16 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');
+`,
+      }}
+    />
+  );
+
+  private BrowserSelector = (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+document.documentElement.setAttribute("data-browser", navigator.userAgent);
 `,
       }}
     />

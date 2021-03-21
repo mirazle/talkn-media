@@ -6,11 +6,13 @@ import styled from 'styled-components';
 
 import NoSsr from 'components/atoms/NoSsr';
 import StylesVars from 'styles/StylesVars';
+import { getTalknPostTop } from 'utils/Func';
 
 type Props = {
   title: string;
   isSpLayout: boolean;
   talknPostFixed: boolean;
+  windowInnerHeight: number;
   talknPostTranslateY: number;
   talknPostRight: number;
   talknPostWidth: number;
@@ -22,6 +24,7 @@ const Thread: FunctionComponent<Props> = (props: Props) => {
     return null;
   } else {
     const { title, isSpLayout, talknPostFixed, talknPostTranslateY, talknPostRight, talknPostWidth } = props;
+    const top = getTalknPostTop();
     return (
       <Container>
         <NoSsr>
@@ -30,8 +33,9 @@ const Thread: FunctionComponent<Props> = (props: Props) => {
           <TalknPostWrap
             id='talknLiveMediaPost'
             isSpLayout={isSpLayout}
-            fixed={talknPostFixed}
+            talknPostFixed={talknPostFixed}
             translateY={talknPostTranslateY}
+            top={top}
             right={talknPostRight}
             width={talknPostWidth}
           />
@@ -121,24 +125,25 @@ const SpTitle = styled.div<SpTitleType>`
 
 type TalknPostPropsType = {
   isSpLayout: boolean;
-  fixed: boolean;
+  talknPostFixed: boolean;
   translateY: number;
+  top: number;
   right: number;
   width: number;
 };
 
 const TalknPostWrap = styled.div<TalknPostPropsType>`
-  position: ${(props) => (props.fixed ? 'fixed' : 'absolute')};
-  top: ${(props) => (props.fixed ? 'unset' : StylesVars.talknPostScrollTop)}px;
+  position: ${(props) => (props.talknPostFixed ? 'fixed' : 'absolute')};
+  top: ${(props) => (props.talknPostFixed ? 'unset' : `${props.top}px`)};
   right: ${(props) => props.right}px;
-  bottom: ${(props) => (props.fixed ? '0px' : 'unset')};
+  bottom: ${(props) => (props.talknPostFixed ? '0px' : 'unset')};
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: flex-start;
   width: ${(props) => props.width}px;
   max-width: ${(props) => (props.isSpLayout ? props.width : Number(StylesVars.maxWidth) / 2 - 20)}px;
-  height: ${Number(StylesVars.baseHeight)}px;
+  height: ${Number(StylesVars.talknPostHeight)}px;
   color: #000;
   background: rgba(255, 255, 255, 0.96);
   border-top: 1px solid ${StylesVars.markupColor};

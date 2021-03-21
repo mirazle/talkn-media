@@ -104,7 +104,6 @@ const Container = styled.nav<ContainerProps>`
   z-index: 1;
   width: 100%;
   height: 30px;
-  overflow-x: scroll;
   transition: ${StylesVars.transitionDuration};
   ul {
     display: flex;
@@ -130,6 +129,7 @@ const Container = styled.nav<ContainerProps>`
   }
   li button {
     height: 100%;
+    cursor: pointer;
     background: rgba(255, 255, 255, 0);
     border: 0;
     outline: 0;
@@ -140,6 +140,9 @@ const Container = styled.nav<ContainerProps>`
     @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
       width: 60%;
     }
+  }
+  li button label {
+    cursor: pointer;
   }
   li.active button {
     font-weight: 500;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
-import { ActiveContentState, MktTypeState } from 'state';
+import { MktTypeState } from 'state';
 import styled from 'styled-components';
 import SweetScroll from 'sweet-scroll';
 
@@ -10,7 +10,7 @@ import SelectMediaTypeOrder from 'components/organisms/Header/SelectMediaTypeOrd
 import StylesVars from 'styles/StylesVars';
 import { scrollWindowTopAnimation } from 'utils/Animation';
 import { scrollOptions } from 'utils/Constants';
-import { urlToCh } from 'utils/Func';
+import { getDispFooterScrollY } from 'utils/Func';
 import { talknScriptHost } from 'utils/Networks';
 
 type Props = {
@@ -25,7 +25,7 @@ type Props = {
 
 const Header: FunctionComponent<Props> = (props: Props) => {
   const [mktType] = useRecoilState(MktTypeState);
-  const activeContent = useRecoilState(ActiveContentState)[0];
+  // const activeContent = useRecoilState(ActiveContentState)[0];
   const {
     openSelectMediaTypeOrder,
     setIsDispFooter,
@@ -36,14 +36,14 @@ const Header: FunctionComponent<Props> = (props: Props) => {
     isDispFooter,
   } = props;
   const splitedMktType = mktType.split('-');
-  const scrollTo = isDispFooter ? 0 : Number(StylesVars.footerScrollTop);
   const arrowMark = isDispFooter ? '▲' : '▼';
   const handleOnClickBack = () => {
     const main = document.querySelector('main') as HTMLElement;
     const scrollLeft = main?.scrollLeft || 0;
     if (scrollLeft === 0) {
-      const ch = urlToCh(activeContent.url);
-      location.href = `https://${talknScriptHost}${ch}`;
+      // const ch = urlToCh(activeContent.url);
+      // location.href = `https://${talknScriptHost}${ch}`;
+      location.href = `https://${talknScriptHost}`;
     } else {
       const scroller = new SweetScroll(scrollOptions, main);
       scroller.to({ left: 0 });
@@ -53,6 +53,7 @@ const Header: FunctionComponent<Props> = (props: Props) => {
     if (isSpLayout) {
       setIsDispFooter(!isDispFooter);
     } else {
+      const scrollTo = isDispFooter ? 0 : getDispFooterScrollY();
       scrollWindowTopAnimation(scrollTo);
     }
   };
