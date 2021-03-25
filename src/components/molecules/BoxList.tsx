@@ -12,7 +12,37 @@ type Props = {
   className?: string;
   active?: boolean;
   onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  href?: string;
   theme?: ThemeTypes;
+};
+
+const Labels: FunctionComponent<{ label: string }> = (props) => {
+  return (
+    <>
+      <label>{props.label}</label>
+      <div className='lamp'>&nbsp;</div>
+    </>
+  );
+};
+
+const Button: FunctionComponent<Props> = (props) => {
+  return (
+    <button onClick={(e) => props.onClick && props.onClick(e)}>
+      <Labels label={props.label} />
+    </button>
+  );
+};
+
+const Anchor: FunctionComponent<Props> = (props) => {
+  return (
+    <a href={props.href}>
+      <Labels label={props.label} />
+    </a>
+  );
+};
+
+const Content: FunctionComponent<Props> = (props) => {
+  return props.href ? <Anchor {...props} /> : <Button {...props} />;
 };
 
 const BoxList: FunctionComponent<Props> = (props) => {
@@ -20,10 +50,7 @@ const BoxList: FunctionComponent<Props> = (props) => {
   const className = props.active ? `${addClassName} active` : addClassName;
   return (
     <Container key={props.label} theme={props.theme} className={className}>
-      <button onClick={(e) => props.onClick && props.onClick(e)}>
-        <label>{props.label}</label>
-        <div className='lamp'>&nbsp;</div>
-      </button>
+      <Content {...props} />
     </Container>
   );
 };

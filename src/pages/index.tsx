@@ -7,7 +7,7 @@ import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
 import { ContentsValueType } from 'schema';
 import { InitComponentProps, ReturnServiceType, UrlParamsType, getServerSidePropsWrap } from 'service';
-import { ActiveContentState, CategoryState, MktTypeState } from 'state';
+import { ActiveContentState, CategoryState, MediaTypeState, MktTypeState } from 'state';
 import styled from 'styled-components';
 
 import DeviceSwitchStructure from 'components/organisms/DeviceSwitchStructure';
@@ -18,7 +18,7 @@ import CommonHead from 'components/templates/CommonHead';
 import StylesVars from 'styles/StylesVars';
 import { LocalStorageKeys } from 'utils/Constants';
 import { getIsSpLayout, getTalknPostFixed, updateBaseLayout, urlToCh } from 'utils/Func';
-import { talknScriptHost } from 'utils/Networks';
+import { talknLiveMediaHost } from 'utils/Networks';
 
 const navigationScrollClassName = 'navigationScroll';
 
@@ -26,6 +26,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const router = useRouter();
 
   // disp key datas.
+  const [mediaType, setMediaType] = useRecoilState(MediaTypeState);
   const [mktType, setMktType] = useRecoilState(MktTypeState);
   const [category, setCategory] = useRecoilState(CategoryState);
   const [contents, setContents] = useState(props.contents);
@@ -54,7 +55,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
 
         if (iframeContainer && iframe) {
           iframeContainer.dataset.url = newContent.url;
-          iframe.src = `https://${talknScriptHost}${urlToCh(newContent.url)}`;
+          iframe.src = `https://${talknLiveMediaHost}${urlToCh(newContent.url)}`;
           localStorage.setItem(LocalStorageKeys.url, newContent.url);
         }
       }
@@ -131,6 +132,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   React.useEffect(() => {
     const cacheUrl = localStorage.getItem(LocalStorageKeys.url);
     if (props.contents !== contents) setContents(props.contents);
+    if (mediaType !== props.mediaType) setMediaType(props.mediaType);
     if (mktType !== props.mktType) setMktType(props.mktType);
     if (category !== props.category) setCategory(props.category);
     if (activeContent.url !== props.url) {
@@ -153,7 +155,8 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   return (
     <>
       <CommonHead
-        title='talkn news 〜 今日のニュースを誰かとすぐ話せる 〜 '
+        mediaType={mediaType}
+        title='talkn news | 今日のニュースを誰かと話そう'
         description='talkn newsはリアルタイムなコミニュケーションをしながらニュース閲覧出来るサイトです。今、閲覧しているニュースを「何人が見ているか」が分かるので、温度を保ったまま臨場感を持ってコミニュケーションを楽しめます。'
         thumbnailUrl='/ogp/jp.png'
         ogThumbnailUrl='/ogp/jp.png'

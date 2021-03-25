@@ -1,13 +1,12 @@
 import { NextSeo, NextSeoProps } from 'next-seo';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 import { HeadTitles, Platforms } from 'utils/Meta';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? '';
+import { MediaTypeSubdomains, talknLiveMediaHost } from 'utils/Networks';
 
 type Props = {
+  mediaType: MediaTypeSubdomains;
   title: string;
   description: string;
   type?: 'website' | 'article';
@@ -21,6 +20,7 @@ type Props = {
 };
 
 const CommonHead: FunctionComponent<Props> = ({
+  mediaType,
   title,
   description,
   type = 'website',
@@ -30,8 +30,7 @@ const CommonHead: FunctionComponent<Props> = ({
   sitename,
   seoParameter,
 }: PropsWithChildren<Props>) => {
-  const router = useRouter();
-  const canonicalUrl = `${baseUrl}${router.pathname}`;
+  const canonicalUrl = `https://${mediaType}.${talknLiveMediaHost}`;
   const nextSeoProps: NextSeoProps = {
     title,
     titleTemplate: '%s',

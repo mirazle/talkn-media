@@ -1,3 +1,5 @@
+const os = require('os');
+console.log(os.hostname);
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order', 'stylelint-config-prettier'],
   plugins: ['stylelint-high-performance-animation'],

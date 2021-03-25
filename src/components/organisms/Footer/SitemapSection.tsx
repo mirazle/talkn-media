@@ -1,11 +1,14 @@
 import sitemap from 'json/news/sitemap.json';
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
+import { useRecoilState } from 'recoil';
 import { Category, NewsSitemap } from 'schema/NewsSitemap';
+import { MediaTypeState } from 'state';
 import styled from 'styled-components';
 
 import BoxList from 'components/molecules/BoxList';
 import StylesVars from 'styles/StylesVars';
+import { getMyHost } from 'utils/Networks';
 
 type Props = {
   mktType: string;
@@ -14,22 +17,26 @@ type Props = {
 };
 
 const SitemapSection: FunctionComponent<Props> = (props: Props) => {
-  const { mktType, category, redirectTo } = props;
+  const mediaType = useRecoilState(MediaTypeState)[0];
+  const { mktType, category } = props;
   const siteMap = sitemap as NewsSitemap[];
   return (
     <Container>
-      <h3>- Sitemap -</h3>
+      <h2>- Sitemap -</h2>
       {siteMap.map((countryDatas: NewsSitemap) => {
         const country = countryDatas.Country;
-        const categories = countryDatas.Categories.map((c: Category) => (
-          <BoxList
-            key={country + c.label}
-            theme='dark'
-            label={c.label}
-            active={countryDatas.Market === mktType && c.category === category}
-            onClick={() => redirectTo(countryDatas.Market, c.category)}
-          />
-        ));
+        const categories = countryDatas.Categories.map((c: Category) => {
+          const href = `${getMyHost(mediaType)}/${countryDatas.Market}/${c.category}`;
+          return (
+            <BoxList
+              key={country + c.label}
+              theme='dark'
+              label={c.label}
+              active={countryDatas.Market === mktType && c.category === category}
+              href={href}
+            />
+          );
+        });
         return (
           <ul key={country}>
             <li key={`${country}title`} className='title'>
@@ -59,7 +66,7 @@ const Container = styled.section`
   @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     padding: 20px;
   }
-  h3 {
+  h2 {
     width: 100%;
     margin: 20px 0;
     text-align: center;

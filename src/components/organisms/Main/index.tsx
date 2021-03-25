@@ -57,7 +57,7 @@ const Main: FunctionComponent<Props> = (props) => {
       windowInnerHeight={windowInnerHeight}
       onScroll={onScroll}
     >
-      <MenuSliderNodes id='menu'>{menuSliderNodes}</MenuSliderNodes>
+      <MenuSliderNodes>{menuSliderNodes}</MenuSliderNodes>
       <Thread
         title={activeContent.name}
         isSpLayout={isSpLayout}
@@ -106,11 +106,7 @@ const Container = styled.main<ContainerPropsType>`
   }
 `;
 
-type MenuSliderNodesPropsType = {
-  id: string;
-};
-
-const MenuSliderNodes = styled.div<MenuSliderNodesPropsType>`
+const MenuSliderNodes = styled.div`
   @media (max-width: ${StylesVars.spLayoutWidth}px) {
     width: 100%;
     min-width: 100%;

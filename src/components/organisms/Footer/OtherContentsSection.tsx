@@ -4,34 +4,30 @@ import styled from 'styled-components';
 
 import BoxList from 'components/molecules/BoxList';
 import StylesVars from 'styles/StylesVars';
-import { MediaTypeKeys, MediaTypeNews, NetworkList } from 'utils/Networks';
+import { MediaTypeNews, MediaTypeSubdomains, NetworkList } from 'utils/Networks';
 
 type Props = unknown;
 
 const OtherContentsSection: FunctionComponent<Props> = () => {
   const LiveMediaList = Array.from(Object.keys(NetworkList)).map((_mediaType: string) => {
-    const mediaType = _mediaType as MediaTypeKeys;
+    const mediaType = _mediaType as MediaTypeSubdomains;
     const label = NetworkList[mediaType].label;
     const active = mediaType === MediaTypeNews;
-    const onClick = () => (location.href = 'https://news.talkn.io');
-    return <BoxList label={label} key={label} active={active} theme='dark' onClick={onClick} />;
+    return <BoxList label={label} key={label} active={active} theme='dark' href='https://news.talkn.io' />;
   });
 
   return (
     <Container>
-      <h3>- Other Contents -</h3>
+      <h2>- Other Contents -</h2>
       <ul>
         <li className='title'>Talkn For</li>
-        <BoxList label='User' theme='dark' onClick={() => (location.href = 'https://www.talkn.io')} />
-        <BoxList label='Website owner' theme='dark' onClick={() => (location.href = 'https://own.talkn.io')} />
-        <BoxList label='Developper(Api)' theme='dark' onClick={() => (location.href = 'https://api.talkn.io')} />
+        <BoxList label='User' theme='dark' href='https://www.talkn.io' />
+        <BoxList label='Website owner' theme='dark' href='https://own.talkn.io' />
+        <BoxList label='Developper(Api)' theme='dark' href='https://api.talkn.io' />
         <BoxList
           label='Chrome extension'
           theme='dark'
-          onClick={() =>
-            (location.href =
-              'https://chrome.google.com/webstore/detail/talkn-for-chrome/dkngnmdlcofambpfaccepbnjgfholgbo?hl=en')
-          }
+          href='https://chrome.google.com/webstore/detail/talkn-for-chrome/dkngnmdlcofambpfaccepbnjgfholgbo?hl=en'
         />
       </ul>
       <ul>
@@ -69,7 +65,7 @@ const Container = styled.section`
   @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     padding: 20px;
   }
-  h3 {
+  h2 {
     width: 100%;
     margin: 20px 0;
     text-align: center;

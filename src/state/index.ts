@@ -2,8 +2,8 @@ import { AtomOptions, RecoilState, atom } from 'recoil';
 import { ContentsValueType } from 'schema';
 
 import { ContentValueModel } from 'models/ContentValue';
+import { defaultMediaType } from 'utils/Networks';
 
-const defaultMediaType = String(process.env['DEFAULT_MEDIA_TYPE']);
 const defaultMktType = String(process.env['DEFAULT_MKT_TYPE']);
 
 export const getRecoilInitAtom = <T>(options: AtomOptions<T>): RecoilState<T> => {

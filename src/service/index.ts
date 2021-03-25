@@ -1,21 +1,27 @@
+import { IncomingHttpHeaders } from 'http';
+
 import { GetServerSideProps } from 'next';
 import NodeCache from 'node-cache';
 import { ContentsCacheType, ContentsType, ContentsValueType, ContentsValuesType } from 'schema';
 
-import { MediaTypeKeys, getNetwork } from 'utils/Networks';
+import Geolite from 'utils/Geolite';
+import { MediaTypeSubdomains, NetworkList, NetworkType, defaultMediaType, getMediaType, getNetwork } from 'utils/Networks';
 import { validUrlParams } from 'utils/Sitemap';
 
 const myCache = new NodeCache();
-const defaultMediaType = String(process.env['DEFAULT_MEDIA_TYPE']);
 const defaultMktType = String(process.env['DEFAULT_MKT_TYPE']);
 const defaultCategory = String(process.env['DEFAULT_CATEGORY']);
 const defaultUrl = '';
-const { endpoint, method, headers, count } = getNetwork(defaultMediaType as MediaTypeKeys);
-const requestOption = { method, headers };
 const keepContentsSecond = Number(process.env.KEEP_CONTENTS_SECOND) * 1000;
 const keepContentsCnt = Number(process.env['KEEP_CONTENTS_CNT']);
 
-export type ReturnServiceType = { mktType: string; category: string; url: string; contents: ContentsValuesType };
+export type ReturnServiceType = {
+  mediaType: MediaTypeSubdomains;
+  mktType: string;
+  category: string;
+  url: string;
+  contents: ContentsValuesType;
+};
 export type InitComponentProps = ReturnServiceType;
 export type UrlParamsType = { mktType: string; category: string; url: string };
 
@@ -32,20 +38,33 @@ class ContentsValues {
 }
 
 class Requests extends Monitor {
+  public mediaType: MediaTypeSubdomains = defaultMediaType;
   public mktType: string = defaultMktType;
   public category: string = defaultCategory;
   public url: string = defaultUrl;
+  public network: NetworkType = NetworkList[defaultMediaType];
   public isSame = false;
   public fetched = false;
-  constructor(query: UrlParamsType, referers: Referers) {
+  constructor(headers: IncomingHttpHeaders, query: UrlParamsType, referers: Referers) {
     super();
-    if (query.mktType) this.mktType = query.mktType;
+    this.mediaType = getMediaType(headers.host || '');
+    this.network = getNetwork(this.mediaType);
+
+    console.log(query.mktType);
+    console.log(headers['accept-language']);
+
+    if (query.mktType) {
+      this.mktType = query.mktType;
+    } else {
+      this.mktType = Geolite.getMktType(headers['accept-language']);
+    }
     if (query.category) this.category = query.category;
     if (query.url) this.url = query.url;
     this.isSame = this.mktType !== referers.mktType || this.category !== referers.category;
   }
 
   get fetchUrl() {
+    const { count, endpoint } = this.network;
     const mktQuery = `mkt=${this.mktType}`;
     const categoryQery = this.category === defaultCategory ? '' : `&Category=${this.category}`;
     const countQuery = `&count=${count}`;
@@ -53,6 +72,8 @@ class Requests extends Monitor {
   }
 
   async fetch(): Promise<ContentsType> {
+    const { count, method, headers } = this.network;
+    const requestOption = { method, headers };
     console.log(`EXE FETCH ${this.mktType} ${this.category} ${count}`);
     const response: Response = await fetch(this.fetchUrl, requestOption);
     if (response.status !== 200) throw `RESPONSE EROOR: ${response.status} ${this.fetchUrl}`;
@@ -64,7 +85,7 @@ class Requests extends Monitor {
 class Referers extends Monitor {
   public mktType = '';
   public category = '';
-  constructor(referer: string) {
+  constructor({ referer }: IncomingHttpHeaders) {
     super();
     const splitedReferer: string[] | [] = referer ? referer.split('/') : [];
     if (splitedReferer.length >= 3 && splitedReferer[2] !== '') {
@@ -124,8 +145,8 @@ class MyCache extends Monitor {
 export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlParamsType> = async ({ req, res, query }) => {
   const nowUnixtime = new Date().getTime();
   let contentsValues: ContentsValues = new ContentsValues();
-  const referers = new Referers(String(req.headers.referer));
-  const requests = new Requests(query as UrlParamsType, referers);
+  const referers = new Referers(req.headers);
+  const requests = new Requests(req.headers, query as UrlParamsType, referers);
   const myCache = new MyCache(requests, nowUnixtime);
 
   // redirect root if invalid url.

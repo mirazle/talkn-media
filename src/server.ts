@@ -21,6 +21,7 @@ const routingHttp = (req: Request, res: Response): void => {
     res.end();
   } else {
     switch (req.originalUrl) {
+      case '/robots.txt':
       case '/sitemap.xml':
       case '/service.worker.js':
       case '/favicon.ico':

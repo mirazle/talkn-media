@@ -2,7 +2,7 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-import { talknScriptHost } from 'utils/Networks';
+import { talknLiveMediaHost } from 'utils/Networks';
 import { GA_TRACKING_ID } from 'utils/gtag';
 import { GTM_CONTAINER_ID } from 'utils/gtm';
 
@@ -15,14 +15,13 @@ class CustomDocument extends Document {
    */
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
+    // const { lang } = Geolite.getLangMap(ctx.req?.headers['accept-language']);
     const originalRenderPage = ctx.renderPage;
-
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
-
       const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
@@ -40,7 +39,7 @@ class CustomDocument extends Document {
 
   render() {
     return (
-      <Html lang='ja'>
+      <Html>
         {/* NOTE: cannot write prefix in next/head */}
         <Head prefix='og: http://ogp.me/ns#'>
           {this.ServiceWorker}
@@ -68,7 +67,7 @@ class CustomDocument extends Document {
 
   private TalknExtScripts = (
     // eslint-disable-next-line react/jsx-curly-brace-presence
-    <script async type='text/javascript' data-mode={'LiveMedia'} src={`https://ext.${talknScriptHost}`} />
+    <script async type='text/javascript' data-mode={'LiveMedia'} src={`https://ext.${talknLiveMediaHost}`} />
   );
 
   private GoogleSearchConsoleAuth = (

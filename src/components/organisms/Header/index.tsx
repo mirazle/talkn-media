@@ -11,7 +11,7 @@ import StylesVars from 'styles/StylesVars';
 import { scrollWindowTopAnimation } from 'utils/Animation';
 import { scrollOptions } from 'utils/Constants';
 import { getDispFooterScrollY } from 'utils/Func';
-import { talknScriptHost } from 'utils/Networks';
+import { talknLiveMediaHost } from 'utils/Networks';
 
 type Props = {
   isMaxLayout: boolean;
@@ -41,9 +41,7 @@ const Header: FunctionComponent<Props> = (props: Props) => {
     const main = document.querySelector('main') as HTMLElement;
     const scrollLeft = main?.scrollLeft || 0;
     if (scrollLeft === 0) {
-      // const ch = urlToCh(activeContent.url);
-      // location.href = `https://${talknScriptHost}${ch}`;
-      location.href = `https://${talknScriptHost}`;
+      location.href = `https://${talknLiveMediaHost}`;
     } else {
       const scroller = new SweetScroll(scrollOptions, main);
       scroller.to({ left: 0 });
@@ -121,7 +119,7 @@ type AppNamePropsType = {
   isDispFooter: boolean;
 };
 
-const AppName = styled.div<AppNamePropsType>`
+const AppName = styled.h1<AppNamePropsType>`
   font-size: 20px;
   cursor: pointer;
   transition: ${StylesVars.transitionDuration};

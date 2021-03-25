@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import BoxList from 'components/molecules/BoxList';
 import StylesVars from 'styles/StylesVars';
-import { MediaTypeKeys, MediaTypeNews, NetworkList } from 'utils/Networks';
+import { MediaTypeNews, MediaTypeSubdomains, NetworkList, producthost } from 'utils/Networks';
 
 type Props = {
   isMaxLayout: boolean;
@@ -14,11 +14,11 @@ type Props = {
 const SelectMediaTypeOrder: FunctionComponent<Props> = (props) => {
   const { isMaxLayout, openSelectMediaTypeOrder } = props;
   const LiveMediaList = Array.from(Object.keys(NetworkList)).map((_mediaType: string) => {
-    const mediaType = _mediaType as MediaTypeKeys;
+    const mediaType = _mediaType as MediaTypeSubdomains;
     const label = NetworkList[mediaType].label;
+    const subDomain = NetworkList[mediaType].subDomain;
     const active = mediaType === MediaTypeNews;
-    const onClick = () => (location.href = 'https://news.talkn.io');
-    return <BoxList label={label} key={label} active={active} onClick={onClick} />;
+    return <BoxList label={label} key={label} active={active} href={`https://${subDomain}.${producthost}`} />;
   });
   return (
     <Container openSelectMediaTypeOrder={openSelectMediaTypeOrder} isMaxLayout={isMaxLayout}>
