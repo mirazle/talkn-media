@@ -87,6 +87,18 @@ const Container = styled.li<ContainerPropType>`
     outline: 0;
     transition: ${StylesVars.transitionDuration};
   }
+  a {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: ${(props) => (props.theme === ThemeGreen ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)')};
+    cursor: pointer;
+    background: ${(props) => (props.theme === ThemeGreen ? 'rgba(255, 255, 255, 1)' : 'rgba(68, 68, 68, 1)')};
+  }
+  a:hover,
   button:hover {
     background: ${(props) => (props.theme === ThemeGreen ? 'rgba(245, 245, 245, 1)' : 'rgba(98, 98, 98, 1)')};
   }
@@ -110,16 +122,5 @@ const Container = styled.li<ContainerPropType>`
   &.active div.lamp {
     cursor: pointer;
     background: ${(props) => (props.theme === ThemeGreen ? 'rgba(79, 174, 159, 1)' : 'rgba(79, 174, 159, 1)')};
-  }
-  a {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    color: ${(props) => (props.theme === ThemeGreen ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)')};
-    cursor: pointer;
-    background: ${(props) => (props.theme === ThemeGreen ? 'rgba(255, 255, 255, 1)' : 'rgba(68, 68, 68, 1)')};
   }
 `;

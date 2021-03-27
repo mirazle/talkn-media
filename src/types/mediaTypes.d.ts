@@ -1,6 +1,7 @@
 declare module '*/mediaTypes.json' {
   interface Datas {
     endpointHost: string;
+    endpointSearchHost: string;
     endpointKey: string;
   }
   interface MediaTypes {

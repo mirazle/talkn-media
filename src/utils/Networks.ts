@@ -8,22 +8,18 @@ export const producthost = 'talkn.io';
 export const talknLiveMediaHost = env === development ? localhost : producthost;
 
 // talkn live media (subdomain).
+export const MediaTypeArtists = 'artists';
+export const MediaTypeContents = 'contents';
 export const MediaTypeNews = 'news';
 export const MediaTypeGirlsNews = 'girls-news';
-export const MediaTypeTrend = 'trend-word';
-export const MediaTypeApps = 'app';
-export const MediaTypeMusic = 'music';
-export const MediaTypeVideo = 'video';
-export const MediaTypeBook = 'book';
+export const MediaTypeTrendWord = 'trend-word';
 
 export type MediaTypeSubdomains =
+  | typeof MediaTypeArtists
+  | typeof MediaTypeContents
   | typeof MediaTypeNews
   | typeof MediaTypeGirlsNews
-  | typeof MediaTypeTrend
-  | typeof MediaTypeApps
-  | typeof MediaTypeMusic
-  | typeof MediaTypeVideo
-  | typeof MediaTypeBook;
+  | typeof MediaTypeTrendWord;
 
 // default media type.
 export const defaultMediaType: MediaTypeSubdomains = MediaTypeNews;
@@ -33,6 +29,7 @@ export type NetworkType = {
   label: string;
   method: 'GET' | 'POST';
   endpoint: string;
+  searchEndpoint: string;
   headers: HeadersInit;
   devPort: number;
   count: number;
@@ -52,16 +49,40 @@ type NetworkListType = Record<MediaTypeSubdomains, NetworkType>;
 
   https://docs.microsoft.com/en-us/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market
 */
+
+const NetworkArtists: NetworkType = {
+  subDomain: 'artists',
+  label: 'Artists',
+  method: 'GET',
+  endpoint: '',
+  searchEndpoint: '',
+  headers: {},
+  devPort: 3000,
+  count: 50,
+};
+
+const NetworkContents: NetworkType = {
+  subDomain: 'contents',
+  label: 'Contents',
+  method: 'GET',
+  endpoint: '',
+  searchEndpoint: '',
+  headers: {},
+  devPort: 3001,
+  count: 50,
+};
+
 const NetworkNews: NetworkType = {
   subDomain: 'news',
   label: 'News',
   method: 'GET',
   endpoint: `https://${String(mediaTypes.news.endpointHost)}/?`,
+  searchEndpoint: `https://${String(mediaTypes.news.endpointSearchHost)}/?`,
   headers: {
     'x-rapidapi-host': String(mediaTypes.news.endpointHost),
     'x-rapidapi-key': mediaTypes.news.endpointKey,
   },
-  devPort: 3000,
+  devPort: 3002,
   count: 50,
 };
 
@@ -70,69 +91,29 @@ const NetworkGirlsNews: NetworkType = {
   label: 'Girls News',
   method: 'GET',
   endpoint: '',
-  headers: {},
-  devPort: 3001,
-  count: 50,
-};
-
-const NetworkTrend: NetworkType = {
-  subDomain: 'trend-word',
-  label: 'Trend Word Ranking',
-  method: 'GET',
-  endpoint: '',
-  headers: {},
-  devPort: 3002,
-  count: 50,
-};
-
-const NetworkApps: NetworkType = {
-  subDomain: 'app',
-  label: 'App Ranking',
-  method: 'GET',
-  endpoint: '',
+  searchEndpoint: '',
   headers: {},
   devPort: 3003,
   count: 50,
 };
 
-const NetworkMusic: NetworkType = {
-  subDomain: 'music',
-  label: 'Music Ranking',
+const NetworkTrendWord: NetworkType = {
+  subDomain: 'trend-word',
+  label: 'Trend Word',
   method: 'GET',
   endpoint: '',
+  searchEndpoint: '',
   headers: {},
   devPort: 3004,
   count: 50,
 };
 
-const NetworkVideo: NetworkType = {
-  subDomain: 'video',
-  label: 'Video Ranking',
-  method: 'GET',
-  endpoint: '',
-  headers: {},
-  devPort: 3005,
-  count: 50,
-};
-
-const NetworkBook: NetworkType = {
-  subDomain: 'book',
-  label: 'Book Ranking',
-  method: 'GET',
-  endpoint: '',
-  headers: {},
-  devPort: 3006,
-  count: 50,
-};
-
 export const NetworkList: NetworkListType = {
+  [MediaTypeArtists]: NetworkArtists,
+  [MediaTypeContents]: NetworkContents,
   [MediaTypeNews]: NetworkNews,
   [MediaTypeGirlsNews]: NetworkGirlsNews,
-  [MediaTypeTrend]: NetworkTrend,
-  [MediaTypeApps]: NetworkApps,
-  [MediaTypeMusic]: NetworkMusic,
-  [MediaTypeVideo]: NetworkVideo,
-  [MediaTypeBook]: NetworkBook,
+  [MediaTypeTrendWord]: NetworkTrendWord,
 };
 
 export const getNetwork = (mediaType: MediaTypeSubdomains): NetworkType => {

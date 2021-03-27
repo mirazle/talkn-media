@@ -1,42 +1,49 @@
 import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
-import { MktTypeState } from 'state';
+import { MediaTypeState, MktTypeState } from 'state';
 import styled from 'styled-components';
-import SweetScroll from 'sweet-scroll';
 
+import DetailIcon from 'components/atoms/Icon/Detail';
+import SearchIcon from 'components/atoms/Icon/Search';
 import LiveCnt from 'components/atoms/LiveCnt';
-import SelectMediaTypeOrder from 'components/organisms/Header/SelectMediaTypeOrder';
+import Menu from 'components/organisms/Header/Menu';
+import Search from 'components/organisms/Header/Search';
 import StylesVars from 'styles/StylesVars';
 import { scrollWindowTopAnimation } from 'utils/Animation';
-import { scrollOptions } from 'utils/Constants';
 import { getDispFooterScrollY } from 'utils/Func';
-import { talknLiveMediaHost } from 'utils/Networks';
+import { getNetwork } from 'utils/Networks';
 
 type Props = {
-  isMaxLayout: boolean;
   isFixedSmallNav: boolean;
   isDispFooter: boolean;
   isSpLayout: boolean;
-  openSelectMediaTypeOrder: boolean;
+  isOpenMenu: boolean;
+  isOpenSearch: boolean;
+  isMaxLayout: boolean;
+  setIsOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
   setIsDispFooter: React.Dispatch<React.SetStateAction<boolean>>;
-  setOpenSelectMediaTypeOrder: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Header: FunctionComponent<Props> = (props: Props) => {
+  const [mediaType] = useRecoilState(MediaTypeState);
   const [mktType] = useRecoilState(MktTypeState);
-  // const activeContent = useRecoilState(ActiveContentState)[0];
+  const mediaTypeLabel = getNetwork(mediaType).label.toLowerCase();
   const {
-    openSelectMediaTypeOrder,
-    setIsDispFooter,
-    setOpenSelectMediaTypeOrder,
-    isSpLayout,
+    isOpenMenu,
+    isOpenSearch,
     isMaxLayout,
+    isSpLayout,
     isFixedSmallNav,
     isDispFooter,
+    setIsDispFooter,
+    setIsOpenMenu,
+    setIsOpenSearch,
   } = props;
   const splitedMktType = mktType.split('-');
   const arrowMark = isDispFooter ? '▲' : '▼';
+  /*
   const handleOnClickBack = () => {
     const main = document.querySelector('main') as HTMLElement;
     const scrollLeft = main?.scrollLeft || 0;
@@ -47,6 +54,7 @@ const Header: FunctionComponent<Props> = (props: Props) => {
       scroller.to({ left: 0 });
     }
   };
+  */
   const handleOnClickAppName = () => {
     if (isSpLayout) {
       setIsDispFooter(!isDispFooter);
@@ -58,23 +66,23 @@ const Header: FunctionComponent<Props> = (props: Props) => {
 
   return (
     <Container isFixedSmallNav={isFixedSmallNav}>
-      <SelectMediaTypeOrder openSelectMediaTypeOrder={openSelectMediaTypeOrder} isMaxLayout={isMaxLayout} />
+      {/* レイアウト上headerの中に収める必要があるためここに配置(PCだとfixedで画面端に表示されてしまう) */}
+      <Menu isOpenMenu={isOpenMenu} isMaxLayout={isMaxLayout} />
+      <Search isOpenSearch={isOpenSearch} isMaxLayout={isMaxLayout} />
       <HeaderContent>
-        <MenuWrap>
-          <BackAnchor onClick={handleOnClickBack}>
-            <Back />
-          </BackAnchor>
-        </MenuWrap>
+        <MenuWrapLeft>
+          <DetailIcon onClick={() => setIsOpenMenu(!isOpenMenu)} />
+        </MenuWrapLeft>
         <AppName isDispFooter={isDispFooter} onClick={handleOnClickAppName}>
-          <TalknLabel>talkn</TalknLabel>
-          <NewsLabel>news</NewsLabel>
+          <AppNameLabel>talkn</AppNameLabel>
+          <MediaTypeLabel>{mediaTypeLabel}</MediaTypeLabel>
           <CountryLabel>{`(${splitedMktType[1]})`}</CountryLabel>
           <span className='arrow'>{arrowMark}</span>
         </AppName>
-        <MenuWrap>
-          <Menu onClick={() => setOpenSelectMediaTypeOrder(!openSelectMediaTypeOrder)} />
+        <MenuWrapRight>
+          <SearchIcon onClick={() => setIsOpenSearch(!isOpenSearch)} />
           <LiveCnt />
-        </MenuWrap>
+        </MenuWrapRight>
       </HeaderContent>
     </Container>
   );
@@ -142,19 +150,19 @@ const AppName = styled.h1<AppNamePropsType>`
   }
 `;
 
-const TalknLabel = styled.span`
+const AppNameLabel = styled.label`
   margin: 0 5px;
   font-weight: 200;
   color: #000;
 `;
 
-const NewsLabel = styled.span`
+const MediaTypeLabel = styled.label`
   margin-right: 5px;
   font-weight: 300;
   color: rgba(79, 174, 159, 1);
 `;
 
-const CountryLabel = styled.span`
+const CountryLabel = styled.label`
   position: relative;
   top: -2px;
   font-size: 10px;
@@ -162,80 +170,16 @@ const CountryLabel = styled.span`
   color: #000;
 `;
 
-const MenuWrap = styled.div`
+const MenuWrapLeft = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
 `;
 
-const Menu = styled.div`
-  position: relative;
-  left: 30px;
+const MenuWrapRight = styled.div`
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  max-width: 50px;
-  height: 50px;
-  cursor: pointer;
-  border-radius: 25px;
-  box-shadow: 0 0 0 rgba(230, 230, 230, 1) inset;
-  transition: ${StylesVars.transitionDuration};
-  &:hover {
-    box-shadow: 0 0 10px rgba(230, 230, 230, 1) inset;
-  }
-  &::before {
-    position: relative;
-    top: -12px;
-    width: 8px;
-    height: 8px;
-    content: '';
-    background: ${StylesVars.markupColor};
-    border-radius: 6px;
-    box-shadow: 0 12px 0 ${StylesVars.markupColor}, 0 24px 0 ${StylesVars.markupColor};
-  }
-`;
-
-const BackAnchor = styled.a`
-  display: block;
-  width: 50px;
-  height: 50px;
-`;
-
-const Back = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 50px;
-  height: 50px;
-  cursor: pointer;
-  border-radius: 25px;
-  box-shadow: 0 0 0 rgba(230, 230, 230, 1) inset;
-  transition: ${StylesVars.transitionDuration};
-  &:hover {
-    box-shadow: 0 0 10px rgba(230, 230, 230, 1) inset;
-  }
-  &::before {
-    position: relative;
-    top: -4px;
-    left: 5px;
-    width: 14px;
-    height: 4px;
-    content: '';
-    background: ${StylesVars.markupColor};
-    border-radius: 4px;
-    transform: rotate(-45deg);
-  }
-  &::after {
-    position: relative;
-    top: 5px;
-    left: -8px;
-    width: 14px;
-    height: 4px;
-    content: '';
-    background: ${StylesVars.markupColor};
-    border-radius: 4px;
-    transform: rotate(45deg);
-  }
 `;

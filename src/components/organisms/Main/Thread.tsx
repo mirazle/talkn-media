@@ -55,13 +55,16 @@ export const getTalknPostLayout = (
   let right = 0;
   let width = 0;
   if (isMaxLayout) {
+    console.log('A');
     right = (windowInnerWidth - Number(StylesVars.maxWidth) + 20) / 2;
     width = Number(StylesVars.maxWidth) / 2 - 20;
   } else {
     if (isSpLayout) {
+      console.log('B');
       width = window.innerWidth;
       right = 0;
     } else {
+      console.log('C');
       width = window.innerWidth / 2 - 20;
       right = 10;
     }

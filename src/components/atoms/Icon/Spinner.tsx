@@ -5,7 +5,7 @@ type Props = {
   size: string;
 };
 
-const Component: FunctionComponent<Props> = ({ size }) => <Icon size={size} />;
+const SpinnerIcon: FunctionComponent<Props> = ({ size }) => <Icon size={size} />;
 
 const Icon = styled.div<Props>`
   width: ${(props) => props.size};
@@ -26,4 +26,4 @@ const Icon = styled.div<Props>`
   }
 `;
 
-export default Component;
+export default SpinnerIcon;

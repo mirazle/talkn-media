@@ -6,10 +6,10 @@ import { useRecoilState } from 'recoil';
 import { LoadingState } from 'state';
 import styled from 'styled-components';
 
-import Spinner from 'components/atoms/Spinner';
+import SpinnerIcon from 'components/atoms/Icon/Spinner';
 import StylesVars from 'styles/StylesVars';
 
-const spinnerSize = '80px';
+const spinnerSize = StylesVars.iconSize;
 
 const Component: FunctionComponent<PropsWithChildren<unknown>> = ({ children }) => {
   const [isLoading, setIsLoading] = useRecoilState(LoadingState);
@@ -30,7 +30,7 @@ const Component: FunctionComponent<PropsWithChildren<unknown>> = ({ children }) 
     <>
       {(router.isFallback || isLoading) && (
         <Wrapper>
-          <Spinner size={spinnerSize} />
+          <SpinnerIcon size={spinnerSize} />
         </Wrapper>
       )}
       {!router.isFallback && children}

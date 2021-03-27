@@ -8,7 +8,7 @@
     "ci:test:jest": "NODE_ICU_DATA=node_modules/full-icu JEST_JUNIT_OUTPUT_DIR=reports/junit/test-results.xml jest --coverage --runInBand --reporters=default --reporters=jest-junit --verbose",
     "clean": "rm -rf public && mkdir public",
     "commit": "git-cz",
-    "dev": "yarn clean && NODE_ICU_DATA=node_modules/full-icu next dev",
+    "dev": "yarn clean && NODE_ICU_DATA=node_modules/full-icu next dev -p 3002 ",
     "export": "yarn clean && NODE_ICU_DATA=node_modules/full-icu next export",
     "format": "run-s format:* && yarn prettier --write",
     "format:eslint": "yarn lint:eslint --fix",

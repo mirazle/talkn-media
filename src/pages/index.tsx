@@ -1,4 +1,3 @@
-//import Memcached from 'memcached';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import * as React from 'react';
@@ -36,11 +35,11 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const [isSpLayout, setIsSpLayout] = useState(false);
   const [isMaxLayout, setIsMaxLayout] = useState(false);
   const [isFixedSmallNav, setFixedSmallNav] = useState(false);
-  const [openSelectMediaTypeOrder, setOpenSelectMediaTypeOrder] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
   const [windowInnerHeight, setWindowInnerHeight] = useState(0);
   const [lineNavScrollWidth, setLineNavScrollWidth] = useState(0);
 
-  // layout talkn post footer TODO: 直す
   const [talknPostWidth, setTalknPostWidth] = useState(0);
   const [talknPostRight, setTalknPostRight] = useState(0);
   const [talknPostFixed, setTalknPostFixed] = useState(true);
@@ -63,7 +62,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   };
 
   const redirectTo = async (mktType: string, category: string): Promise<boolean> => {
-    setOpenSelectMediaTypeOrder(false);
+    setIsOpenMenu(false);
     setIsDispFooter(false);
     return await router.push(`/${mktType}/${category}`);
   };
@@ -157,19 +156,21 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       <CommonHead
         mediaType={mediaType}
         title='talkn news | 今日のニュースを誰かと話そう'
-        description='talkn newsはリアルタイムなコミニュケーションをしながらニュース閲覧出来るサイトです。今、閲覧しているニュースを「何人が見ているか」が分かるので、温度を保ったまま臨場感を持ってコミニュケーションを楽しめます。'
+        description='talkn newsはリアルタイムなコミニュケーションをしながらニュース閲覧出来るサイトです。今、閲覧しているニュースを「何人が見ているか」が分かるので、臨場感を持ってコミニュケーションを楽しめます。'
         thumbnailUrl='/ogp/jp.png'
         ogThumbnailUrl='/ogp/jp.png'
       />
       <Container isSpLayout={isSpLayout} windowInnerHeight={windowInnerHeight}>
         <Header
-          isMaxLayout={isMaxLayout}
           isFixedSmallNav={isFixedSmallNav}
           isDispFooter={isDispFooter}
           isSpLayout={isSpLayout}
-          openSelectMediaTypeOrder={openSelectMediaTypeOrder}
+          isOpenMenu={isOpenMenu}
+          isOpenSearch={isOpenSearch}
+          isMaxLayout={isMaxLayout}
+          setIsOpenMenu={setIsOpenMenu}
+          setIsOpenSearch={setIsOpenSearch}
           setIsDispFooter={setIsDispFooter}
-          setOpenSelectMediaTypeOrder={setOpenSelectMediaTypeOrder}
         />
         <Body>
           <AdvertWrap>

@@ -75,6 +75,7 @@ class Requests extends Monitor {
     const { count, method, headers } = this.network;
     const requestOption = { method, headers };
     console.log(`EXE FETCH ${this.mktType} ${this.category} ${count}`);
+    console.log(this.fetchUrl);
     const response: Response = await fetch(this.fetchUrl, requestOption);
     if (response.status !== 200) throw `RESPONSE EROOR: ${response.status} ${this.fetchUrl}`;
     this.fetched = true;
