@@ -35,6 +35,7 @@ type ContainerType = {
 const Container = styled.div<ContainerType>`
   position: fixed;
   top: 0;
+  left: ${(props) => (props.isMaxLayout ? 'unset' : '0')};
   display: flex;
   flex-flow: column nowrap;
   padding: 10px;

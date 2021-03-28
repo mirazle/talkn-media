@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import SpinnerIcon from 'components/atoms/Icon/Spinner';
 import StylesVars from 'styles/StylesVars';
 
-const spinnerSize = StylesVars.iconSize;
+const spinnerSize = StylesVars.iconBaseSize;
 
 const Component: FunctionComponent<PropsWithChildren<unknown>> = ({ children }) => {
   const [isLoading, setIsLoading] = useRecoilState(LoadingState);

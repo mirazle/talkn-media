@@ -22,7 +22,10 @@ $menuSpWidth: 200;
 $menuPcWidth: 320;
 $talknPostScrollTop: 1068;
 $topImageSectionDefaultHeight: 300;
-$iconSize: 50;
+$iconBaseSize: 50;
+$iconLargeScale: 1.25;
+$iconMiddleScale: 1;
+$iconSmallScale: 0.75;
 
 // zindex
 $loading_area_zindex: 10000; // be top of all

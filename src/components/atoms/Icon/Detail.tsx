@@ -18,7 +18,7 @@ const DetailIcon: FunctionComponent<Props> = (props: Props) => {
 
 export default DetailIcon;
 
-const size = StylesVars.iconSize;
+const size = StylesVars.iconBaseSize;
 const Container = styled.a`
   display: block;
   width: ${size}px;

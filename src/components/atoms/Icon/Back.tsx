@@ -16,13 +16,15 @@ const BackIcon: FunctionComponent<Props> = (props: Props) => (
 
 export default BackIcon;
 
-const size = StylesVars.iconSize;
-const Container = styled.a`
+const size = StylesVars.iconBaseSize;
+const Container = styled.div`
   display: block;
   width: ${size}px;
   min-width: ${size}px;
+  max-width: ${size}px;
   height: ${size}px;
   min-height: ${size}px;
+  max-height: ${size}px;
 `;
 
 type SymbolPropsType = {

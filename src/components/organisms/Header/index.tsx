@@ -80,7 +80,7 @@ const Header: FunctionComponent<Props> = (props: Props) => {
           <span className='arrow'>{arrowMark}</span>
         </AppName>
         <MenuWrapRight>
-          <SearchIcon onClick={() => setIsOpenSearch(!isOpenSearch)} />
+          <SearchIcon onClick={() => setIsOpenSearch(!isOpenSearch)} close={props.isOpenSearch} />
           <LiveCnt />
         </MenuWrapRight>
       </HeaderContent>
@@ -99,6 +99,7 @@ const Container = styled.header<ContainerPropsType>`
   top: 0;
   z-index: 10;
   display: flex;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -117,6 +118,7 @@ const HeaderContent = styled.div`
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
   max-width: ${StylesVars.maxWidth}px;
   height: 100%;
   margin: 0 auto;
