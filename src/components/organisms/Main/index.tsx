@@ -17,6 +17,7 @@ type Props = {
   talknPostRight: number;
   talknPostWidth: number;
   menuSliderNodes: React.ReactNode;
+  setThreadOnly: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const getTalknPostTranslateY = (scrollLeft: number, scrollWidth: number): number => {
@@ -33,6 +34,7 @@ const Main: FunctionComponent<Props> = (props) => {
     talknPostFixed,
     talknPostRight,
     talknPostWidth,
+    setThreadOnly,
   } = props;
   const activeContent = useRecoilState(ActiveContentState)[0];
   const [talknPostTranslateY, setTalknPostTranslateY] = React.useState(0);
@@ -42,6 +44,11 @@ const Main: FunctionComponent<Props> = (props) => {
     const scrollLeft = main?.scrollLeft || 0;
     const scrollWidth = main?.scrollWidth || 0;
     setTalknPostTranslateY(getTalknPostTranslateY(scrollLeft, scrollWidth));
+    if (scrollLeft === scrollWidth / 2) {
+      setThreadOnly(true);
+    } else if (scrollLeft === 0) {
+      setThreadOnly(false);
+    }
   }, []);
 
   React.useEffect(() => {

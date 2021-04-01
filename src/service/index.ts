@@ -16,14 +16,17 @@ const keepContentsSecond = Number(process.env.KEEP_CONTENTS_SECOND) * 1000;
 const keepContentsCnt = Number(process.env['KEEP_CONTENTS_CNT']);
 
 export type ReturnServiceType = {
-  mediaType: MediaTypeSubdomains;
-  mktType: string;
-  category: string;
-  url: string;
+  requests: {
+    mediaType: MediaTypeSubdomains;
+    mktType: string;
+    category: string;
+    url: string;
+  };
   contents: ContentsValuesType;
 };
+
 export type InitComponentProps = ReturnServiceType;
-export type UrlParamsType = { mktType: string; category: string; url: string };
+export type UrlParamsType = { mktType: string; category: string; q: string; url: string };
 
 class Monitor {
   protected isLogging = false;
@@ -41,6 +44,7 @@ class Requests extends Monitor {
   public mediaType: MediaTypeSubdomains = defaultMediaType;
   public mktType: string = defaultMktType;
   public category: string = defaultCategory;
+  public q = '';
   public url: string = defaultUrl;
   public network: NetworkType = NetworkList[defaultMediaType];
   public isSame = false;
@@ -50,32 +54,30 @@ class Requests extends Monitor {
     this.mediaType = getMediaType(headers.host || '');
     this.network = getNetwork(this.mediaType);
 
-    console.log(query.mktType);
-    console.log(headers['accept-language']);
-
     if (query.mktType) {
       this.mktType = query.mktType;
     } else {
       this.mktType = Geolite.getMktType(headers['accept-language']);
     }
     if (query.category) this.category = query.category;
+    if (query.q) this.q = encodeURI(query.q);
     if (query.url) this.url = query.url;
     this.isSame = this.mktType !== referers.mktType || this.category !== referers.category;
   }
 
   get fetchUrl() {
     const { count, endpoint } = this.network;
+    const action = this.q !== '' ? `/search?q=${this.q}&` : '/?';
     const mktQuery = `mkt=${this.mktType}`;
     const categoryQery = this.category === defaultCategory ? '' : `&Category=${this.category}`;
     const countQuery = `&count=${count}`;
-    return endpoint + mktQuery + categoryQery + countQuery;
+    return endpoint + action + mktQuery + categoryQery + countQuery;
   }
 
   async fetch(): Promise<ContentsType> {
-    const { count, method, headers } = this.network;
+    const { method, headers } = this.network;
     const requestOption = { method, headers };
-    console.log(`EXE FETCH ${this.mktType} ${this.category} ${count}`);
-    console.log(this.fetchUrl);
+    console.log(`EXE FETCH ${this.fetchUrl}`);
     const response: Response = await fetch(this.fetchUrl, requestOption);
     if (response.status !== 200) throw `RESPONSE EROOR: ${response.status} ${this.fetchUrl}`;
     this.fetched = true;
@@ -105,7 +107,7 @@ class MyCache extends Monitor {
   constructor(requests: Requests, nowUnixtime: number) {
     super();
     this.nowUnixtime = nowUnixtime;
-    this.key = `json/${defaultMediaType}/${requests.mktType}/${requests.category}`;
+    this.key = `json/${defaultMediaType}/${requests.mktType}/${requests.category}/${requests.q}`;
   }
 
   get has(): boolean {
@@ -142,7 +144,15 @@ class MyCache extends Monitor {
     return contentsCache.contents;
   }
 }
-
+/*
+export const search = async (q: string): ReturnServiceType => {
+  const requests = new Requests(req.headers, query as UrlParamsType, referers);
+  const responseJson = await requests.fetch(q);
+  return {
+    props: { ...requests, contents: responseJson.value },
+  };
+};
+*/
 export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlParamsType> = async ({ req, res, query }) => {
   const nowUnixtime = new Date().getTime();
   let contentsValues: ContentsValues = new ContentsValues();
@@ -154,8 +164,9 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
   if (validUrlParams(requests.mktType, requests.category)) {
     res.writeHead(302, { Location: '/' });
     res.end();
+    // Only return JSON serializable data types( No return class datas ).
     return {
-      props: { ...requests, contents: [] },
+      props: { requests: { ...requests }, contents: [] },
     };
   }
 
@@ -172,10 +183,15 @@ export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlPa
 
   requests.url = requests.url === '' && contentsValues.merged.length > 0 ? contentsValues.merged[0].url : requests.url;
 
-  console.log(`@@@ getServerSidePropsWrap @@@ ${myCache.key} ${contentsValues.merged.length} ${String(myCache.has)}`);
+  console.log(
+    `@@@ getServerSidePropsWrap @@@ ${requests.fetchUrl} : ${myCache.key} ${contentsValues.merged.length} ${String(
+      myCache.has,
+    )}`,
+  );
 
+  // Only return JSON serializable data types( No return class datas ).
   return {
-    props: { ...requests, contents: contentsValues.merged },
+    props: { requests: { ...requests }, contents: contentsValues.merged },
   };
 };
 

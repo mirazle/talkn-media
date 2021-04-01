@@ -5,14 +5,30 @@ import styled from 'styled-components';
 import StylesVars from 'styles/StylesVars';
 
 type Props = {
+  onClick?: () => void;
   focusAnimation?: boolean;
 };
 
-const BackIcon: FunctionComponent<Props> = (props: Props) => (
-  <Container>
-    <Symbol focusAnimation={props.focusAnimation || true} />
-  </Container>
-);
+type FinnishProps = {
+  onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  focusAnimation: boolean;
+};
+
+const defaultFocusAnimation = true;
+const getFinnishProps = (props: Props): FinnishProps => {
+  const focusAnimation = props.focusAnimation !== undefined ? props.focusAnimation : defaultFocusAnimation;
+  const onClick = props.onClick ? props.onClick : () => {};
+  return { onClick, focusAnimation };
+};
+
+const BackIcon: FunctionComponent<Props> = (_props: Props) => {
+  const props: FinnishProps = getFinnishProps(_props);
+  return (
+    <Container {...props}>
+      <Symbol focusAnimation={props.focusAnimation || true} />
+    </Container>
+  );
+};
 
 export default BackIcon;
 

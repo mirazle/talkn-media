@@ -13,6 +13,8 @@ import DeviceSwitchStructure from 'components/organisms/DeviceSwitchStructure';
 import Footer from 'components/organisms/Footer';
 import Header from 'components/organisms/Header';
 import { getTalknPostLayout } from 'components/organisms/Main/Thread';
+import MenuSection from 'components/organisms/Menu';
+import SearchSection from 'components/organisms/SearchSection';
 import CommonHead from 'components/templates/CommonHead';
 import StylesVars from 'styles/StylesVars';
 import { LocalStorageKeys } from 'utils/Constants';
@@ -43,7 +45,10 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const [talknPostWidth, setTalknPostWidth] = useState(0);
   const [talknPostRight, setTalknPostRight] = useState(0);
   const [talknPostFixed, setTalknPostFixed] = useState(true);
+
+  // mode
   const [isDispFooter, setIsDispFooter] = useState(false);
+  const [isThreadOnly, setThreadOnly] = useState(false);
 
   const updateActiveContent = (newContent: ContentsValueType, updateIframe = true) => {
     if (newContent && newContent.url !== activeContent.url) {
@@ -61,10 +66,14 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
     }
   };
 
-  const redirectTo = async (mktType: string, category: string): Promise<boolean> => {
+  const redirectTo = async (mktType: string, category: string, q?: string): Promise<boolean> => {
     setIsOpenMenu(false);
     setIsDispFooter(false);
-    return await router.push(`/${mktType}/${category}`);
+    if (q) {
+      return await router.push(`/${mktType}?q=${q}`);
+    } else {
+      return await router.push(`/${mktType}/${category}`);
+    }
   };
 
   const windowEvents = {
@@ -129,22 +138,23 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
 
   // did update
   React.useEffect(() => {
+    const { contents: propsContents, requests } = props;
     const cacheUrl = localStorage.getItem(LocalStorageKeys.url);
-    if (props.contents !== contents) setContents(props.contents);
-    if (mediaType !== props.mediaType) setMediaType(props.mediaType);
-    if (mktType !== props.mktType) setMktType(props.mktType);
-    if (category !== props.category) setCategory(props.category);
-    if (activeContent.url !== props.url) {
-      const findIndex = props.contents.findIndex((content) => content.url === props.url);
-      updateActiveContent(props.contents[findIndex]);
+    if (propsContents !== contents) setContents(propsContents);
+    if (mediaType !== requests.mediaType) setMediaType(requests.mediaType);
+    if (mktType !== requests.mktType) setMktType(requests.mktType);
+    if (category !== requests.category) setCategory(requests.category);
+    if (activeContent.url !== requests.url) {
+      const findIndex = propsContents.findIndex((content) => content.url === requests.url);
+      updateActiveContent(propsContents[findIndex]);
     }
 
     if (cacheUrl && activeContent.url !== cacheUrl) {
-      const _findIndex = props.contents.findIndex((content) => content.url === cacheUrl);
+      const _findIndex = propsContents.findIndex((content) => content.url === cacheUrl);
       const findIndex = _findIndex === -1 ? 0 : _findIndex;
-      updateActiveContent(props.contents[findIndex]);
+      updateActiveContent(propsContents[findIndex]);
     }
-  }, [props.contents, props.mktType, props.category, props.url]);
+  }, [props.contents, props.requests]);
 
   // did update url
   React.useEffect(() => {
@@ -167,10 +177,17 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
           isSpLayout={isSpLayout}
           isOpenMenu={isOpenMenu}
           isOpenSearch={isOpenSearch}
-          isMaxLayout={isMaxLayout}
+          isThreadOnly={isThreadOnly}
           setIsOpenMenu={setIsOpenMenu}
           setIsOpenSearch={setIsOpenSearch}
           setIsDispFooter={setIsDispFooter}
+        />
+        <MenuSection isOpenMenu={isOpenMenu} isMaxLayout={isMaxLayout} />
+        <SearchSection
+          redirectTo={redirectTo}
+          isOpenSearch={isOpenSearch}
+          isMaxLayout={isMaxLayout}
+          setIsOpenSearch={setIsOpenSearch}
         />
         <Body>
           <AdvertWrap>
@@ -185,6 +202,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
             talknPostFixed={talknPostFixed}
             talknPostRight={talknPostRight}
             talknPostWidth={talknPostWidth}
+            setThreadOnly={setThreadOnly}
             setLineNavScrollWidth={setLineNavScrollWidth}
             redirectTo={redirectTo}
             updateActiveContent={updateActiveContent}

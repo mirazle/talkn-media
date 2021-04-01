@@ -25,6 +25,7 @@ type Props = {
   talknPostWidth: number;
   redirectTo: (mktType: string, category: string) => Promise<boolean>;
   updateActiveContent: (newContent: ContentsValueType) => void;
+  setThreadOnly: React.Dispatch<React.SetStateAction<boolean>>;
   setLineNavScrollWidth: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -35,6 +36,7 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
     isFixedSmallNav,
     lineNavScrollWidth,
     windowInnerHeight,
+    setThreadOnly,
     setLineNavScrollWidth,
     redirectTo,
     updateActiveContent,
@@ -87,6 +89,7 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
           menuSliderNodes={<ContentsOrder contents={contents} handleOnClickContents={handleOnClickContents} />}
+          setThreadOnly={setThreadOnly}
         />
       </Container>
     );
@@ -103,6 +106,7 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
           talknPostFixed={talknPostFixed}
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
+          setThreadOnly={setThreadOnly}
           menuSliderNodes={
             <>
               <Navigation

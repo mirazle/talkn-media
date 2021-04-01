@@ -10,6 +10,7 @@ export const talknLiveMediaHost = env === development ? localhost : producthost;
 // talkn live media (subdomain).
 export const MediaTypeArtists = 'artists';
 export const MediaTypeContents = 'contents';
+export const MediaTypeRanking = 'rank';
 export const MediaTypeNews = 'news';
 export const MediaTypeGirlsNews = 'girls-news';
 export const MediaTypeTrendWord = 'trend-word';
@@ -17,6 +18,7 @@ export const MediaTypeTrendWord = 'trend-word';
 export type MediaTypeSubdomains =
   | typeof MediaTypeArtists
   | typeof MediaTypeContents
+  | typeof MediaTypeRanking
   | typeof MediaTypeNews
   | typeof MediaTypeGirlsNews
   | typeof MediaTypeTrendWord;
@@ -29,7 +31,6 @@ export type NetworkType = {
   label: string;
   method: 'GET' | 'POST';
   endpoint: string;
-  searchEndpoint: string;
   headers: HeadersInit;
   devPort: number;
   count: number;
@@ -55,7 +56,6 @@ const NetworkArtists: NetworkType = {
   label: 'Artists',
   method: 'GET',
   endpoint: '',
-  searchEndpoint: '',
   headers: {},
   devPort: 3000,
   count: 50,
@@ -66,9 +66,18 @@ const NetworkContents: NetworkType = {
   label: 'Contents',
   method: 'GET',
   endpoint: '',
-  searchEndpoint: '',
   headers: {},
   devPort: 3001,
+  count: 50,
+};
+
+const NetworkRanking: NetworkType = {
+  subDomain: 'rank',
+  label: 'Ranking',
+  method: 'GET',
+  endpoint: '',
+  headers: {},
+  devPort: 3002,
   count: 50,
 };
 
@@ -76,13 +85,13 @@ const NetworkNews: NetworkType = {
   subDomain: 'news',
   label: 'News',
   method: 'GET',
-  endpoint: `https://${String(mediaTypes.news.endpointHost)}/?`,
-  searchEndpoint: `https://${String(mediaTypes.news.endpointSearchHost)}/?`,
+  endpoint: `https://${String(mediaTypes.news.endpointHost)}`,
   headers: {
     'x-rapidapi-host': String(mediaTypes.news.endpointHost),
     'x-rapidapi-key': mediaTypes.news.endpointKey,
+    'useQueryString': 'true',
   },
-  devPort: 3002,
+  devPort: 3003,
   count: 50,
 };
 
@@ -91,9 +100,8 @@ const NetworkGirlsNews: NetworkType = {
   label: 'Girls News',
   method: 'GET',
   endpoint: '',
-  searchEndpoint: '',
   headers: {},
-  devPort: 3003,
+  devPort: 3004,
   count: 50,
 };
 
@@ -102,15 +110,15 @@ const NetworkTrendWord: NetworkType = {
   label: 'Trend Word',
   method: 'GET',
   endpoint: '',
-  searchEndpoint: '',
   headers: {},
-  devPort: 3004,
+  devPort: 3005,
   count: 50,
 };
 
 export const NetworkList: NetworkListType = {
   [MediaTypeArtists]: NetworkArtists,
   [MediaTypeContents]: NetworkContents,
+  [MediaTypeRanking]: NetworkRanking,
   [MediaTypeNews]: NetworkNews,
   [MediaTypeGirlsNews]: NetworkGirlsNews,
   [MediaTypeTrendWord]: NetworkTrendWord,

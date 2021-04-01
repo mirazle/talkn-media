@@ -34,5 +34,7 @@ const Container = styled.a`
 `;
 
 const AppName = styled.div`
+  flex: 1;
+  text-align: center;
   text-indent: -${StylesVars.baseHeight}px;
 `;

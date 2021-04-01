@@ -45,8 +45,8 @@ const Wrapper = styled.div`
   height: 100vh;
   > * {
     position: fixed;
-    top: calc((100vh - ${spinnerSize}) / 2);
-    left: calc((100vw - ${spinnerSize}) / 2);
+    top: calc(50vh - ${Number(spinnerSize) / 2}px);
+    left: calc(50vw - ${Number(spinnerSize) / 2}px);
     z-index: ${StylesVars.loadingAreaZindex};
   }
 `;

@@ -40,6 +40,7 @@ type ContainerProps = {
 };
 
 const Container = styled.footer<ContainerProps>`
+  z-index: 10;
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center;
@@ -56,7 +57,6 @@ const Container = styled.footer<ContainerProps>`
   }
   @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     position: absolute;
-    z-index: 1;
     height: auto;
   }
 `;

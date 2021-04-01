@@ -4,8 +4,8 @@ import { useRecoilState } from 'recoil';
 import { LoadingState } from 'state';
 import styled from 'styled-components';
 
-import SelectMediaOrder from 'components/organisms/Header/Menu/SelectMediaOrder';
-import TalknData from 'components/organisms/Header/Menu/TalknData';
+import SelectMediaOrder from 'components/organisms/Menu/SelectMediaOrder';
+import TalknData from 'components/organisms/Menu/TalknData';
 import StylesVars from 'styles/StylesVars';
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
   isOpenMenu: boolean;
 };
 
-const Menu: FunctionComponent<Props> = (props) => {
+const MenuSection: FunctionComponent<Props> = (props) => {
   const [isLoading] = useRecoilState(LoadingState);
   const { isMaxLayout, isOpenMenu } = props;
   return (
@@ -24,7 +24,7 @@ const Menu: FunctionComponent<Props> = (props) => {
   );
 };
 
-export default Menu;
+export default MenuSection;
 
 type ContainerType = {
   isLoading: boolean;
@@ -32,19 +32,18 @@ type ContainerType = {
   isMaxLayout: boolean;
 };
 
-const Container = styled.div<ContainerType>`
+const Container = styled.section<ContainerType>`
   position: fixed;
-  top: 0;
-  left: ${(props) => (props.isMaxLayout ? 'unset' : '0')};
+  z-index: 10;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   padding: 10px;
   overflow: hidden;
   background: rgba(221, 221, 221, 0.94);
   border-radius: 0 0 2px 2px;
   transition: ${StylesVars.transitionDuration};
   transform: translate(
-    ${(props) => (props.isMaxLayout ? -375 : 0)}px,
+    ${(props) => (props.isMaxLayout ? `calc( 50vw - ${Number(StylesVars.maxWidth) / 2}px) ` : '0px')},
     ${(props) => (props.isOpenMenu ? `${StylesVars.baseHeight}px` : '-100%')}
   );
   @media (max-width: ${StylesVars.spLayoutWidth}px) {

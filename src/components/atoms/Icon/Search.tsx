@@ -7,13 +7,13 @@ import StylesVars from 'styles/StylesVars';
 type Props = {
   close?: boolean;
   focusAnimation?: boolean;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 };
 
 type FinnishProps = {
   close: boolean;
   focusAnimation: boolean;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 };
 
 const defaultFocusAnimation = true;
@@ -72,7 +72,7 @@ const SearchCss = css`
     transform: rotate(45deg) translate(0, 14px);
   }
   &::after {
-    position: absolute;
+    position: relative;
     width: ${rupeSize}px;
     min-width: ${rupeSize}px;
     max-width: ${rupeSize}px;
@@ -107,7 +107,7 @@ const CloseCss = css`
     transform: rotate(45deg);
   }
   &::after {
-    position: absolute;
+    position: relative;
     width: 4px;
     min-width: 4px;
     max-width: 4px;
