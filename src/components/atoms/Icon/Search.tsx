@@ -8,12 +8,14 @@ type Props = {
   close?: boolean;
   focusAnimation?: boolean;
   onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  className?: string;
 };
 
 type FinnishProps = {
   close: boolean;
   focusAnimation: boolean;
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  className?: string;
 };
 
 const defaultFocusAnimation = true;
@@ -21,7 +23,8 @@ const getFinnishProps = (props: Props): FinnishProps => {
   const close = props.close !== undefined ? props.close : false;
   const focusAnimation = props.focusAnimation !== undefined ? props.focusAnimation : defaultFocusAnimation;
   const onClick = props.onClick ? props.onClick : () => {};
-  return { close, onClick, focusAnimation };
+  const className = props.className && props.className;
+  return { close, onClick, focusAnimation, className };
 };
 
 const SearchlIcon: FunctionComponent<Props> = (_props: Props) => {

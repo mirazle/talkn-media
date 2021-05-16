@@ -27,6 +27,8 @@ type Props = {
   updateActiveContent: (newContent: ContentsValueType) => void;
   setThreadOnly: React.Dispatch<React.SetStateAction<boolean>>;
   setLineNavScrollWidth: React.Dispatch<React.SetStateAction<number>>;
+  setIsOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
@@ -38,6 +40,8 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
     windowInnerHeight,
     setThreadOnly,
     setLineNavScrollWidth,
+    setIsOpenSearch,
+    setIsOpenMenu,
     redirectTo,
     updateActiveContent,
     isSpLayout,
@@ -89,6 +93,8 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
           menuSliderNodes={<ContentsOrder contents={contents} handleOnClickContents={handleOnClickContents} />}
+          setIsOpenSearch={setIsOpenSearch}
+          setIsOpenMenu={setIsOpenMenu}
           setThreadOnly={setThreadOnly}
         />
       </Container>
@@ -106,6 +112,8 @@ const DeviceSwitchStructure: FunctionComponent<Props> = (props) => {
           talknPostFixed={talknPostFixed}
           talknPostRight={talknPostRight}
           talknPostWidth={talknPostWidth}
+          setIsOpenSearch={setIsOpenSearch}
+          setIsOpenMenu={setIsOpenMenu}
           setThreadOnly={setThreadOnly}
           menuSliderNodes={
             <>

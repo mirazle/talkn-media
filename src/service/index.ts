@@ -7,7 +7,7 @@ import { ContentsCacheType, ContentsType, ContentsValueType, ContentsValuesType 
 import Geolite from 'utils/Geolite';
 import { MediaTypeSubdomains, NetworkList, NetworkType, defaultMediaType, getMediaType, getNetwork } from 'utils/Networks';
 import { validUrlParams } from 'utils/Sitemap';
-
+console.log(process.env);
 const myCache = new NodeCache();
 const defaultMktType = String(process.env['DEFAULT_MKT_TYPE']);
 const defaultCategory = String(process.env['DEFAULT_CATEGORY']);
@@ -77,7 +77,8 @@ class Requests extends Monitor {
   async fetch(): Promise<ContentsType> {
     const { method, headers } = this.network;
     const requestOption = { method, headers };
-    console.log(`EXE FETCH ${this.fetchUrl}`);
+    const date = new Date();
+    console.log(`EXE FETCH ${String(date)} ${this.fetchUrl}`);
     const response: Response = await fetch(this.fetchUrl, requestOption);
     if (response.status !== 200) throw `RESPONSE EROOR: ${response.status} ${this.fetchUrl}`;
     this.fetched = true;
@@ -156,6 +157,7 @@ export const search = async (q: string): ReturnServiceType => {
 export const getServerSidePropsWrap: GetServerSideProps<ReturnServiceType, UrlParamsType> = async ({ req, res, query }) => {
   const nowUnixtime = new Date().getTime();
   let contentsValues: ContentsValues = new ContentsValues();
+  console.log(`userAgent: ${String(req.headers['user-agent'])}`);
   const referers = new Referers(req.headers);
   const requests = new Requests(req.headers, query as UrlParamsType, referers);
   const myCache = new MyCache(requests, nowUnixtime);

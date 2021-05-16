@@ -7,6 +7,7 @@ import SweetScroll from 'sweet-scroll';
 
 import BackIcon from 'components/atoms/Icon/Back';
 import DetailIcon from 'components/atoms/Icon/Detail';
+import MenuIcon from 'components/atoms/Icon/Menu';
 import SearchIcon from 'components/atoms/Icon/Search';
 import LiveCnt from 'components/atoms/LiveCnt';
 import StylesVars from 'styles/StylesVars';
@@ -14,6 +15,7 @@ import { scrollWindowTopAnimation } from 'utils/Animation';
 import { scrollOptions } from 'utils/Constants';
 import { getDispFooterScrollY } from 'utils/Func';
 import { getNetwork } from 'utils/Networks';
+import { toggleDetail } from 'utils/TalknExt';
 
 type Props = {
   isFixedSmallNav: boolean;
@@ -58,12 +60,25 @@ const Header: FunctionComponent<Props> = (props: Props) => {
     }
   };
 
+  const leftIcon = isThreadOnly ? (
+    <BackIcon onClick={handleOnClickBack} />
+  ) : (
+    <MenuIcon onClick={() => setIsOpenMenu(!isOpenMenu)} />
+  );
+
+  const rightIcon1 =
+    isThreadOnly && isSpLayout ? (
+      <DetailIcon className='Detail' onClick={toggleDetail} />
+    ) : (
+      <SearchIcon className='Search' onClick={() => setIsOpenSearch(!isOpenSearch)} close={props.isOpenSearch} />
+    );
+
+  const rightIcon2 = isSpLayout ? undefined : <DetailIcon className='Detail' onClick={toggleDetail} />;
+
   return (
     <Container isFixedSmallNav={isFixedSmallNav}>
       <HeaderContent>
-        <MenuWrapLeft>
-          {isThreadOnly ? <BackIcon onClick={handleOnClickBack} /> : <DetailIcon onClick={() => setIsOpenMenu(!isOpenMenu)} />}
-        </MenuWrapLeft>
+        <MenuWrapLeft>{leftIcon}</MenuWrapLeft>
         <AppName isDispFooter={isDispFooter} onClick={handleOnClickAppName}>
           <AppNameLabel>talkn</AppNameLabel>
           <MediaTypeLabel>{mediaTypeLabel}</MediaTypeLabel>
@@ -71,8 +86,11 @@ const Header: FunctionComponent<Props> = (props: Props) => {
           <span className='arrow'>{arrowMark}</span>
         </AppName>
         <MenuWrapRight>
-          <SearchIcon onClick={() => setIsOpenSearch(!isOpenSearch)} close={props.isOpenSearch} />
-          <LiveCnt />
+          <RightIcons isThreadOnly={isThreadOnly}>
+            {rightIcon1}
+            {rightIcon2}
+          </RightIcons>
+          <LiveCnt className='LiveCnt' />
         </MenuWrapRight>
       </HeaderContent>
     </Container>
@@ -165,14 +183,60 @@ const CountryLabel = styled.label`
 
 const MenuWrapLeft = styled.div`
   display: flex;
+  flex: 1;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  text-align: center;
 `;
 
 const MenuWrapRight = styled.div`
   display: flex;
+  flex: 1;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    .LiveCnt {
+      position: fixed;
+      right: 3vw;
+    }
+  }
+`;
+
+type RightIconsPropsType = {
+  isThreadOnly: boolean;
+};
+
+const RightIcons = styled.div<RightIconsPropsType>`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+  @media (max-width: ${StylesVars.spLayoutWidth}px) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    .Detail {
+      display: ${(props) => (props.isThreadOnly ? 'flex' : 'none')};
+    }
+    .Search {
+      display: ${(props) => (props.isThreadOnly ? 'none' : 'flex')};
+    }
+  }
+  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    .Detail {
+      display: flex;
+    }
+    .Search {
+      display: flex;
+    }
+  }
 `;

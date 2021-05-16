@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { ActiveContentState } from 'state';
 import styled from 'styled-components';
 
+import IframeContainer from 'components/atoms/IframeContainer';
 import NoSsr from 'components/atoms/NoSsr';
 import StylesVars from 'styles/StylesVars';
 import { getTalknPostTop } from 'utils/Func';
@@ -29,7 +30,7 @@ const Thread: FunctionComponent<Props> = (props: Props) => {
       <Container>
         <NoSsr>
           <SpTitle isSpLayout={isSpLayout}>{title}</SpTitle>
-          <IframeContainer data-url={activeContent.url} id='talknLiveMedia' />
+          <IframeContainer url={activeContent.url} />
           <TalknPostWrap
             id='talknLiveMediaPost'
             isSpLayout={isSpLayout}
@@ -74,28 +75,12 @@ const Container = styled.div`
   @media (max-width: ${StylesVars.spLayoutWidth}px) {
     width: 100%;
     min-width: 100%;
-    height: inherit;
+    height: 100%;
     background: #fff;
     scroll-snap-align: start;
   }
   @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     width: 50%;
-    height: 100%;
-  }
-`;
-
-type IframeContainerProps = {
-  'data-url': string;
-};
-
-const IframeContainer = styled.div<IframeContainerProps>`
-  width: 100%;
-  overflow: hidden;
-  @media (max-width: ${StylesVars.spLayoutWidth}px) {
-    height: calc(100vh - ${Number(StylesVars.baseHeight) * 2}px);
-    scroll-snap-align: start;
-  }
-  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
     height: 100%;
   }
 `;

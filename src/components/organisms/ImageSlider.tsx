@@ -2,11 +2,12 @@ import * as React from 'react';
 import type { FunctionComponent } from 'react';
 import { useRecoilState } from 'recoil';
 import { ContentsValueType, ContentsValuesType } from 'schema';
-import { ActiveContentState } from 'state';
+import { ActiveContentState, MediaTypeState } from 'state';
 import styled from 'styled-components';
 
 import ImageSliderList, { ImageSliderLayoutType } from 'components/molecules/ImageSliderList';
 import StylesVars from 'styles/StylesVars';
+import { getNetwork } from 'utils/Networks';
 
 type Props = {
   contents: ContentsValuesType;
@@ -15,11 +16,11 @@ type Props = {
   updateActiveContent: (newContent: ContentsValueType) => void;
 };
 
+const activeScrollCnt = 5;
+let scrollCnt = 0;
 const getLayout = (isSpLayout: boolean, isFixedSmallNav: boolean): ImageSliderLayoutType => {
   return isSpLayout ? imageSectionNarrowLayouts[1] : imageSectionLayouts[Number(isFixedSmallNav)];
 };
-const activeScrollCnt = 5;
-let scrollCnt = 0;
 
 const getImageSliderUrl = (e: React.UIEvent<HTMLUListElement, UIEvent>): string => {
   const imageScroll = e.target as HTMLElement;
@@ -32,9 +33,11 @@ const getImageSliderUrl = (e: React.UIEvent<HTMLUListElement, UIEvent>): string 
 
 const ImageSlider: FunctionComponent<Props> = (props: Props) => {
   const [activeContent] = useRecoilState(ActiveContentState);
+  const [mediaType] = useRecoilState(MediaTypeState);
   const { contents, isSpLayout, isFixedSmallNav, updateActiveContent } = props;
   const layout = getLayout(isSpLayout, isFixedSmallNav);
   const [scrollingId, setScrolligId] = React.useState(0);
+  const network = getNetwork(mediaType);
   const scrollElm = React.useRef<HTMLOListElement>();
   const scrollElmRef = React.useCallback((node: HTMLOListElement) => (scrollElm.current = node), []);
 
@@ -73,7 +76,7 @@ const ImageSlider: FunctionComponent<Props> = (props: Props) => {
     <Container className='imageSlider' isSpLayout={isSpLayout} isFixedSmallNav={isFixedSmallNav}>
       <ImageOrderList ref={scrollElmRef} onScroll={onScroll}>
         {Array.from(contents).map((content: ContentsValueType, index: number) => {
-          const bg = content.image ? `${content.image.thumbnail.contentUrl}&w=300&dpr=2&qlt=190` : undefined;
+          const bg = content.image ? `${content.image.thumbnail.contentUrl}${network.getImageParams}` : undefined;
           return (
             <ImageSliderList
               key={`${content.url}_${index}`}

@@ -96,3 +96,27 @@ Lightsail ホームから「ネットワーク」からグローバルで作成�
 # 本番アクセス
 
 news.talkn.io にアクセス
+
+# 使用コマンド
+
+## デプロイ
+
+```
+docker images
+docker rmi 8839
+docker build . -t mirazle/talkn-live-media
+aws lightsail push-container-image --service-name talkn-live-media --label node --image mirazle/talkn-live-media:latest
+```
+
+## 起動 & ローカルログイン
+
+```
+docker run -p 80:80 c1ac80efc51b
+docker run -p 80:80 -it c1ac80efc51b /bin/bash
+```
+
+```
+全コンテナ停止: docker stop $(docker ps -q)
+全コンテナ削除: docker rm $(docker ps -q -a)
+全イメージ削除: docker rmi $(docker images -q)
+```

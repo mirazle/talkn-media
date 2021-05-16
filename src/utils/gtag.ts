@@ -1,4 +1,4 @@
-export const GA_TRACKING_ID = '';
+export const GA_TRACKING_ID = 'G-GYR6LKSV16';
 
 type ContactEvent = {
   action: 'submit_form';

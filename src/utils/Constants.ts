@@ -16,3 +16,9 @@ export const scrollOptions = {
   duration: 400,
   easing: 'linear',
 };
+
+export const talknAssets = {
+  ogImg: 'talkn_logo_html.png',
+};
+
+export const mailBackHash = '#response';

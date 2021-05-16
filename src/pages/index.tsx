@@ -17,7 +17,7 @@ import MenuSection from 'components/organisms/Menu';
 import SearchSection from 'components/organisms/SearchSection';
 import CommonHead from 'components/templates/CommonHead';
 import StylesVars from 'styles/StylesVars';
-import { LocalStorageKeys } from 'utils/Constants';
+import { LocalStorageKeys, mailBackHash } from 'utils/Constants';
 import { getIsSpLayout, getTalknPostFixed, updateBaseLayout, urlToCh } from 'utils/Func';
 import { talknLiveMediaHost } from 'utils/Networks';
 
@@ -69,11 +69,8 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
   const redirectTo = async (mktType: string, category: string, q?: string): Promise<boolean> => {
     setIsOpenMenu(false);
     setIsDispFooter(false);
-    if (q) {
-      return await router.push(`/${mktType}?q=${q}`);
-    } else {
-      return await router.push(`/${mktType}/${category}`);
-    }
+    const path = q ? `/${mktType}?q=${q}` : `/${mktType}/${category}`;
+    return await router.push(path);
   };
 
   const windowEvents = {
@@ -83,6 +80,7 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       setWindowInnerHeight(window.innerHeight);
       setIsSpLayout(_isSpLayout);
       setFixedSmallNav(_fixedSmallNav || _isSpLayout);
+      setIsDispFooter(location.hash === mailBackHash);
     }, []),
     scroll: React.useCallback(() => {
       const _isSpLayout = getIsSpLayout();
@@ -90,7 +88,9 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
       setIsSpLayout(_isSpLayout);
       setFixedSmallNav(_fixedSmallNav || _isSpLayout);
       setTalknPostFixed(getTalknPostFixed(_isSpLayout, _fixedSmallNav));
-      setIsDispFooter(window.scrollY >= Number(StylesVars.footerScrollTop));
+      if (!_isSpLayout) {
+        setIsDispFooter(window.scrollY >= Number(StylesVars.footerScrollTop));
+      }
     }, []),
     resize: React.useCallback(() => {
       const navigationScroll = document.querySelector(`.${navigationScrollClassName}`);
@@ -146,13 +146,15 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
     if (category !== requests.category) setCategory(requests.category);
     if (activeContent.url !== requests.url) {
       const findIndex = propsContents.findIndex((content) => content.url === requests.url);
-      updateActiveContent(propsContents[findIndex]);
+      const _activeContent: ContentsValueType = propsContents[findIndex];
+      updateActiveContent(_activeContent);
     }
 
     if (cacheUrl && activeContent.url !== cacheUrl) {
       const _findIndex = propsContents.findIndex((content) => content.url === cacheUrl);
       const findIndex = _findIndex === -1 ? 0 : _findIndex;
-      updateActiveContent(propsContents[findIndex]);
+      const _activeContent: ContentsValueType = propsContents[findIndex];
+      updateActiveContent(_activeContent);
     }
   }, [props.contents, props.requests]);
 
@@ -202,6 +204,8 @@ const TalknMedia: FunctionComponent<InitComponentProps> = (props) => {
             talknPostFixed={talknPostFixed}
             talknPostRight={talknPostRight}
             talknPostWidth={talknPostWidth}
+            setIsOpenSearch={setIsOpenSearch}
+            setIsOpenMenu={setIsOpenMenu}
             setThreadOnly={setThreadOnly}
             setLineNavScrollWidth={setLineNavScrollWidth}
             redirectTo={redirectTo}

@@ -25,7 +25,6 @@ const Container = styled.a`
   height: ${StylesVars.baseHeight}px;
   min-height: ${StylesVars.baseHeight}px;
   padding-left: 10px;
-  margin-bottom: 10px;
   cursor: pointer;
   background: #fff;
   &:hover {

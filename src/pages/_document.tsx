@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+import Geolite from 'utils/Geolite';
 import { talknLiveMediaHost } from 'utils/Networks';
 import { GA_TRACKING_ID } from 'utils/gtag';
 import { GTM_CONTAINER_ID } from 'utils/gtm';
@@ -13,9 +14,10 @@ class CustomDocument extends Document {
   /**
    * @see https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_document.js
    */
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps & { lang: string }> {
     const sheet = new ServerStyleSheet();
-    // const { lang } = Geolite.getLangMap(ctx.req?.headers['accept-language']);
+    const mktType = Geolite.getMktType(ctx.req?.headers['accept-language']);
+    const lang = mktType.split('-')[0];
     const originalRenderPage = ctx.renderPage;
     try {
       ctx.renderPage = () =>
@@ -25,6 +27,7 @@ class CustomDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
+        lang,
         styles: (
           <>
             {initialProps.styles}
@@ -38,13 +41,15 @@ class CustomDocument extends Document {
   }
 
   render() {
+    const props = (this.props as unknown) as { lang: string };
     return (
-      <Html>
+      <Html lang={props.lang}>
         {/* NOTE: cannot write prefix in next/head */}
         <Head prefix='og: http://ogp.me/ns#'>
           {this.ServiceWorker}
           {this.TalknExtScripts}
           {this.GoogleSearchConsoleAuth}
+          {this.GaTrackingForFirstLoad}
           {this.BrowserSelector}
           {/*
           <script data-ad-client='' async src='' />

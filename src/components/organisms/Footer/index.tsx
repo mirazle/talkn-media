@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { CategoryState, MktTypeState } from 'state';
 import styled from 'styled-components';
 
+import ContactSection from 'components/organisms/Footer/ContactSection';
 import DesignSection from 'components/organisms/Footer/DesignSection';
 import MessageSection from 'components/organisms/Footer/MessageSection';
 import OtherContentsSection from 'components/organisms/Footer/OtherContentsSection';
@@ -25,6 +26,7 @@ const Footer: FunctionComponent<Props> = (props: Props) => {
     <Container isSpLayout={isSpLayout} isDispFooter={isDispFooter} windowInnerHeight={windowInnerHeight}>
       <SitemapSection mktType={mktType} category={category} redirectTo={redirectTo} />
       <OtherContentsSection />
+      <ContactSection />
       <DesignSection />
       <MessageSection />
     </Container>
@@ -46,7 +48,7 @@ const Container = styled.footer<ContainerProps>`
   justify-content: center;
   width: 100%;
   color: #fff;
-  background: #333;
+  background: ${StylesVars.themeDarkColor};
   @media (max-width: ${StylesVars.spLayoutWidth}px) {
     position: fixed;
     top: 0;
@@ -60,12 +62,3 @@ const Container = styled.footer<ContainerProps>`
     height: auto;
   }
 `;
-
-/*
-  @media (min-width: calc(${StylesVars.spLayoutWidth}px + 1px)) {
-    position: relative;
-    top: 0;
-    overflow-x: hidden;
-  }
-
-*/

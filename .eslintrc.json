@@ -43,6 +43,7 @@
     ],
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-empty-function": ["off"],
     "@typescript-eslint/no-use-before-define": ["warn", { "functions": true, "classes": true, "variables": false }],
     "eqeqeq": ["warn", "always", { "null": "ignore" }],
     "import/no-relative-parent-imports": ["warn"],
@@ -64,7 +65,7 @@
     "react/react-in-jsx-scope": ["off"], // not needed as of react.js 17 + next.js 10
     "react/jsx-curly-brace-presence": ["warn", "never"],
     "react/jsx-no-useless-fragment": ["warn"],
-    
+
     // for member alphabetical ordering
     "sort-imports": [
       "warn",

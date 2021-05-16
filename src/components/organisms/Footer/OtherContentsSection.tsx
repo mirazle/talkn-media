@@ -39,11 +39,6 @@ const OtherContentsSection: FunctionComponent<Props> = () => {
         <BoxList label='API' theme='dark' />
         <BoxList label='CLIENT' theme='dark' />
       </ul>
-      <ul>
-        <li className='title'>Contact</li>
-        <BoxList label='Contact1' theme='dark' />
-        <BoxList label='Contact2' theme='dark' />
-      </ul>
     </Container>
   );
 };
