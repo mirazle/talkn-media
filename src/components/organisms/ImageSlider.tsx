@@ -104,6 +104,7 @@ type ContainerProps = {
 const Container = styled.section<ContainerProps>`
   position: ${(props) => (props.isFixedSmallNav ? 'fixed' : 'relative')};
   top: ${(props) => (props.isFixedSmallNav ? Number(StylesVars.baseHeight) + Number(StylesVars.baseHeight) / 2 : 0)}px;
+  left: 0;
   z-index: 1;
   width: 100%;
   height: ${(props) =>

@@ -7,7 +7,7 @@ import { ContentsCacheType, ContentsType, ContentsValueType, ContentsValuesType 
 import Geolite from 'utils/Geolite';
 import { MediaTypeSubdomains, NetworkList, NetworkType, defaultMediaType, getMediaType, getNetwork } from 'utils/Networks';
 import { validUrlParams } from 'utils/Sitemap';
-console.log(process.env);
+
 const myCache = new NodeCache();
 const defaultMktType = String(process.env['DEFAULT_MKT_TYPE']);
 const defaultCategory = String(process.env['DEFAULT_CATEGORY']);

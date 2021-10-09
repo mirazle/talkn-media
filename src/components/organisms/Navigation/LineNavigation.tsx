@@ -101,6 +101,7 @@ type ContainerProps = {
 const Container = styled.nav<ContainerProps>`
   position: ${(props) => (props.isSpLayout ? 'relative' : props.isFixedSmallNav ? 'fixed' : 'relative')};
   top: ${(props) => (props.isSpLayout ? 0 : props.isFixedSmallNav ? `${StylesVars.baseHeight}px` : 0)};
+  left: 0;
   z-index: 1;
   width: 100%;
   height: 30px;
